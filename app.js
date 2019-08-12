@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const Sequelize = require('sequelize');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 require('dotenv').config();
@@ -26,8 +27,6 @@ app.use('/users', usersRouter);
 
 // Connection MSSQL - Test
 const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.PASSW, {
-  host: 'localhost',
-  port: '1433',
   dialect: 'mssql',
   dialectOptions: {
       encrypt: true
