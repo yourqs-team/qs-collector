@@ -1,47 +1,76 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const Sequelize = require('sequelize');
+const createError = require('http-errors');
+const express = require('express');
+const expressValidator = require('express-validator');
+const session = require('express-session');
+const MssqlStore = require('mssql-session-store')(session);
+const path = require('path');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const sequelize = require('sequelize');
+const flash = require('connect-flash');
+const promisify = require('es6-promisify');
+const passport = require('passport');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const helpers = require('./helpers');
+const errorHandlers = require('./handlers/errorHandlers');
+
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+
 require('dotenv').config();
 
+// create an express app
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// serves up static files from the public folder. Anything in public/ will just be served up as the file it is
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// morgan: https://www.npmjs.com/package/morgan
+app.use(logger('dev'));
 
+// Takes the raw requests and turns them into usable properties on req.body
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Connection MSSQL - Test
-const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.PASSW, {
-  dialect: 'mssql',
-  dialectOptions: {
-      encrypt: true
-  }
+// Exposes a bunch of methods for validating data. Used heavily on userController.validateRegister
+app.use(expressValidator());
+
+// populates req.cookies with any cookies that came along with the request
+app.use(cookieParser());
+
+// Session
+app.use(session({
+  secret: process.env.SECRET,
+  key: process.env.KEY,
+  resave: false,
+  saveUninitialized: false,
+  store: new MssqlStore({ connection: sequelize.connection })
+}));
+
+// Passport JS is what we use to handle our logins
+app.use(passport.initialize());
+app.use(passport.session());
+
+// The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
+app.use(flash());
+
+// pass variables to our templates + all requests
+app.use((req, res, next) => {
+  res.locals.h = helpers;
+  res.locals.flashes = req.flash();
+  res.locals.user = req.user || null;
+  res.locals.currentPath = req.path;
+  next();
 });
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
-
+// After all that above middleware, we finally handle our own routes!
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,5 +87,26 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// promisify some callback based APIs
+app.use((req, res, next) => {
+  req.login = promisify(req.login, req);
+  next();
+});
+
+// If that above routes didnt work, we 404 them and forward to error handler
+app.use(errorHandlers.notFound);
+
+// One of our error handlers will see if these errors are just validation errors
+app.use(errorHandlers.flashValidationErrors);
+
+// Otherwise this was a really bad error we didn't expect! Shoot eh
+if (app.get('env') === 'development') {
+  /* Development Error Handler - Prints stack trace */
+  app.use(errorHandlers.developmentErrors);
+}
+
+// production error handler
+app.use(errorHandlers.productionErrors);
 
 module.exports = app;

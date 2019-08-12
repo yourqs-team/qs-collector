@@ -3,20 +3,46 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "prod": "node ./bin/www",
+    "watch": "nodemon ./bin/www --ignore public/",
+    "start": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
+    "assets": "webpack -w --display-max-modules 0"
   },
   "dependencies": {
     "async": "^3.1.0",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.0.0",
+    "es6-promisify": "^6.0.1",
     "express": "~4.16.1",
+    "express-session": "^1.16.2",
+    "express-validator": "3.1.2",
     "http-errors": "~1.6.3",
+    "moment": "^2.24.0",
     "morgan": "~1.9.1",
+    "mssql-session-store": "^1.0.0",
+    "passport": "^0.4.0",
     "pug": "2.0.0-beta11",
     "sequelize": "^5.12.3",
     "sequelize-cli": "^5.5.0",
-    "sequelize-msnodesqlv8": "^0.2.6-beta.8",
     "tedious": "^6.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "concurrently": "^4.1.1",
+    "css-loader": "^3.2.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
+    "now": "^16.1.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.2.0",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
   }
 }
