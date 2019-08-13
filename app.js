@@ -88,7 +88,7 @@ app.use((req, res, next) => {
 
 // After all that above middleware, we finally handle our own routes!
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
