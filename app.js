@@ -77,7 +77,7 @@ app.use(passport.session());
 app.use(flash());
 
 // flash doesnt work without session
-pass variables to our templates + all requests
+// pass variables to our templates + all requests
 app.use((req, res, next) => {
   res.locals.h = helpers;
   res.locals.flashes = req.flash();
