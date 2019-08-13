@@ -37,7 +37,7 @@ var server = http.createServer(app);
 
 return models.sequelize
   .sync()
-  .then(result=>{
+  .then(result => {
     server.listen(port);
     server.on('error', onError);
     server.on('listening', onListening);

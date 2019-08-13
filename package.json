@@ -12,6 +12,7 @@
     "async": "^3.1.0",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
+    "connect-session-sequelize": "^6.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.0.0",
