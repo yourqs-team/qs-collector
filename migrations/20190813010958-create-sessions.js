@@ -3,13 +3,11 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Sessions', {
       sid: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING(36),
+        primaryKey: true
       },
       data: {
-        type: Sequelize.STRING(4000)
+        type: Sequelize.TEXT
       },
       expires: {
         allowNull: false,

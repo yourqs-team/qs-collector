@@ -55,25 +55,17 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
-const MssqlStore = require('mssql-session-store')(session);
-// EXPERIMENTAL: storing session using sequelize : using connect-session-sequelize
-// app.use(session({
-//   secret: "test",
-//   store: new SequelizeStore({
-//     db: sequelize
-//   }),
-//   resave: false, // we support the touch method so per the express-session docs this should be set to false
-//   proxy: true, // if you do SSL outside of node.
-//   saveUninitialized: false
-// }));
 
-// EXPERIMENTAL: storing session using sequelize : using mssql-session-store
-// app.use(session({
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: false,
-//   store: new MssqlStore({connection: sequelize}) // see options below
-// }));
+// EXPERIMENTAL: storing session using sequelize : using connect-session-sequelize
+app.use(session({
+  secret: process.env.SECRET,
+  store: new SequelizeStore({
+    db: sequelize
+  }),
+  resave: false, // we support the touch method so per the express-session docs this should be set to false
+  proxy: true, // if you do SSL outside of node.
+  saveUninitialized: false
+}));
 
 
 // Passport JS is what we use to handle our logins
@@ -82,17 +74,17 @@ app.use(passport.session());
 
 // flash doesnt work without session
 // The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
-// app.use(flash());
+app.use(flash());
 
 // flash doesnt work without session
-// pass variables to our templates + all requests
-// app.use((req, res, next) => {
-//   res.locals.h = helpers;
-//   res.locals.flashes = req.flash();
-//   res.locals.user = req.user || null;
-//   res.locals.currentPath = req.path;
-//   next();
-// });
+pass variables to our templates + all requests
+app.use((req, res, next) => {
+  res.locals.h = helpers;
+  res.locals.flashes = req.flash();
+  res.locals.user = req.user || null;
+  res.locals.currentPath = req.path;
+  next();
+});
 
 // After all that above middleware, we finally handle our own routes!
 app.use('/', indexRouter);
