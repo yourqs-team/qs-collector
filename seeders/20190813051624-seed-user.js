@@ -21,7 +21,7 @@ module.exports = {
       firstname: 'Jap',
       lastname: 'Ignacio',
       gender: 'Male',
-      birthday: new Date('August 07, 1991 03:24:00'),
+      birthday: new Date('08/01/2019').toISOString(),
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});

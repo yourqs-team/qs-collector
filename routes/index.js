@@ -1,18 +1,16 @@
-var express = require('express');
-var router = express.Router();
-const models = require('../models/index');
-const Op = models.Sequelize.Op;
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', {title: 'Express'});
-});
+const express = require('express');
+const router = express.Router();
 
-// get all users
-router.get('/users', function(req, res, next){
-  models.User.findAll()
-    .then(function(users){
-      res.json(users);
-    });
-});
+
+// Define your CONTROLLERS here
+const sampleController = require('../controllers/sampleController');
+
+// see handlers/errorHandlers.js - this function catch all errors - EXPERIMENTAL
+const { catchErrors } = require('../handlers/errorHandlers');
+
+/* Define your RESTful routes here */
+router.get('/', sampleController.homePage);
+router.get('/users', sampleController.getUsers);
+
 
 module.exports = router;

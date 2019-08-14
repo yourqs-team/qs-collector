@@ -16,7 +16,6 @@ const errorHandlers = require('./handlers/errorHandlers');
 
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 
 require('dotenv').config();
 
