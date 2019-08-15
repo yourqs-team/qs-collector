@@ -44,7 +44,7 @@ const styles = {
   // We don't just pass an array of loaders, we run them through the extract plugin so they can be outputted to their own .css file
   use: ExtractTextPlugin.extract([
     "css-loader?sourceMap",
-    postcss,
+    // postcss,
     "sass-loader?sourceMap"
   ])
 };

@@ -1,7 +1,35 @@
 doctype html
+
 html
   head
-    title= title
-    link(rel='stylesheet', href='/dist/style.css')
-  body
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+    title Landing Page - Start Bootstrap Theme
+
+    link(href='../dist/style.css' rel='stylesheet')
+
+  body.main
+    nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container
+        a.navbar-brand.js-scroll-trigger(href='#page-top') Start Bootstrap
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#about') About
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#services') Services
+            li.nav-item
+              a.nav-link.js-scroll-trigger(href='#contact') Contact
+
+    header.bg-primary.text-white
+      .container.text-center
+        h1 Welcome to Scrolling Nav
+        p.lead
+          | A landing page template freshly redesigned for Bootstrap 4
+
     block content
+
