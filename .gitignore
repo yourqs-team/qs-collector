@@ -92,3 +92,6 @@ config/config.json
 
 #Ignored compiled files from public
 public/dist/
+
+#Ignore config for Amazon Elasticbeanstalk
+.elasticbeanstalk/
