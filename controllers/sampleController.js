@@ -19,12 +19,17 @@ exports.getUserRole = (req, res) =>{
       attributes: ['username', 'firstname', 'lastname', 'birthday'],
       include:[
         {
-          model: models.Role
+          model: models.Role,
+          where: {
+            description: 'Admin' // filter only with description of 'Admin' value
+          }
         }
       ],
     })
     .then((users) => {
       res.json(users);
     })
-    .catch(console.error);
+    .catch((error) =>{
+      console.log(error);
+    });
 }
