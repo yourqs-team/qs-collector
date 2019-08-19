@@ -11,6 +11,7 @@ const { catchErrors } = require('../handlers/errorHandlers');
 /* Define your RESTful routes here */
 router.get('/', sampleController.homePage);
 router.get('/users', sampleController.getUsers);
+router.get('/role', sampleController.getUserRole);
 
 
 module.exports = router;
