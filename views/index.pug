@@ -1,83 +1,90 @@
 extends layout
 
 block content
-  section#about
-    .container
+  .landing-page
+    header.bg-primary.text-white
+      .container.text-center
+        h1 Welcome to Scrolling Nav
+        p.lead
+          | A landing page template freshly redesigned for Bootstrap 4
+
+    section#about
+      .container
+        .row
+          .col-lg-8.mx-auto
+            h2 About this page
+            p.lead
+              | This is a great place to talk about your webpage. This template is
+              | purposefully unstyled so you can use it as a boilerplate or
+              | starting point for you own landing page designs! This template
+              | features:
+            ul
+              li Clickable nav links that smooth scroll to page sections
+              li
+                | Responsive behavior when clicking nav links perfect for a one
+                | page website
+              li
+                | Bootstrap&apos;s scrollspy feature which highlights which section of
+                | the page you&apos;re on in the navbar
+              li
+                | Minimal custom CSS so you are free to explore your own unique
+                | design options
+
+    section.services.container
+      .title.text-center
+        h2 YourQS Services
+        p.services__paragrahp
+          | We offer an advanced set of tools and services perfec to aid in the
+          | the smooth process and accurate construction of your next big project.
       .row
-        .col-lg-8.mx-auto
-          h2 About this page
-          p.lead
-            | This is a great place to talk about your webpage. This template is
-            | purposefully unstyled so you can use it as a boilerplate or
-            | starting point for you own landing page designs! This template
-            | features:
-          ul
-            li Clickable nav links that smooth scroll to page sections
-            li
-              | Responsive behavior when clicking nav links perfect for a one
-              | page website
-            li
-              | Bootstrap&apos;s scrollspy feature which highlights which section of
-              | the page you&apos;re on in the navbar
-            li
-              | Minimal custom CSS so you are free to explore your own unique
-              | design options
+        .services__cards.d-flex.flex-wrap
+            .services__card.col-sm-4.d-flex.align-items-center
+              img.services__img.mr-2(src='/img/testimonials-1.jpg')
+              .services__info
+                h3.services__title
+                p.services__description
+                  | A more accurate estimate against more complete designs implementing a more detailed  
+                  | approach to reach accurate desicions for your home costs.
+            
+            .services__card.col-sm-4.d-flex.align-items-center
+              img.services__img.mr-2(src='/img/testimonials-1.jpg')
+              .services__info
+                h3.services__title
+                p.services__description
+                  | A more accurate estimate against more complete designs implementing a more detailed  
+                  | approach to reach accurate desicions for your home costs.
 
-  section.services.container
-    .title.text-center
-      h2 YourQS Services
-      p.services__paragrahp
-        | We offer an advanced set of tools and services perfec to aid in the
-        | the smooth process and accurate construction of your next big project.
-    .row
-      .services__cards.d-flex.flex-wrap
-          .services__card.col-sm-4.d-flex.align-items-center
-            img.services__img.mr-2(src='/img/testimonials-1.jpg')
-            .services__info
-              h3.services__title
-              p.services__description
-                | A more accurate estimate against more complete designs implementing a more detailed  
-                | approach to reach accurate desicions for your home costs.
-          
-          .services__card.col-sm-4.d-flex.align-items-center
-            img.services__img.mr-2(src='/img/testimonials-1.jpg')
-            .services__info
-              h3.services__title
-              p.services__description
-                | A more accurate estimate against more complete designs implementing a more detailed  
-                | approach to reach accurate desicions for your home costs.
+            .services__card.col-sm-4.d-flex.align-items-center
+              img.services__img.mr-2(src='/img/testimonials-1.jpg')
+              .services__info
+                h3.services__title
+                p.services__description
+                  | A more accurate estimate against more complete designs implementing a more detailed  
+                  | approach to reach accurate desicions for your home costs.
 
-          .services__card.col-sm-4.d-flex.align-items-center
-            img.services__img.mr-2(src='/img/testimonials-1.jpg')
-            .services__info
-              h3.services__title
-              p.services__description
-                | A more accurate estimate against more complete designs implementing a more detailed  
-                | approach to reach accurate desicions for your home costs.
+            .services__card.col-sm-4.d-flex.align-items-center
+              img.services__img.mr-2(src='/img/testimonials-1.jpg')
+              .services__info
+                h3.services__title
+                p.services__description
+                  | A more accurate estimate against more complete designs implementing a more detailed  
+                  | approach to reach accurate desicions for your home costs.
 
-          .services__card.col-sm-4.d-flex.align-items-center
-            img.services__img.mr-2(src='/img/testimonials-1.jpg')
-            .services__info
-              h3.services__title
-              p.services__description
-                | A more accurate estimate against more complete designs implementing a more detailed  
-                | approach to reach accurate desicions for your home costs.
+            .services__card.col-sm-4.d-flex.align-items-center
+              img.services__img.mr-2(src='/img/testimonials-1.jpg')
+              .services__info
+                h3.services__title
+                p.services__description
+                  | A more accurate estimate against more complete designs implementing a more detailed  
+                  | approach to reach accurate desicions for your home costs.
 
-          .services__card.col-sm-4.d-flex.align-items-center
-            img.services__img.mr-2(src='/img/testimonials-1.jpg')
-            .services__info
-              h3.services__title
-              p.services__description
-                | A more accurate estimate against more complete designs implementing a more detailed  
-                | approach to reach accurate desicions for your home costs.
-
-          .services__card.col-sm-4.d-flex.align-items-center
-            img.services__img.mr-2(src='/img/testimonials-1.jpg')
-            .services__info
-              h3.services__title
-              p.services__description
-                | A more accurate estimate against more complete designs implementing a more detailed  
-                | approach to reach accurate desicions for your home costs.
+            .services__card.col-sm-4.d-flex.align-items-center
+              img.services__img.mr-2(src='/img/testimonials-1.jpg')
+              .services__info
+                h3.services__title
+                p.services__description
+                  | A more accurate estimate against more complete designs implementing a more detailed  
+                  | approach to reach accurate desicions for your home costs.
 
       
         

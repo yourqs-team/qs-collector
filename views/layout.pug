@@ -6,7 +6,7 @@ html
     meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description' content='')
     meta(name='author' content='')
-    title Landing Page - Start Bootstrap Theme
+    title= `${title} | ${h.siteName}`
 
     link(href='../dist/style.css' rel='stylesheet')
 
@@ -24,12 +24,6 @@ html
               a.nav-link.js-scroll-trigger(href='#services') Services
             li.nav-item
               a.nav-link.js-scroll-trigger(href='#contact') Contact
-
-    header.bg-primary.text-white
-      .container.text-center
-        h1 Welcome to Scrolling Nav
-        p.lead
-          | A landing page template freshly redesigned for Bootstrap 4
-
-    block content
+  
+  block content
 
