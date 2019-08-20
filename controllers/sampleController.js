@@ -33,3 +33,30 @@ exports.getUserRole = (req, res) =>{
       console.log(error);
     });
 }
+
+// Login js
+const passport = require('passport');
+const User = require('../models').User;
+const passportLocalSequelize = require('passport-local-sequelize');
+
+exports.loginForm = (req, res) => {
+  res.render('login', {title: 'Login'});
+}
+
+exports.login = passport.authenticate('local', {
+  failureRedirect: '/login', failureFlash: true});
+
+passportLocalSequelize.attachToUser(User, {
+  usernameField: 'username'
+});
+
+exports.logout = (req, res) => {
+  req.logout();
+  req.flash('success', 'you are now logged out!');
+  req.redirect('/');
+}
+
+// register JS
+exports.register = (req, res) => {
+
+}

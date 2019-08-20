@@ -14,4 +14,10 @@ router.get('/users', sampleController.getUsers);
 router.get('/role', sampleController.getUserRole);
 
 
+// login
+router.get('/login', sampleController.loginForm);
+router.post('/login', sampleController.login);
+router.get('/logout', sampleController.logout);
+
+
 module.exports = router;

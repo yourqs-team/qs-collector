@@ -18,6 +18,8 @@ const indexRouter = require("./routes/index");
 
 require("dotenv").config();
 
+require('./handlers/passport'); // invoke passport handlers
+
 // create an express app
 var app = express();
 
