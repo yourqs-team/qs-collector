@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('qs-collector:server');
 var http = require('http');
+var funkyText = require('figlet');
 
 // initialize models
 let models = require('../models');
@@ -102,5 +103,15 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+
+                                                              
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+  console.log(funkyText.textSync('QSCollector', {
+    font: 'Slant',
+    horizontalLayout: 'default',
+    verticalLayout: 'default'
+  }));
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+  console.log('Server was opened on localhost:'+ port);
 }
 
