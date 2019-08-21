@@ -14,11 +14,20 @@ module.exports = (sequelize, DataTypes) => {
     lastname: DataTypes.STRING,
     gender: DataTypes.STRING,
     birthday: DataTypes.DATE
-  }, {});
+  }, {},
+  {
+    instanceMethods: {
+      validPassword: function(password) {
+        return (this.password === password);
+      }
+    }
+  });
+  
+
   User.associate = function(models) {
     // associations can be defined here
     User.belongsTo(models.Role, {foreignKey: 'role_id'});
-  }; 
-
+  };
+  
   return User;
 };

@@ -37,18 +37,18 @@ exports.getUserRole = (req, res) =>{
 // Login js
 const passport = require('passport');
 const User = require('../models').User;
-const passportLocalSequelize = require('passport-local-sequelize');
+// const passportLocalSequelize = require('passport-local-sequelize');
 
 exports.loginForm = (req, res) => {
   res.render('login', {title: 'Login'});
 }
 
 exports.login = passport.authenticate('local', {
-  failureRedirect: '/login', failureFlash: true});
+  failureRedirect: '/login', failureFlash: true, successRedirect: '/login', successMessage: true});
 
-passportLocalSequelize.attachToUser(User, {
-  usernameField: 'username'
-});
+// passportLocalSequelize.attachToUser(User, {
+//   usernameField: 'username'
+// });
 
 exports.logout = (req, res) => {
   req.logout();
