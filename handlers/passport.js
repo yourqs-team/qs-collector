@@ -1,32 +1,35 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const User = require('../models').User;
+const models = require('../models/index');
+const User = models.User;
 
-
+// usernameField and passwordField must be defined in your models/users
 passport.use(new LocalStrategy( {usernameField: 'username', passwordField: 'password'},
   (username, password, done) => {
-    // User.find({where: { username: username }}, function(err, user) {
-    //   if (err) { return done(err); }
-    //   if (!user) {
-    //     return done(null, false, { message: 'The username is not registered' });
-    //   }
-    //   if (!user.validPassword(password)) {
-    //     return done(null, false, { message: 'Incorrect password. Please Try Again' });
-    //   }
-    //   return done(null, user);
-    // });
-
-    User
-      .findAll({where:{username: username, password: password}})
-      .then(function(user){
-        console.log(user);
-      // if(!user) {
-      //     return done(null, false, {message: 'The username that you entered is not registered' });
-      // }
-      // if (!user.validPassword(password)) {
-      //     return done(null, false, { message: 'Incorrect password. Please Try Again' });
-      // }
-      // return done(null, user);
+    // Using sequelize, select user from database
+    User.findOne({where:{username: username, password: password}})
+      .then( function(user){
+        // see models/users.js for validPassword InstanceMethod
+        if (!user) {
+           return done(null, false, { message: 'Incorrect username and password. Please try again.' });
+        }
+        if (!user.validPassword(password)) {
+          return done(null, false, { message: 'Incorrect username and password. Please try again.' });
+        }
+        return done(null, user, { message: 'You have sucessfully logged in!' });
       });
   }
 ));
+
+// In supporting sessions : Serialize / DeserializeUser
+// ref: https://stackoverflow.com/questions/28691215/when-is-the-serialize-and-deserialize-passport-method-called-what-does-it-exact
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
+
+module.exports = passport;

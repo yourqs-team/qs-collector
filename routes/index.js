@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Define your CONTROLLERS here
 const sampleController = require('../controllers/sampleController');
+const loginController = require('../controllers/loginController');
 
 // see handlers/errorHandlers.js - this function catch all errors - EXPERIMENTAL
 const { catchErrors } = require('../handlers/errorHandlers');
@@ -15,9 +16,9 @@ router.get('/role', sampleController.getUserRole);
 
 
 // login
-router.get('/login', sampleController.loginForm);
-router.post('/login', sampleController.login);
-router.get('/logout', sampleController.logout);
+router.get('/login', loginController.loginForm);
+router.post('/login', loginController.login);
+router.get('/logout', loginController.logout);
 
 
 module.exports = router;
