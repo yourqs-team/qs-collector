@@ -27,12 +27,11 @@ html
         button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
           span.navbar-toggler-icon
         #navbarResponsive.collapse.navbar-collapse
-          ul.navbar-nav.ml-auto
+          ul.navbar-nav.ml-auto.flex-row
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='/register') Register
+              a.nav-link(href='/register') Register
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='/login') 
-                .btn.btn-primary Login
+              a.btn.btn-primary(href='/login') Login
   
   block content
 
