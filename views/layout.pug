@@ -8,22 +8,31 @@ html
     meta(name='author' content='')
     title= `${title} | ${h.siteName}`
 
-    link(href='../dist/style.css' rel='stylesheet')
+    link(href='dist/style.css' rel='stylesheet')
+
+    //- Modular CSS comes here.
+    block stylesheet
+
+    script(src="javascript/modules/jquery/jquery-3.2.1.js" type="text/javascript")
+    script(src="javascript/modules/bootstrap/bootstrap.js" type="text/javascript")
+
+    //- Modular Javascript comes here.
+    block javascript
 
   body.main
     nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       .container
-        a.navbar-brand.js-scroll-trigger(href='#page-top') Start Bootstrap
+        a.navbar-brand.js-scroll-trigger(href='#page-top')
+          img.logoNavbar(src="img/logo-white.png", alt="")
         button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
           span.navbar-toggler-icon
         #navbarResponsive.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='#about') About
+              a.nav-link.js-scroll-trigger(href='/register') Register
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='#services') Services
-            li.nav-item
-              a.nav-link.js-scroll-trigger(href='#contact') Contact
+              a.nav-link.js-scroll-trigger(href='/login') 
+                .btn.btn-primary Login
   
   block content
 
