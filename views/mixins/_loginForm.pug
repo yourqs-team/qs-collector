@@ -1,19 +1,12 @@
+include _flashMsg
+
 mixin loginForm()
   .row
-    .loginWrapper.col-md-6.col-md-offset-3
+    .login--h-centered.col-md-6.col-md-offset-3
       h1.display-4.m-b-2 Log In
       //- Flash here
-      if locals.flashes
-        //- pre= h.dump(locals.flashes)
-        - const categories = Object.keys(locals.flashes)
-            each category in categories
-              each message in flashes[category]
-                if (category === 'error')
-                  .alert(class=`alert-danger`)
-                    = message
-                else
-                  .alert(class=`alert-${category}`)
-                    = message
+      +flashMsg()
+
       form(method='POST' action='/login')
         div.form-group
           label(for='username') Username
