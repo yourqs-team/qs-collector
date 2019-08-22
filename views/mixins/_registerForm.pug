@@ -1,0 +1,39 @@
+include _flashMsg
+
+mixin registerForm()
+  .row
+    .h-centered.col-md-6.col-md-offset-3
+      h1.display-4.m-b-2 Register
+      //- Flash here
+      +flashMsg()
+
+      form(method='POST' action='/register')
+        div.form-group
+          label(for='username') Username
+          input.form-control(type='text' id='username' placeholder='Username' name='username')
+        div.form-group
+          label(for='password') Password
+          input.form-control.form(type='password' id='password' placeholder='Password' name='password')
+        div.form-group
+          label(for='password') Email
+          input.form-control.form(type='email' id='email' placeholder='Email' name='email')
+        
+        div.form-group.form-row
+          .col
+            label(for='gender ') Gender
+            select.form-control(placeholder='Email' name='email')
+              each gender in orientation
+                option(value=gender) #{gender}
+       
+          .col
+            label(for='contact') Contact
+            input.form-control.form(type='tel' id='contact' name='contact' minlength="8" maxlength="9" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder='888 888 8888')
+        div.form-group
+          label(for='password') Company
+          input.form-control.form(type='text' id='password' placeholder='Enter your company name' name='company')
+        div.form-group
+          label(for='password') Address
+          textarea.form-control.form(id='address' placeholder='Enter your desired address' name='address')
+
+          br
+        button.btn.btn-group.btn-primary(type='submit') Register
