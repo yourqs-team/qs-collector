@@ -60,6 +60,8 @@ if (config.use_env_variable) {
 }
 var SequelizeStore = require("connect-session-sequelize")(session.Store);
 
+
+
 // EXPERIMENTAL: storing session using sequelize : using connect-session-sequelize
 app.use(
   session({

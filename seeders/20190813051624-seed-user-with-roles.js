@@ -32,7 +32,7 @@ module.exports = {
             description: "Client" // role_id: 2
           }
         ],
-        { underscored: true }
+        {}
       );
     }
 
@@ -51,9 +51,9 @@ module.exports = {
           company: "Initar",
           address: "Far Far Away",
           birthday: new Date("08/01/1991").toISOString(),
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          role_id: role.role_id // 1
+          created_at: new Date(),
+          updated_at: new Date(),
+          role_id: 1 // 1
         },
         {
           username: "marlon",
@@ -66,12 +66,12 @@ module.exports = {
           company: "Initar",
           address: "Close By",
           birthday: new Date("08/01/1991").toISOString(),
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          role_id: role.role_id + 1 // 2
+          created_at: new Date(),
+          updated_at: new Date(),
+          role_id: 2  // 2
         }
       ],
-      { underscored: true }
+      {}
     );
   },
 

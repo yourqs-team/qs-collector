@@ -9,12 +9,12 @@ module.exports = {
           project_name: "My Dream House",
           project_code: "XY109",
           project_address: "My Neighbours' Backyard",
-          createdAt: new Date(),
-          updatedAt: new Date(),
+          created_at: new Date(),
+          updated_at: new Date(),
           user_id: 1
         }
       ],
-      { underscored: true }
+      {}
     );
   },
 

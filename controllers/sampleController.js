@@ -2,14 +2,16 @@ const models = require('../models/index');
 const Op = models.Sequelize.Op; // sequelizing models
 
 exports.homePage =  (req, res) => {
-  res.render('index', {title: "Home Page"});
+  // res.render('index', {title: "Home Page"});
 };
 
 exports.getUsers = (req, res) => {
-  models.User
-    .findAll()
+  models.Role
+    .findAll({
+      include: [models.User]
+    })
     .then((users) => {
-      res.json(users);
+      console.log(users);
     });
 }
 
