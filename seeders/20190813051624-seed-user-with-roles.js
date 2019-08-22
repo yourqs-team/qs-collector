@@ -1,5 +1,6 @@
-'use strict';
+"use strict";
 
+const Role = require("../models").Role;
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -13,44 +14,65 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-       
-    // Seed all Roles first
-    await queryInterface.bulkInsert('Roles', [
-      {
-        description: 'Admin', // role_id: 1
-      },
-      {
-        description: 'Client', // role_id: 2
+    const role = await Role.findOne({
+      where: {
+        description: "Admin"
       }
-    ], {});
+    });
+
+    // Seed all Roles first
+    if (!role) {
+      await queryInterface.bulkInsert(
+        "Roles",
+        [
+          {
+            description: "Admin" // role_id: 1
+          },
+          {
+            description: "Client" // role_id: 2
+          }
+        ],
+        { underscored: true }
+      );
+    }
 
     // Seed user with defined roles from above
-    return await queryInterface.bulkInsert('Users', [
-      {
-        username: 'admin',
-        password: 'admin',
-        email: 'test@gmail.com',
-        firstname: 'Jap',
-        lastname: 'Ignacio',
-        gender: 'Male',
-        birthday: new Date('08/01/1991').toISOString(),
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        role_id: 1
-      },
-      {
-        username: 'test',
-        password: 'test',
-        email: 'test2@gmail.com',
-        firstname: 'Marlon',
-        lastname: 'Parra',
-        gender: 'Male',
-        birthday: new Date('08/01/1995').toISOString(),
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        role_id: 2
-      },
-    ], {});
+    return await queryInterface.bulkInsert(
+      "Users",
+      [
+        {
+          username: "admin",
+          password: "admin",
+          email: "test@gmail.com",
+          contact: "02080413349",
+          firstname: "Jap",
+          lastname: "Ignacio",
+          gender: "Male",
+          company: "Initar",
+          address: "Far Far Away",
+          birthday: new Date("08/01/1991").toISOString(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          role_id: role.role_id // 1
+        },
+        {
+          username: "marlon",
+          password: "123marlon",
+          email: "test@gmail.com",
+          contact: "02080413349",
+          firstname: "Marlon",
+          lastname: "Parra",
+          gender: "Male",
+          company: "Initar",
+          address: "Close By",
+          birthday: new Date("08/01/1991").toISOString(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          role_id: role.role_id + 1 // 2
+        }
+      ],
+      { underscored: true }
+    );
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -61,8 +83,8 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
-   
-   await queryInterface.bulkDelete('Users', null, {});
-   return await queryInterface.bulkDelete('Roles', null, {});
+
+    await queryInterface.bulkDelete("Roles", null, {});
+    await queryInterface.bulkDelete("Users", null, {});
   }
 };

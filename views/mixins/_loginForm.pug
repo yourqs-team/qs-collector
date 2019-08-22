@@ -4,7 +4,7 @@ mixin loginForm()
       h1.display-4.m-b-2 Log In
       //- Flash here
       if locals.flashes
-        //- pre= h.dump(locals.flashes)
+        pre= h.dump(locals.flashes)
         - const categories = Object.keys(locals.flashes)
             each category in categories
               each message in flashes[category]
