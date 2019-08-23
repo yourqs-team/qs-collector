@@ -2,8 +2,13 @@ const models = require('../models/index');
 const Op = models.Sequelize.Op; // sequelizing models
 
 exports.homePage =  (req, res) => {
-  res.render('index', {title: "Home Page"});
+  // res.render('index', {title: "Home Page"});
+  res.redirect('/login');
 };
+
+exports.dashboard = (req, res) => {
+  res.render('dashboard-layout', {title: "Dashboard"});
+}
 
 exports.getUsers = (req, res) => {
   models.User

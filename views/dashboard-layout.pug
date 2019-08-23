@@ -1,0 +1,64 @@
+doctype html
+
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+    title= `${title} | ${h.siteName}`
+
+    //- Stylesheets
+    link(href='vendor/fontawesome-free/css/all.min.css' rel='stylesheet' type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i' rel='stylesheet')
+    link(href='dist/style.css' rel='stylesheet')
+    
+
+    //- Modular CSS comes here.
+    block stylesheet
+
+
+    //- Modular Javascript comes here.
+    block javascript
+
+  body#page-top
+
+  #wrapper
+    include dashboard/sidebar.pug
+    //- Content Wrapper
+    #content-wrapper.d-flex.flex-column
+      //- Main Content
+      #content
+        //- Navigation
+        include dashboard/topbar.pug
+        //- Main Content
+        include dashboard/content.pug
+
+      //- Footer
+      include dashboard/footer.pug
+    //- End of Content Wrapper
+
+  //- 'Scroll to Top' Button
+  a.scroll-to-top.rounded(href='#page-top')
+    i.fas.fa-angle-up
+
+  //- Logout Modal
+  include dashboard/logoutModal.pug
+
+  //- Bootstrap JS
+  script(src="vendor/jquery/jquery.js" type="text/javascript")
+  script(src="vendor/bootstrap/js/bootstrap.js" type="text/javascript")
+
+  //- Vendors
+  //- Core plugin JavaScript
+  script(src='vendor/jquery-easing/jquery.easing.min.js')
+  //- Custom scripts for all pages
+  script(src='js/modules/cust-bootstrap/cust-bootstrap.js')
+
+  //- Use this if charts needed
+  //- Page level plugins
+  //- script(src='vendor/chart.js/Chart.min.js')
+  //- Page level custom scripts
+  //- script(src='js/modules/cust-bootstrap/demo/chart-area-demo.js')
+  //- script(src='js/modules/cust-bootstrap/demo/chart-pie-demo.js')
+

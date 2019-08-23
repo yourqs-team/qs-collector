@@ -14,6 +14,7 @@ const { catchErrors } = require('../handlers/errorHandlers');
 router.get('/', sampleController.homePage);
 router.get('/users', sampleController.getUsers);
 router.get('/role', sampleController.getUserRole);
+router.get('/dashboard', sampleController.dashboard);
 
 
 // login

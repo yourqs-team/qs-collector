@@ -1,0 +1,35 @@
+// Sidebar
+ul#accordionSidebar.navbar-nav.bg-gradient-primary.sidebar.sidebar-dark.accordion
+  // Sidebar - Brand
+  a.sidebar-brand.d-flex.align-items-center.justify-content-center(href='index.html')
+    .sidebar-brand-text.mx-3
+      img.img-fluid.logoNavbar(src="img/logo-white.png", alt="YourQS | QS Collector")
+  // Divider
+  hr.sidebar-divider.my-0
+  // Nav Item - Dashboard
+  li.nav-item.active
+    a.nav-link(href='index.html')
+      i.fas.fa-fw.fa-tachometer-alt
+      span Dashboard
+
+  // Divider
+  hr.sidebar-divider
+  // Heading
+  .sidebar-heading
+    | Main Menu
+  // Nav Item - Pages Collapse Menu
+  li.nav-item
+    //- a.nav-link.collapsed(href='#' data-toggle='collapse' data-target='#collapsePages' aria-expanded='true' aria-controls='collapsePages')
+    a.nav-link.collapsed(href='/login' aria-expanded='true')
+      i.fas.fa-fw.fa-folder
+      span Projects
+    //- #collapsePages.collapse(aria-labelledby='headingPages' data-parent='#accordionSidebar')
+    //-   .bg-white.py-2.collapse-inner.rounded
+    //-     h6.collapse-header Login Screens:
+    //-     a.collapse-item(href='login.html') Login
+    //-     a.collapse-item(href='register.html') Register
+    //-     a.collapse-item(href='forgot-password.html') Forgot Password
+    //-     .collapse-divider
+    //-     h6.collapse-header Other Pages:
+    //-     a.collapse-item(href='404.html') 404 Page
+    //-     a.collapse-item(href='blank.html') Blank Page
