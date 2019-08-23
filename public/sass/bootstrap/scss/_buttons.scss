@@ -17,7 +17,7 @@
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
   @include transition($btn-transition);
 
-  &:hover {
+  @include hover {
     color: $body-color;
     text-decoration: none;
   }
@@ -76,11 +76,11 @@ fieldset:disabled a.btn {
 // Make a button look and behave like a link
 .btn-link {
   font-weight: $font-weight-normal;
-  color: $btn-link-color;
+  color: $link-color;
   text-decoration: $link-decoration;
 
-  &:hover {
-    color: $btn-link-hover-color;
+  @include hover {
+    color: $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
 
@@ -124,5 +124,14 @@ fieldset:disabled a.btn {
   // Vertically space out multiple block buttons
   + .btn-block {
     margin-top: $btn-block-spacing-y;
+  }
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
   }
 }
