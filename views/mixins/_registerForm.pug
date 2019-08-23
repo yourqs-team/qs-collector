@@ -1,39 +1,93 @@
 include _flashMsg
 
 mixin registerForm()
-  .row
-    .h-centered.col-md-6.col-md-offset-3
-      h1.display-4.m-b-2 Register
-      //- Flash here
-      +flashMsg()
+  //- .row
+  //-   .h-centered.col-md-6.col-md-offset-3
+  //-     h1.display-4.m-b-2 Register
+  //-     //- Flash here
+  //-     +flashMsg()
 
-      form(method='POST' action='/register')
-        div.form-group
-          label(for='username') Username
-          input.form-control(type='text' id='username' placeholder='Username' name='username')
-        div.form-group
-          label(for='password') Password
-          input.form-control.form(type='password' id='password' placeholder='Password' name='password')
-        div.form-group
-          label(for='password') Email
-          input.form-control.form(type='email' id='email' placeholder='Email' name='email')
+  //-     form(method='POST' action='/register')
+  //-       div.form-group
+  //-         label(for='username') Username
+  //-         input.form-control(type='text' id='username' placeholder='Username' name='username')
+  //-       div.form-group
+  //-         label(for='password') Password
+  //-         input.form-control.form(type='password' id='password' placeholder='Password' name='password')
+  //-       div.form-group
+  //-         label(for='password') Email
+  //-         input.form-control.form(type='email' id='email' placeholder='Email' name='email')
         
-        div.form-group.form-row
-          .col
-            label(for='gender ') Gender
-            select.form-control(placeholder='Email' name='email')
-              each gender in orientation
-                option(value=gender) #{gender}
+  //-       div.form-group.form-row
+  //-         .col
+  //-           label(for='gender ') Gender
+  //-           select.form-control(placeholder='Email' name='email')
+  //-             each gender in orientation
+  //-               option(value=gender) #{gender}
        
-          .col
-            label(for='contact') Contact
-            input.form-control.form(type='tel' id='contact' name='contact' minlength="8" maxlength="9" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder='888 888 8888')
-        div.form-group
-          label(for='password') Company
-          input.form-control.form(type='text' id='password' placeholder='Enter your company name' name='company')
-        div.form-group
-          label(for='password') Address
-          textarea.form-control.form(id='address' placeholder='Enter your desired address' name='address')
+  //-         .col
+  //-           label(for='contact') Contact
+  //-           input.form-control.form(type='tel' id='contact' name='contact' minlength="8" maxlength="9" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder='888 888 8888')
+  //-       div.form-group
+  //-         label(for='password') Company
+  //-         input.form-control.form(type='text' id='password' placeholder='Enter your company name' name='company')
+  //-       div.form-group
+  //-         label(for='password') Address
+  //-         textarea.form-control.form(id='address' placeholder='Enter your desired address' name='address')
 
-          br
-        button.btn.btn-group.btn-primary(type='submit') Register
+  //-         br
+  //-       button.btn.btn-group.btn-primary(type='submit') Register
+  .card.o-hidden.border-0.shadow-lg.my-5
+    .card-body.p-0
+      // Nested Row within Card Body
+      .row
+        .col-lg-5.d-none.d-lg-block.bg-register-image
+        .col-lg-7
+          .p-5
+            .text-center
+              h1.h4.text-gray-900.mb-4 Create an Account
+            form.user
+              .form-group.row
+                .col-sm-6.mb-3.mb-sm-0
+                  input.form-control.form-control-user(type='text' name='firstname' placeholder='First Name')
+                .col-sm-6
+                  input.form-control.form-control-user(type='text' name='lastname' placeholder='Last Name')
+              .form-group
+                input.form-control.form-control-user(type='text' name='username' placeholder='Enter a Username')
+              .form-group
+                input.form-control.form-control-user(type='email' name='email' placeholder='Email Address')
+              .form-group.row
+                .col-sm-6.mb-3.mb-sm-0
+                  input.form-control.form-control-user(type='password' name='password' placeholder='Password')
+                .col-sm-6
+                  input.form-control.form-control-user(type='password' name='confirmPass' placeholder='Repeat Password')
+              div.form-group.form-row
+                .col
+                  label(for='gender ') Gender
+                  select.form-control.cust-select(name='gender')
+                    each gender in orientation
+                      option(value=gender) #{gender}
+                .col
+                  label(for='contact') Contact
+                  input.form-control.form-control-user(type='tel' id='contact' name='contact' minlength="8" maxlength="9" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder='888 888 8888')
+              div.form-group
+                label(for='password') Company
+                input.form-control.form-control-user(type='text' placeholder='Enter your company name' name='company')
+              div.form-group
+                label(for='password') Address
+                textarea.form-control.form-control-user.cust-textarea(id='address' placeholder='Enter your desired address' name='address')
+
+              button.btn.btn-primary.btn-user.btn-block(type='submit') Register
+              //- hr
+              //- a.btn.btn-google.btn-user.btn-block(href='index.html')
+              //-   i.fab.fa-google.fa-fw
+              //-   |  Register with Google
+              //- a.btn.btn-facebook.btn-user.btn-block(href='index.html')
+              //-   i.fab.fa-facebook-f.fa-fw
+              //-   |  Register with Facebook
+            hr
+            //- .text-center
+            //-   a.small(href='forgot-password.html') Forgot Password?
+            .text-center
+              a.small(href='/login') Already have an account? Login!
+

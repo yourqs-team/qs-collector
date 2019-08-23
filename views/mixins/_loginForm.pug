@@ -16,9 +16,9 @@ mixin loginForm()
                   +flashMsg()
                 form.user(method='POST' action='/login')
                   .form-group
-                    input#username.form-control.form-control-user(type='username' aria-describedby='emailHelp' placeholder='Enter Username')
+                    input#username.form-control.form-control-user(type='username' name="username" placeholder='Enter Username')
                   .form-group
-                    input#password.form-control.form-control-user(type='password' placeholder='Password')
+                    input#password.form-control.form-control-user(type='password' name="password" placeholder='Password')
                   //-  Opt-TODO: Remember Me
                   //- .form-group
                   //-   .custom-control.custom-checkbox.small
