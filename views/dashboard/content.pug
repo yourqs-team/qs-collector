@@ -1,11 +1,18 @@
+//- define your mixins here first!
+include ../mixins/_flashMsg
+
 // Begin Page Content
 .container-fluid
+  .col-12
+    //- Flash here
+    +flashMsg()
   // Page Heading
   .d-sm-flex.align-items-center.justify-content-between.mb-4
     h1.h3.mb-0.text-gray-800 #{title}
     a.d-none.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href='#')
       i.fas.fa-download.fa-sm.text-white-50
       |  Create a Project
+  
   // Content Row
   .row
     // Project Card Example
