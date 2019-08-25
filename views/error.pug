@@ -1,6 +1,25 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  .container
+    .row.justify-content-center
+      //- TODO: Comment this when on production 
+      .col-xl-10.col-lg-12.col-md-9.bg-white.p-5.rounded
+        h1= message
+        h2= error.status
+        pre #{error.stack}
+        
+      .col-xl-10.col-lg-12.col-md-9
+        .card.o-hidden.border-0.shadow-lg.my-5
+          .card-body.p-0
+            // Nested Row within Card Body
+            .row
+              .col-lg-6.d-none.d-lg-block.bg-password-image
+              .col-lg-6
+                .p-5
+                  .text-center
+                    .error.mx-auto(data-text='404') 404
+                    p.lead.text-gray-800.mb-5 Page Not Found
+                    p.text-gray-500.mb-0 It looks like you found a glitch in the matrix...
+                    a(href='index.html') &larr; Back to Dashboard
+    
