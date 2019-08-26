@@ -46,4 +46,32 @@
     e.preventDefault();
   });
 
+  (function(url) {
+    // Create a new `Image` instance
+    var image = new Image();
+  
+    image.onload = function() {
+      // Inside here we already have the dimensions of the loaded image
+      var style = [
+        // Hacky way of forcing image's viewport using `font-size` and `line-height`
+        'font-size: 1px;',
+        'line-height: ' + this.height + 'px;',
+  
+        // Hacky way of forcing a middle/center anchor point for the image
+        'padding: ' + this.height * .001 + 'px ' + this.width * .5 + 'px;',
+  
+        // Set image dimensions
+        'background-size: ' + this.width + 'px ' + this.height + 'px;',
+  
+        // Set image URL
+        'background: url('+ url +');'
+       ].join(' ');
+       // notice the space after %c
+       console.log('%c ', style);
+    };
+  
+    // Actually loads the image
+    image.src = url;
+  })('https://i.imgur.com/RjlZjYJ.gif');
+
 })(jQuery); // End of use strict
