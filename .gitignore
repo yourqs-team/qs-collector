@@ -95,3 +95,7 @@ public/dist/
 
 #Ignore config for Amazon Elasticbeanstalk
 .elasticbeanstalk/
+
+#Dockerfiles / AWS files
+Dockerfiles
+Dockerrun.aws.json
