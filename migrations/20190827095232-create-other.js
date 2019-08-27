@@ -1,32 +1,29 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Electricals", {
+    return queryInterface.createTable('Others', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      allowance_type: {
-        type: Sequelize.STRING
+      demolition: {
+        type: Sequelize.TEXT
       },
-      distribution_board: {
-        type: Sequelize.STRING
-      },
-      new_connection: {
-        type: Sequelize.BOOLEAN
+      renovation: {
+        type: Sequelize.TEXT
       },
       comments: {
         type: Sequelize.TEXT
       },
-      project_id: {
+      ProjectId: {
         allowNull: false,
         type: Sequelize.INTEGER
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Electricals");
+    return queryInterface.dropTable('Others');
   }
 };

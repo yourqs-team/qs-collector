@@ -1,35 +1,35 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Joinery_allowances", {
+    return queryInterface.createTable('Proffesional_service_allowances', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      kitchen: {
+      plans: {
         type: Sequelize.DOUBLE
       },
-      laundry: {
+      engineer: {
         type: Sequelize.DOUBLE
       },
-      wardrobe_master_bed: {
+      council_fees: {
         type: Sequelize.DOUBLE
       },
-      wardrobes_other: {
+      geotechnical: {
         type: Sequelize.DOUBLE
       },
-      other: {
-        type: Sequelize.STRING
+      surveyor: {
+        type: Sequelize.DOUBLE
       },
-      project_id: {
+      ProjectId: {
         allowNull: false,
         type: Sequelize.INTEGER
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Joinery_allowances");
+    return queryInterface.dropTable('Proffesional_service_allowances');
   }
 };

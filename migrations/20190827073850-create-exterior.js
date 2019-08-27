@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Exteriors", {
+    return queryInterface.createTable('Exteriors', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,7 +14,7 @@ module.exports = {
       wall_cladding_type: {
         type: Sequelize.STRING
       },
-      wall_cladding_exterior_work_required: {
+      wall_cladding_work_required: {
         type: Sequelize.TEXT
       },
       base_cladding_type: {
@@ -26,7 +26,7 @@ module.exports = {
       soffit_cladding_type: {
         type: Sequelize.STRING
       },
-      soffit_work_required: {
+      soffit_cladding_work_require: {
         type: Sequelize.TEXT
       },
       exterior_joinery_type: {
@@ -37,9 +37,6 @@ module.exports = {
       },
       entrance_door_type: {
         type: Sequelize.STRING
-      },
-      entrance_door_work_required: {
-        type: Sequelize.TEXT
       },
       roof_pitch: {
         type: Sequelize.STRING
@@ -59,22 +56,22 @@ module.exports = {
       downpipe_material: {
         type: Sequelize.STRING
       },
-      downpipe_work_required: {
-        type: Sequelize.TEXT
-      },
       downpipe_profile: {
         type: Sequelize.STRING
+      },
+      downpipe_work_required: {
+        type: Sequelize.TEXT
       },
       fascia_type: {
         type: Sequelize.STRING
       },
-      project_id: {
+      ProjectId: {
         allowNull: false,
         type: Sequelize.INTEGER
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Exteriors");
+    return queryInterface.dropTable('Exteriors');
   }
 };

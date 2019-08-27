@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       company: DataTypes.DATE,
       address: DataTypes.DATE
     },
-    { underscored: true }
+    {}
   );
 
   // Define your instanceMethods here :

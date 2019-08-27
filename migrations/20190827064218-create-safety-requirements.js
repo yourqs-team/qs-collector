@@ -1,32 +1,32 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Interior_trims", {
+    return queryInterface.createTable('Safety_requirements', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      scotia_type: {
+      site_sign: {
+        type: Sequelize.BOOLEAN
+      },
+      fall_in_protection: {
+        type: Sequelize.BOOLEAN
+      },
+      crossing_protection: {
+        type: Sequelize.BOOLEAN
+      },
+      security_fencing: {
         type: Sequelize.STRING
       },
-      skirting_type: {
-        type: Sequelize.STRING
-      },
-      window_architrave: {
-        type: Sequelize.STRING
-      },
-      door_architrave: {
-        type: Sequelize.STRING
-      },
-      project_id: {
+      ProjectId: {
         allowNull: false,
         type: Sequelize.INTEGER
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Interior_trims");
+    return queryInterface.dropTable('Safety_requirements');
   }
 };

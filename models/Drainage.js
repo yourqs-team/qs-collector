@@ -1,17 +1,13 @@
-"use strict";
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Drainage = sequelize.define(
-    "Drainage",
-    {
-      new_connections: DataTypes.BOOLEAN,
-      comments: DataTypes.TEXT,
-      project_id: DataTypes.INTEGER
-    },
-    { underscored: true, timestamps: false }
-  );
+  const Drainage = sequelize.define('Drainage', {
+    new_connections: DataTypes.BOOLEAN,
+    comments: DataTypes.TEXT,
+    ProjectId: DataTypes.INTEGER
+  }, {timestamps: false});
   Drainage.associate = function(models) {
     // associations can be defined here
-    Drainage.belongsTo(models.Project, { foreignKey: "project_id" });
+    Drainage.belongsTo(models.Project, {foreignKey: "ProjectId"});
   };
   return Drainage;
 };

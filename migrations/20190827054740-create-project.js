@@ -1,38 +1,36 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Site_arrangements", {
+    return queryInterface.createTable('Projects', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      site_access: {
+      project_name: {
         type: Sequelize.STRING
       },
-      space_for_material_storage: {
+      project_code: {
         type: Sequelize.STRING
       },
-      living_arrangement: {
-        type: Sequelize.STRING
-      },
-      carpet_protection: {
-        type: Sequelize.BOOLEAN
-      },
-      comment: {
+      project_address: {
         type: Sequelize.TEXT
       },
-      allow_extra_site_specific_time: {
-        type: Sequelize.INTEGER
-      },
-      project_id: {
+      createdAt: {
         allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      UserId: {
         type: Sequelize.INTEGER
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Site_arrangements");
+    return queryInterface.dropTable('Projects');
   }
 };

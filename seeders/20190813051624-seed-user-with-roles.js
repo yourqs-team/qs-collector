@@ -51,9 +51,9 @@ module.exports = {
           company: "Initar",
           address: "Far Far Away",
           birthday: new Date("08/01/1991").toISOString(),
-          created_at: new Date(),
-          updated_at: new Date(),
-          role_id: 1 // 1
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoleId: 1 // 1
         },
         {
           username: "marlon",
@@ -66,9 +66,9 @@ module.exports = {
           company: "Initar",
           address: "Close By",
           birthday: new Date("08/01/1991").toISOString(),
-          created_at: new Date(),
-          updated_at: new Date(),
-          role_id: 2  // 2
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoleId: 2  // 2
         }
       ],
       {}

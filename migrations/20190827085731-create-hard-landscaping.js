@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Hard_landscapings", {
+    return queryInterface.createTable('Hard_landscapings', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -38,19 +38,19 @@ module.exports = {
       fencing_work_required: {
         type: Sequelize.TEXT
       },
-      other__type: {
+      other_type: {
         type: Sequelize.STRING
       },
       other_work_required: {
         type: Sequelize.TEXT
       },
-      project_id: {
+      ProjectId: {
         allowNull: false,
         type: Sequelize.INTEGER
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Hard_landscapings");
+    return queryInterface.dropTable('Hard_landscapings');
   }
 };

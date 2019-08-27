@@ -1,16 +1,12 @@
-"use strict";
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Interior = sequelize.define(
-    "Interior",
-    {
-      painting_interior: DataTypes.STRING,
-      project_id: DataTypes.INTEGER
-    },
-    { underscored: true, timestamps: false }
-  );
+  const Interior = sequelize.define('Interior', {
+    painting_interior: DataTypes.STRING,
+    ProjectId: DataTypes.INTEGER
+  }, {timestamps: false});
   Interior.associate = function(models) {
     // associations can be defined here
-    Exterior.belongsTo(models.Project, { foreignKey: "project_id" });
+    Interior.belongsTo(models.Project, {foreignKey: "ProjectId"});
   };
   return Interior;
 };

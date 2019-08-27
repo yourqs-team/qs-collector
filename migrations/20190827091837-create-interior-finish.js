@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Interior_finishes", {
+    return queryInterface.createTable('Interior_finishes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -26,10 +26,10 @@ module.exports = {
       bedrooms_wall_finish: {
         type: Sequelize.STRING
       },
-      bathrooms_floor_covering: {
+      bathroom_floor_covering: {
         type: Sequelize.STRING
       },
-      bathrooms_wall_finish: {
+      bathroom_wall_finish: {
         type: Sequelize.STRING
       },
       ensuite_floor_covering: {
@@ -50,13 +50,13 @@ module.exports = {
       other_wall_finish: {
         type: Sequelize.STRING
       },
-      project_id: {
+      ProjectId: {
         allowNull: false,
         type: Sequelize.INTEGER
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Interior_finishes");
+    return queryInterface.dropTable('Interior_finishes');
   }
 };

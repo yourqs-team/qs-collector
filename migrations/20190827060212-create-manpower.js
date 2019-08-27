@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Manpowers", {
+    return queryInterface.createTable('Manpowers', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,16 +11,10 @@ module.exports = {
       markup: {
         type: Sequelize.FLOAT
       },
-      no_of_builders: {
+      no_builder: {
         type: Sequelize.INTEGER
       },
       administration: {
-        type: Sequelize.FLOAT
-      },
-      travel_distance: {
-        type: Sequelize.FLOAT
-      },
-      travel_price: {
         type: Sequelize.FLOAT
       },
       supervision: {
@@ -32,13 +26,19 @@ module.exports = {
       no_vehicles: {
         type: Sequelize.INTEGER
       },
-      project_id: {
+      travel_distance: {
+        type: Sequelize.FLOAT
+      },
+      travel_price: {
+        type: Sequelize.FLOAT
+      },
+      ProjectId: {
         allowNull: false,
         type: Sequelize.INTEGER
-      }
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Manpowers");
+    return queryInterface.dropTable('Manpowers');
   }
 };

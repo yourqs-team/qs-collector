@@ -41,15 +41,15 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      role_id: {
+      RoleId: {
         allowNull: false,
         type: Sequelize.INTEGER
       }

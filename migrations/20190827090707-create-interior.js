@@ -1,32 +1,23 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Plumbings", {
+    return queryInterface.createTable('Interiors', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      allowance_type: {
+      painting_interior: {
         type: Sequelize.STRING
       },
-      HWC: {
-        type: Sequelize.STRING
-      },
-      new_connection: {
-        type: Sequelize.BOOLEAN
-      },
-      comments: {
-        type: Sequelize.TEXT
-      },
-      project_id: {
+      ProjectId: {
         allowNull: false,
         type: Sequelize.INTEGER
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Plumbings");
+    return queryInterface.dropTable('Interiors');
   }
 };

@@ -8,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       // Customised config for sequelize
       timestamps: false,
-      underscored: true,
     }
   );
 

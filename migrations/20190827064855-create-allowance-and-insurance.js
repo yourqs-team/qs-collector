@@ -1,26 +1,29 @@
-"use strict";
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Drainages", {
+    return queryInterface.createTable('Allowance_and_insurances', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      new_connections: {
+      estimated_project_duration: {
+        type: Sequelize.INTEGER
+      },
+      risk_insurance: {
         type: Sequelize.BOOLEAN
       },
-      comments: {
-        type: Sequelize.TEXT
+      building_guarantee: {
+        type: Sequelize.STRING
       },
-      project_id: {
+      ProjectId: {
         allowNull: false,
         type: Sequelize.INTEGER
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Drainages");
+    return queryInterface.dropTable('Allowance_and_insurances');
   }
 };
