@@ -97,5 +97,6 @@ public/dist/
 .elasticbeanstalk/
 
 #Dockerfiles / AWS files
-Dockerfiles
+Dockerfile
 Dockerrun.aws.json
+.dockerignore
