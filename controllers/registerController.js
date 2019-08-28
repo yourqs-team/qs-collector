@@ -1,5 +1,9 @@
 const User = require("../models").User;
 
+const orientation = () => {
+  return;
+};
+
 exports.registerForm = (req, res) => {
   const orientation = ["Male", "Female", "Rather not to say"];
 
