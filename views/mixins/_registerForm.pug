@@ -10,7 +10,8 @@ mixin registerForm()
           .p-5
             .text-center
               h1.h4.text-gray-900.mb-4 Create an Account
-            form.user
+              +flashMsg()
+            form(method='POST' action='/register').user
               .form-group.row
                 .col-sm-6.mb-3.mb-sm-0
                   input.form-control.form-control-user(type='text' name='firstname' placeholder='First Name')
@@ -33,7 +34,7 @@ mixin registerForm()
                       option(value=gender) #{gender}
                 .col
                   label.small(for='contact') Contact
-                  input.form-control.form-control-user(type='tel' id='contact' name='contact' minlength="8" maxlength="9" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder='888 888 8888')
+                  input.form-control.form-control-user(type='tel' id='contact' name='contact' minlength="8" maxlength="9"/* pattern="[0-9]{3} [0-9]{3} [0-9]{4}"*/ placeholder='888 888 8888')
               div.form-group
                 label.small(for='password') Company
                 input.form-control.form-control-user(type='text' placeholder='Enter your company name' name='company')
