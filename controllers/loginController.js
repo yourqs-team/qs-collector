@@ -3,7 +3,7 @@ const User = require("../models").User;
 
 exports.loginForm = (req, res) => {
   if(req.isAuthenticated()){
-    res.redirect('/dashboard');
+    res.redirect('/projects');
   }
   else{
     res.render('login', {title: 'Login'});
