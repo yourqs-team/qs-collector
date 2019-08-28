@@ -29,6 +29,6 @@ router.get('/register', registerController.registerForm);
 
 // Dashboard
 router.get('/projects', loginController.isLoggedIn, dashboardController.projects);
-// router.get('/projects/:id', loginController.isLoggedIn, dashboardController.projects);
+router.get('/project/:id/edit', loginController.isLoggedIn, dashboardController.editProject);
 
 module.exports = router;

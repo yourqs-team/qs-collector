@@ -1,4 +1,7 @@
 'use strict';
+const Hashids = require('hashids');
+const hashids = new Hashids(process.env.SHA256 || 'JapIsAwesome', 6);
+
 module.exports = (sequelize, DataTypes) => {
   const Project = sequelize.define('Project', {
     project_name: DataTypes.STRING,
@@ -6,6 +9,15 @@ module.exports = (sequelize, DataTypes) => {
     project_address: DataTypes.TEXT,
     UserId: DataTypes.INTEGER
   }, {});
+
+  Project.prototype.encodeProjCode = function(id) {
+    return hashids.encode(id);
+  };
+
+  Project.prototype.decodeProjCode = function(id) {
+    return hashids.decode(id);
+  };
+  
   Project.associate = function(models) {
     Project.belongsTo(models.User, {foreignKey: 'UserId'});
 

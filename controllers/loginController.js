@@ -11,7 +11,7 @@ exports.loginForm = (req, res) => {
 }
 
 exports.login = passport.authenticate('local', {
-  failureRedirect: '/login', failureFlash: true, successRedirect: '/dashboard', successFlash: true});
+  failureRedirect: '/login', failureFlash: true, successRedirect: '/projects', successFlash: true});
 
 exports.logout = (req, res) => {
   req.logout();

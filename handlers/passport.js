@@ -16,16 +16,16 @@ passport.use(new LocalStrategy( {usernameField: 'username', passwordField: 'pass
         {model: Role}
       ]
     })
-      .then( function(user){
-        // see models/users.js for validPassword InstanceMethod
-        if (!user) {
-           return done(null, false, { message: 'Incorrect username and password. Please try again.' });
-        }
-        if (!user.validPassword(password)) {
+    .then( function(user){
+      // see models/users.js for validPassword InstanceMethod
+      if (!user) {
           return done(null, false, { message: 'Incorrect username and password. Please try again.' });
-        }
-        return done(null, user, { message: 'You have sucessfully logged in!' });
-      });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect username and password. Please try again.' });
+      }
+      return done(null, user, { message: 'You have sucessfully logged in!' });
+    });
   }
 ));
 
