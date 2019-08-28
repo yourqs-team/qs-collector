@@ -2,28 +2,53 @@ doctype html
 
 html
   head
+    
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(name='description' content='')
     meta(name='author' content='')
+    link(rel='apple-touch-icon' sizes='180x180' href='img/favicons/apple-touch-icon.png')
+    link(rel='icon' type='image/png' sizes='32x32' href='img/favicons/favicon-32x32.png')
+    link(rel='icon' type='image/png' sizes='16x16' href='img/favicons/favicon-16x16.png')
+    link(rel='manifest' href='img/favicons/site.webmanifest')
+    link(rel='mask-icon' href='img/favicons/safari-pinned-tab.svg' color='#5bbad5')
+    meta(name='msapplication-TileColor' content='#da532c')
+    meta(name='theme-color' content='#ffffff')
+    
+
     title= `${title} | ${h.siteName}`
 
-    link(href='../dist/style.css' rel='stylesheet')
+    link(href='dist/style.css' rel='stylesheet')
 
-  body.main
-    nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    //- Modular CSS comes here.
+    block stylesheet
+
+    script(src="js/modules/jquery/jquery-3.2.1.js" type="text/javascript")
+    script(src="js/modules/bootstrap/bootstrap.js" type="text/javascript")
+
+    script(src='js/modules/cust-bootstrap/cust-bootstrap.js')
+
+    //- Modular Javascript comes here.
+    block javascript
+
+  body.main.bg-gradient-primary
+    nav.navbar.navbar-expand-lg.navbar-light.bg-white.homebar.mb-4.static-top.shadow
       .container
-        a.navbar-brand.js-scroll-trigger(href='#page-top') Start Bootstrap
+        //- Logo Brand
+        a.navbar-brand(href='/')
+          img.logoNavbar(src="img/logo.png", alt="")
+
+        //- Nav Toggler
         button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarResponsive' aria-controls='navbarResponsive' aria-expanded='false' aria-label='Toggle navigation')
           span.navbar-toggler-icon
+
+        //- Nav
         #navbarResponsive.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='#about') About
+              a.nav-link.text-gray-600.small(href='/register') Create an Account
             li.nav-item
-              a.nav-link.js-scroll-trigger(href='#services') Services
-            li.nav-item
-              a.nav-link.js-scroll-trigger(href='#contact') Contact
+              a.btn.btn-primary.btn-user.small.px-4(href='/login') Login
   
   block content
 

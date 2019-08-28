@@ -1,25 +1,41 @@
+include _flashMsg
+
 mixin loginForm()
-  .row
-    .loginWrapper.col-md-6.col-md-offset-3
-      h1.display-4.m-b-2 Log In
-      //- Flash here
-      if locals.flashes
-        pre= h.dump(locals.flashes)
-        - const categories = Object.keys(locals.flashes)
-            each category in categories
-              each message in flashes[category]
-                if (category === 'error')
-                  .alert(class=`alert-danger`)
-                    = message
-                else
-                  .alert(class=`alert-${category}`)
-                    = message
-      form(method='POST' action='/login')
-        div.form-group
-          label(for='username') Username
-          input.form-control(type='text' id='username' placeholder='Username' name='username')
-        div.form-group
-          label(for='password') Password
-          input.form-control.form(type='password' id='password' placeholder='Password' name='password')
-          br
-        button.btn.btn-group.btn-primary(type='submit') Log in  
+  .row.justify-content-center
+    .col-xl-10.col-lg-12.col-md-9
+      .card.o-hidden.border-0.shadow-lg.my-5
+        .card-body.p-0
+          // Nested Row within Card Body
+          .row
+            .col-lg-6.d-none.d-lg-block.bg-login-image
+            .col-lg-6
+              .p-5
+                .text-center
+                  h1.h4.text-gray-900.mb-4 #{title}
+                  +flashMsg()
+                form.user(method='POST' action='/login')
+                  .form-group
+                    input#username.form-control.form-control-user(type='username' name="username" placeholder='Enter Username')
+                  .form-group
+                    input#password.form-control.form-control-user(type='password' name="password" placeholder='Password')
+                  //-  Opt-TODO: Remember Me
+                  //- .form-group
+                  //-   .custom-control.custom-checkbox.small
+                  //-     input#customCheck.custom-control-input(type='checkbox')
+                  //-     label.custom-control-label(for='customCheck') Remember Me
+                  button.btn.btn-primary.btn-user.btn-block(type='submit') Log in
+
+                  //- Opt-TODO: Buttons for other passport strategy
+                  //- hr
+                  //- a.btn.btn-google.btn-user.btn-block(href='index.html')
+                  //-   i.fab.fa-google.fa-fw
+                  //-   |  Login with Google
+                  //- a.btn.btn-facebook.btn-user.btn-block(href='index.html')
+                  //-   i.fab.fa-facebook-f.fa-fw
+                  //-   |  Login with Facebook
+                hr
+                //-  Opt-TODO: forgot password
+                //- .text-center
+                //-   a.small(href='forgot-password.html') Forgot Password?
+                .text-center
+                  a.small(href='/register') Create an Account

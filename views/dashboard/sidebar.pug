@@ -1,0 +1,25 @@
+// Sidebar
+ul#accordionSidebar.navbar-nav.bg-gradient-primary.sidebar.sidebar-dark.accordion
+  // Sidebar - Brand
+  a.sidebar-brand.d-flex.align-items-center.justify-content-center(href='/')
+    .sidebar-brand-text.mx-3
+      img.img-fluid.logoNavbar(src="img/logo-white.png", alt="YourQS | QS Collector")
+  // Divider
+  hr.sidebar-divider
+  // Heading
+  .sidebar-heading
+    | Main Menu
+  // Nav Item - Pages Collapse Menu
+  li.nav-item.active
+    a.nav-link.collapsed(href='/login' aria-expanded='true')
+      i.fas.fa-fw.fa-folder
+      span Projects
+  li.nav-item
+    a.nav-link.collapsed(href='#' data-toggle='collapse' data-target='#collapsePages' aria-expanded='true' aria-controls='collapsePages') 
+      i.fas.fa-fw.fa-users.text-sm
+      span Users
+    #collapsePages.collapse(aria-labelledby='headingPages' data-parent='#accordionSidebar')
+      .bg-white.py-2.collapse-inner.rounded
+        h6.collapse-header Choose an Action:
+        a.collapse-item(href='#') Create a User
+        a.collapse-item(href='#') Edit User Details

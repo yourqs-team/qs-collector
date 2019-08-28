@@ -1,0 +1,16 @@
+mixin flashMsg()
+  if locals.flashes
+  //- pre= h.dump(locals.flashes)
+  - const categories = Object.keys(locals.flashes)
+      each category in categories
+        each message in flashes[category]
+          if (category === 'error')
+            .alert(class=`alert-danger alert-dismissible fade show`)
+              != "<strong class='capitalize'>"+ category +" : </strong> "+ message
+              button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
+          else
+            .alert(class=`alert-${category} alert-dismissible fade show`)
+              != "<strong class='capitalize'>"+ category +" : </strong> "+ message
+              button.close(type='button', data-dismiss='alert', aria-label='Close')
+                span(aria-hidden='true') &times;
