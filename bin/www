@@ -111,7 +111,7 @@ function onListening() {
     horizontalLayout: 'default',
     verticalLayout: 'default'
   }));
-  console.log("BY: Jap | Marlon | Laz")
+  console.log("BY: roaldjap@gmail.com | marlonspr17@gmail.com | laz")
   console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
   console.log('Server was opened on localhost:'+ port);
 }

@@ -14,33 +14,38 @@ mixin registerForm()
             form(method='POST' action='/register').user
               .form-group.row
                 .col-sm-6.mb-3.mb-sm-0
-                  input.form-control.form-control-user(type='text' name='firstname' placeholder='First Name')
+                  input.form-control.form-control-user(type='text' name='firstname' placeholder='First Name' value=(!userData ? '' : userData.firstname ))
                 .col-sm-6
-                  input.form-control.form-control-user(type='text' name='lastname' placeholder='Last Name')
+                  input.form-control.form-control-user(type='text' name='lastname' placeholder='Last Name' value=(!userData ? '' : userData.lastname ))
               .form-group
-                input.form-control.form-control-user(type='text' name='username' placeholder='Enter a Username')
+                input.form-control.form-control-user(type='text' name='username' placeholder='Enter your username' value=(!userData ? '' : userData.username ))
               .form-group
-                input.form-control.form-control-user(type='email' name='email' placeholder='Email Address')
+                input.form-control.form-control-user(type='email' name='email' placeholder='Enter your email address' value=(!userData ? '' : userData.email ))
               .form-group.row
                 .col-sm-6.mb-3.mb-sm-0
-                  input.form-control.form-control-user(type='password' name='password' placeholder='Password')
+                  input.form-control.form-control-user(type='password' name='password' placeholder='Password' value=(!userData ? '' : userData.password ))
                 .col-sm-6
-                  input.form-control.form-control-user(type='password' name='confirmPass' placeholder='Repeat Password')
+                  input.form-control.form-control-user(type='password' name='confirmPass' placeholder='Repeat Password' value=(!userData ? '' : userData.confirmPass ))
               div.form-group.form-row
                 .col
                   label.small(for='gender') Gender
-                  select.form-control.cust-select(name='gender')
+                  select.form-control.cust-select(name='gender' value=(!userData ? '' : userData.gender ))
+                    - const orientation = ["Male", "Female", "Rather not to say"];
                     each gender in orientation
                       option(value=gender) #{gender}
                 .col
-                  label.small(for='contact') Contact
-                  input.form-control.form-control-user(type='tel' id='contact' name='contact' minlength="8" maxlength="9"/* pattern="[0-9]{3} [0-9]{3} [0-9]{4}"*/ placeholder='888 888 8888')
+                  label.small(for='birthday') Birthday
+                  input.form-control.form-control-user(type="date" name="birthday" value=(!userData ? '' : userData.birthday ))
+              div.form-group
+                label.small(for='contact') Contact
+                //- input.form-control.form-control-user(type='tel' id='contact' name='contact' minlength="8" maxlength="9" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder='888 888 8888')
+                input.form-control.form-control-user(type='tel' id='contact' name='contact' minlength="8" maxlength="9" placeholder='888 888 8888' value=(!userData ? '' : userData.contact ))
               div.form-group
                 label.small(for='company') Company
-                input.form-control.form-control-user(type='text' placeholder='Enter your company name' id="company" name='company')
+                input.form-control.form-control-user(type='text' placeholder='Enter your company name' id="company" name='company' value=(!userData ? '' : userData.company ))
               div.form-group
                 label.small(for='address') Address
-                textarea.form-control.form-control-user.cust-textarea(id='address' placeholder='Enter your desired address' name='address')
+                textarea.form-control.form-control-user.cust-textarea(id='address' placeholder='Enter your desired address' name='address' value=(!userData ? '' : userData.address ))
 
               button.btn.btn-primary.btn-user.btn-block(type='submit') Register
               //- hr

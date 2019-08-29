@@ -23,7 +23,7 @@ router.get("/logout", loginController.logout);
 
 // Register
 router.get("/register", registerController.registerForm);
-router.post("/register", registerController.createUser);
+router.post("/register", registerController.validateRegisterForm, registerController.createUser);
 
 // Dashboard
 router.get('/projects', loginController.isLoggedIn, dashboardController.projects);

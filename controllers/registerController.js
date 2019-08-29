@@ -1,45 +1,80 @@
 const User = require("../models").User;
 const { check, sanitize } = require("express-validator");
 const Sequelize =  require("sequelize");
-const nodemailer = require("../handlers/nodemailer");
+// const nodemailer = require("../handlers/nodemailer");
 const Op = Sequelize.Op;
 
 exports.registerForm = (req, res) => {
-  const orientation = ["Male", "Female", "Rather not to say"];
-
-  res.render("register", { title: "Register", orientation });
+  res.render("register", { title: "Register"});
 };
 
+// Middleware for validation on registration form using express-validator
+exports.validateRegisterForm = async (req, res, next) => {
+
+  //1. Sanitize some of the forms
+  req.sanitizeBody('firstname');
+  req.sanitizeBody('lastname');
+  req.sanitizeBody('company');
+
+  //2. Validate empty strings
+  req.checkBody('firstname', 'Fill up First Name!').notEmpty();
+  req.checkBody('lastname', 'Fill up Last Name!').notEmpty();
+  req.checkBody('username', 'Fill up Username!').notEmpty();
+  req.checkBody('contact', 'Fill up Contact Number!').notEmpty();
+  req.checkBody('birthday', 'Fill up birthday').notEmpty();
+  req.checkBody('company', 'Fill up Contact Number!').notEmpty();
+  req.checkBody('address', 'Fill up Contact Number!').notEmpty();
+
+  //3. Validate Format Date
+  req.checkBody('birthday', 'That Date is not valid!').isDate({format: 'DD-MM-YYYY'});
+
+  //4. email validation and normalize it.
+  req.checkBody('email', 'That Email is not valid!').isEmail();
+  req.sanitizeBody('email').normalizeEmail({
+    gmail_remove_dots: false,
+    remove_extension: false,
+    gmail_remove_subaddress: false
+  });
+
+  //4. confirm password
+  req.checkBody('password', 'Password Cannot be Blank!').notEmpty();
+  req.checkBody('confirmPass', 'Confirmed Password cannot be blank!').notEmpty();
+  req.checkBody('confirmPass', 'Oops! Your passwords do not match').equals(req.body.password);
+
+  //5. confirm username is already registered
+  const usernameForm = req.body.username
+  const user = await User.findOne({where: {username: usernameForm }});
+
+  if (user) {// if user exists
+    req.flash('error', 'Username already exist.');
+  }
+
+  //6. confirm email is already registered
+  const emailForm = req.body.email
+  const emailQuery = await User.findOne({where: {email: emailForm}});
+
+  if (emailQuery) {// if email exists
+    req.flash('error', 'Username already exist.');
+  }
+
+  // express-validator module calls validationErrors() method and returns objects
+  const errors = req.validationErrors();
+  if (errors) {
+    // return all error messages back to front end
+    req.flash('error', errors.map(err => err.msg));
+    res.render('register', { title: 'Register', userData: req.body, flashes: req.flash() });
+    return;
+  }
+
+  // and lastly proceed to next function indicated on routes/index
+  next();
+}
+
 exports.createUser = (req, res) => {
+  // Automatically set user to client role
+  req.body.RoleId = 2;
 
-  const orientation = ["Male", "Female", "Rather not to say"];
-  let user = {
-    firstname,
-    lastname,
-    username,
-    email,
-    password,
-    confirmPass,
-    gender,
-    contact,
-    company,
-    address
-  } = req.body;
-
-  if(!user.firstname || !user.lastname || !user.username || !user.email || !user.password || !user.confirmPass || !user.gender || !user.contact || !user.company || !user.address) {
-    res.status(302);
-    req.flash("error", "please fill up all the fields");
-    res.render("register", {orientation});
-  }
-
-  if (password != confirmPass) {
-    res.status(302);
-    req.flash("error", "passwords don't match");
-    res.render("register", {orientation});
-  }
-
-  User.create({ ...user, RoleId: 2 }).then(() => {
-    nodemailer(req, res);
+  User.create(req.body).then(() => {
     req.flash("success", "You have successfully registered");
     res.redirect("/login");
   });
