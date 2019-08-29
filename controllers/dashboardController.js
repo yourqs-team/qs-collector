@@ -44,6 +44,7 @@ exports.editProject = async (req, res) => {
 
   //2. Select the project
   const project = await Project.findOne({where: project_id, include: [
+    {model: User},
     {model: Manpower},
     {model: SafetyRequirement},
     {model: TemporaryService},
@@ -51,9 +52,13 @@ exports.editProject = async (req, res) => {
     {model: AllowanceAndInsurance},
     {model: ProffesionalServiceAllowance},
     {model: Interior},
-    {model: Exterior}
+    {model: Exterior},
+    {model: HardLandscaping},
+    {model: WindowAndDoor},
+    {model: Other}
   ]});
 
   //3. Render
-  res.json(project);
+  // res.json(project);
+  res.render('editProject', {title: "Edit Project", project});
 }

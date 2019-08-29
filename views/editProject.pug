@@ -1,4 +1,27 @@
 extends dashboard-layout
 
+include mixins/scopeForms/_mainProject
+include mixins/scopeForms/_manpower
+include mixins/scopeForms/_siteArrangement
+include mixins/scopeForms/_safetyRequirement
+include mixins/scopeForms/_allowanceAndInsurance
+include mixins/scopeForms/_temporaryService
+include mixins/scopeForms/_professionalServiceAllowance
+
 block content
   .container
+    form.scope-form
+      // Page Heading
+      .d-sm-flex.align-items-center.justify-content-between.mb-4
+        h1.h3.mb-0.text-gray-800.d-none.d-sm-none.d-md-block #{title}
+        a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href='#')
+          i.fas.fa-save.fa-sm.text-white-50
+          |  Save Project
+      .row
+        +mainProject()
+        +manpower()
+        +siteArrangement()
+        +safetyRequirement()
+        +allowanceAndInsurance()
+        +temporaryService()
+        +professionalServiceAllowance()
