@@ -25,6 +25,10 @@ module.exports = (sequelize, DataTypes) => {
     return this.password === password;
   };
 
+  User.prototype.fullname = function() {
+    return this.firstname + " " + this.lastname;
+  };
+
   User.associate = function(models) {
     // associations can be defined here
     User.belongsTo(models.Role);

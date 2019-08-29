@@ -11,10 +11,6 @@ exports.emailSample =  (req, res) => {
   // res.redirect('/login');
 };
 
-exports.dashboard = (req, res) => {
-  res.render('dashboard-layout', {title: "Dashboard"});
-}
-
 exports.getUsers = (req, res) => {
   models.Role
     .findAll({

@@ -16,54 +16,55 @@ include ../mixins/_flashMsg
   // Content Row
   .row
     // Project Card Example
-    .col-xl-4.col-md-6.mb-4
-      .card.border-left-primary.shadow.h-100.py-2
-        .card-body
-          .row.no-gutters.align-items-center
-            .col.mr-2
-              .h5.mb-0.font-weight-bold.text-gray-800.text-primary Project Name
-              .text-xs.mb-1.text-uppercase.text-primary Owned by: username
-              .text-xs.text-uppercase.mb-6.badge.badge-warning Status: In Progess
-              br
-              br
-              a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href='#')
-                i.fas.fa-pencil-alt.fa-sm.text-white-50
-                |  Edit Form
-              a.text-danger.ml-3(href='#') Delete
-            .col-auto
-              i.fas.fa-folder.fa-2x.text-gray-300
+    each project in projects
+      .col-xl-4.col-md-6.mb-4
+        .card.border-left-primary.shadow.h-100.py-2
+          .card-body
+            .row.no-gutters.align-items-center
+              .col.mr-2
+                .h5.mb-0.font-weight-bold.text-gray-800.text-primary= project.project_name
+                .text-xs.mb-1.text-uppercase.text-primary Owned by: #{project.User.username}
+                //- .text-xs.text-uppercase.mb-6.badge.badge-warning Status: In Progess
+                br
+                br
+                a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href=`/project/${project.encodeProjCode(project.id)}/edit`)
+                  i.fas.fa-pencil-alt.fa-sm.text-white-50
+                  |  Edit Form
+                a.text-danger.ml-3(href='#') Delete
+              .col-auto
+                i.fas.fa-folder.fa-2x.text-gray-300
 
-    // Project Card Example
-    .col-xl-4.col-md-6.mb-4
-      .card.border-left-primary.shadow.h-100.py-2
-        .card-body
-          .row.no-gutters.align-items-center
-            .col.mr-2
-              .h5.mb-0.font-weight-bold.text-gray-800.text-primary Project Name
-              .text-xs.mb-1.text-uppercase.text-primary Owned by: username
-              .text-xs.text-uppercase.mb-6.badge.badge-success Status: Submitted
-              br
-              br
-              a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href='#')
-                i.fas.fa-copy.fa-sm.text-white-50
-                |  Clone Project
-            .col-auto
-              i.fas.fa-folder.fa-2x.text-gray-300
+    //- // Project Card Example
+    //- .col-xl-4.col-md-6.mb-4
+    //-   .card.border-left-primary.shadow.h-100.py-2
+    //-     .card-body
+    //-       .row.no-gutters.align-items-center
+    //-         .col.mr-2
+    //-           .h5.mb-0.font-weight-bold.text-gray-800.text-primary Project Name
+    //-           .text-xs.mb-1.text-uppercase.text-primary Owned by: username
+    //-           .text-xs.text-uppercase.mb-6.badge.badge-success Status: Submitted
+    //-           br
+    //-           br
+    //-           a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href='#')
+    //-             i.fas.fa-copy.fa-sm.text-white-50
+    //-             |  Clone Project
+    //-         .col-auto
+    //-           i.fas.fa-folder.fa-2x.text-gray-300
     
-    // Project Card Example
-    .col-xl-4.col-md-6.mb-4
-      .card.border-left-primary.shadow.h-100.py-2
-        .card-body
-          .row.no-gutters.align-items-center
-            .col.mr-2
-              .h5.mb-0.font-weight-bold.text-gray-800.text-primary Project Name
-              .text-xs.mb-1.text-uppercase.text-primary Owned by: username
-              .text-xs.text-uppercase.mb-6.badge.badge-danger Status: Not Filled Up
-              br
-              br
-              a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href='#')
-                i.fas.fa-copy.fa-sm.text-white-50
-                |  Fill up form
-              a.text-danger.ml-3(href='#') Delete
-            .col-auto
-              i.fas.fa-folder.fa-2x.text-gray-300
+    //- // Project Card Example
+    //- .col-xl-4.col-md-6.mb-4
+    //-   .card.border-left-primary.shadow.h-100.py-2
+    //-     .card-body
+    //-       .row.no-gutters.align-items-center
+    //-         .col.mr-2
+    //-           .h5.mb-0.font-weight-bold.text-gray-800.text-primary Project Name
+    //-           .text-xs.mb-1.text-uppercase.text-primary Owned by: username
+    //-           .text-xs.text-uppercase.mb-6.badge.badge-danger Status: Not Filled Up
+    //-           br
+    //-           br
+    //-           a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href='#')
+    //-             i.fas.fa-copy.fa-sm.text-white-50
+    //-             |  Fill up form
+    //-           a.text-danger.ml-3(href='#') Delete
+    //-         .col-auto
+    //-           i.fas.fa-folder.fa-2x.text-gray-300

@@ -1,0 +1,46 @@
+mixin mainProject()
+  .col-lg-12
+      h4.m-0.font-weight-bold.text-primary Details
+      hr
+      div.form-group.form-row
+        .col.col-md-12.col-lg-6
+          .small.badge.badge-primary Company Name
+          p.m-0= project.User.company
+
+        .col.col-md-12.col-lg-6
+          .small.badge.badge-primary Phone Number
+          p.m-0= project.User.contact
+
+      div.form-group.form-row
+        .col.col-md-12.col-lg-6
+          .small.badge.badge-primary Contact Name
+          p.m-0= project.User.fullname()
+
+        .col.col-md-12.col-lg-6
+          .small.badge.badge-primary Email Address
+          p.m-0= project.User.email
+      hr
+
+      div.form-group.form-row
+        .col.col-md-12.col-lg-4.p-2.text-center
+          strong.text-primary Client Name:
+          p.m-0= project.User.firstname
+        .col.col-md-12.col-lg-4.p-2.text-center
+          strong.text-primary Project Created
+          p.m-0 10/21/12
+        .col.col-md-12.col-lg-4.p-2.text-center
+          strong.text-primary Project Code
+          p.m-0= project.encodeProjCode(project.id)
+      div.form-group.form-row
+        .col.col-md-12
+          label.small(for="project-name") Project Name
+          .input-group
+            input.form-control(type="text" name="project-name" placeholder="Project Name" value=`${project.project_name}`) 
+      div.form-group.form-row
+        .col.col-md-12
+          label.small(for="project-address") Address
+          .input-group  
+            textarea.form-control(name="project-address" placeholder="Project Address" style="min-height: 122px")
+              = project.project_address
+     
+      hr              

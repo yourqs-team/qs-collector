@@ -23,6 +23,7 @@
     "express-validator": "3.1.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "figlet": "^1.2.3",
+    "hashids": "^1.2.2",
     "http-errors": "~1.6.3",
     "moment": "^2.24.0",
     "morgan": "~1.9.1",
