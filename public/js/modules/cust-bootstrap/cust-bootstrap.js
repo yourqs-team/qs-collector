@@ -2,23 +2,25 @@
   "use strict"; // Start of use strict
 
   // Toggle the side navigation
-  $("#sidebarToggle, #sidebarToggleTop").on('click', function(e) {
+  $("#sidebarToggle, #sidebarToggleTop").on("click", function(e) {
     $("body").toggleClass("sidebar-toggled");
     $(".sidebar").toggleClass("toggled");
     if ($(".sidebar").hasClass("toggled")) {
-      $('.sidebar .collapse').collapse('hide');
-    };
+      $(".sidebar .collapse").collapse("hide");
+    }
   });
 
   // Close any open menu accordions when window is resized below 768px
   $(window).resize(function() {
     if ($(window).width() < 768) {
-      $('.sidebar .collapse').collapse('hide');
-    };
+      $(".sidebar .collapse").collapse("hide");
+    }
   });
 
   // Prevent the content wrapper from scrolling when the fixed side navigation hovered over
-  $('body.fixed-nav .sidebar').on('mousewheel DOMMouseScroll wheel', function(e) {
+  $("body.fixed-nav .sidebar").on("mousewheel DOMMouseScroll wheel", function(
+    e
+  ) {
     if ($(window).width() > 768) {
       var e0 = e.originalEvent,
         delta = e0.wheelDelta || -e0.detail;
@@ -28,50 +30,55 @@
   });
 
   // Scroll to top button appear
-  $(document).on('scroll', function() {
+  $(document).on("scroll", function() {
     var scrollDistance = $(this).scrollTop();
     if (scrollDistance > 100) {
-      $('.scroll-to-top').fadeIn();
+      $(".scroll-to-top").fadeIn();
     } else {
-      $('.scroll-to-top').fadeOut();
+      $(".scroll-to-top").fadeOut();
     }
   });
 
   // Smooth scrolling using jQuery easing
-  $(document).on('click', 'a.scroll-to-top', function(e) {
+  $(document).on("click", "a.scroll-to-top", function(e) {
     var $anchor = $(this);
-    $('html, body').stop().animate({
-      scrollTop: ($($anchor.attr('href')).offset().top)
-    }, 1000, 'easeInOutExpo');
+    $("html, body")
+      .stop()
+      .animate(
+        {
+          scrollTop: $($anchor.attr("href")).offset().top
+        },
+        1000,
+        "easeInOutExpo"
+      );
     e.preventDefault();
   });
 
   (function(url) {
     // Create a new `Image` instance
     var image = new Image();
-  
+
     image.onload = function() {
       // Inside here we already have the dimensions of the loaded image
       var style = [
         // Hacky way of forcing image's viewport using `font-size` and `line-height`
-        'font-size: 1px;',
-        'line-height: ' + this.height + 'px;',
-  
+        "font-size: 1px;",
+        "line-height: " + this.height + "px;",
+
         // Hacky way of forcing a middle/center anchor point for the image
-        'padding: ' + this.height * .001 + 'px ' + this.width * .5 + 'px;',
-  
+        "padding: " + this.height * 0.001 + "px " + this.width * 0.5 + "px;",
+
         // Set image dimensions
-        'background-size: ' + this.width + 'px ' + this.height + 'px;',
-  
+        "background-size: " + this.width + "px " + this.height + "px;",
+
         // Set image URL
-        'background: url('+ url +');'
-       ].join(' ');
-       // notice the space after %c
-       console.log('%c ', style);
+        "background: url(" + url + ");"
+      ].join(" ");
+      // notice the space after %c
+      console.log("%c ", style);
     };
-  
+
     // Actually loads the image
     image.src = url;
-  })('https://i.imgur.com/RjlZjYJ.gif');
-
+  })("https://i.imgur.com/RjlZjYJ.gif");
 })(jQuery); // End of use strict

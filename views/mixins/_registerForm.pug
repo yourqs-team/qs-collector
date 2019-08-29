@@ -36,10 +36,10 @@ mixin registerForm()
                   label.small(for='contact') Contact
                   input.form-control.form-control-user(type='tel' id='contact' name='contact' minlength="8" maxlength="9"/* pattern="[0-9]{3} [0-9]{3} [0-9]{4}"*/ placeholder='888 888 8888')
               div.form-group
-                label.small(for='password') Company
-                input.form-control.form-control-user(type='text' placeholder='Enter your company name' name='company')
+                label.small(for='company') Company
+                input.form-control.form-control-user(type='text' placeholder='Enter your company name' id="company" name='company')
               div.form-group
-                label.small(for='password') Address
+                label.small(for='address') Address
                 textarea.form-control.form-control-user.cust-textarea(id='address' placeholder='Enter your desired address' name='address')
 
               button.btn.btn-primary.btn-user.btn-block(type='submit') Register

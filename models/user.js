@@ -6,20 +6,15 @@ module.exports = (sequelize, DataTypes) => {
     {
       username: DataTypes.STRING,
       password: DataTypes.STRING,
-      email: {
-        type: DataTypes.STRING,
-        validate: {
-          isEmail: true
-        }
-      },
-      contact: DataTypes.DATE,
+      email: DataTypes.STRING,
+      contact: DataTypes.STRING,
       firstname: DataTypes.STRING,
       lastname: DataTypes.STRING,
       gender: DataTypes.STRING,
       birthday: DataTypes.DATE,
-      gender: DataTypes.DATE,
-      company: DataTypes.DATE,
-      address: DataTypes.DATE
+      gender: DataTypes.STRING,
+      company: DataTypes.STRING,
+      address: DataTypes.STRING
     },
     {}
   );
