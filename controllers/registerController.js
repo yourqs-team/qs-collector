@@ -80,7 +80,7 @@ exports.validateRegisterForm = async (req, res, next) => {
   }
 
   // and lastly proceed to next function indicated on routes/index
-  // next();
+  next();
 }
 
 exports.createUser = (req, res) => {
