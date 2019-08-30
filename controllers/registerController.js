@@ -1,7 +1,7 @@
 const User = require("../models").User;
 const { check, sanitize } = require("express-validator");
 const Sequelize =  require("sequelize");
-// const nodemailer = require("../handlers/nodemailer");
+const mail = require("../handlers/mail");
 const Op = Sequelize.Op;
 
 exports.registerForm = (req, res) => {
@@ -36,12 +36,12 @@ exports.validateRegisterForm = async (req, res, next) => {
     gmail_remove_subaddress: false
   });
 
-  //4. confirm password
+  //5. confirm password
   req.checkBody('password', 'Password Cannot be Blank!').notEmpty();
   req.checkBody('confirmPass', 'Confirmed Password cannot be blank!').notEmpty();
   req.checkBody('confirmPass', 'Oops! Your passwords do not match').equals(req.body.password);
 
-  //5. confirm username is already registered
+  //6. confirm username is already registered
   const usernameForm = req.body.username
   const user = await User.findOne({where: {username: usernameForm }});
 
@@ -49,13 +49,24 @@ exports.validateRegisterForm = async (req, res, next) => {
     req.flash('error', 'Username already exist.');
   }
 
-  //6. confirm email is already registered
-  const emailForm = req.body.email
+  // //6. confirm email is already registered
+  const emailForm = req.body.email;
   const emailQuery = await User.findOne({where: {email: emailForm}});
 
   if (emailQuery) {// if email exists
-    req.flash('error', 'Username already exist.');
+    req.flash('error', 'Email already is in used.');
   }
+
+  // Prepare options for email first
+  const firstname = req.body.firstname;
+  const localURL = `http://${req.headers.host}/login`;
+  await mail.send({
+    to: emailForm, 
+    filename: 'successRegister',
+    subject: 'YourQS - Your have successfully registered to our online app',
+    firstname,
+    localURL
+  });
 
   // express-validator module calls validationErrors() method and returns objects
   const errors = req.validationErrors();
@@ -67,7 +78,7 @@ exports.validateRegisterForm = async (req, res, next) => {
   }
 
   // and lastly proceed to next function indicated on routes/index
-  next();
+  // next();
 }
 
 exports.createUser = (req, res) => {

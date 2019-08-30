@@ -14,7 +14,7 @@ const transport = nodemailer.createTransport({
 });
 
 const generateHTML = (filename, options = {}) => {
-  const html = pug.renderFile(`${__dirname}/../views/email/${filename}.pug`, options);
+  const html = pug.renderFile(`${__dirname}/../views/email-templates/${filename}.pug`, options);
   const inlined = juice(html);
   return inlined;
 };
@@ -24,8 +24,8 @@ exports.send = async (options) => {
   const text = htmlToText.fromString(html);
 
   const mailOptions = {
-    from: `YourQS Online App <yourqs.sender@gmail.com>`,
-    to: options.user.email,
+    from: `YourQS - Online App <yourqs.sender@gmail.com>`,
+    to: options.to,
     subject: options.subject,
     html,
     text
