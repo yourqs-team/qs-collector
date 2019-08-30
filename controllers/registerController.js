@@ -49,7 +49,7 @@ exports.validateRegisterForm = async (req, res, next) => {
     req.flash('error', 'Username already exist.');
   }
 
-  // //6. confirm email is already registered
+  //6. confirm email is already registered
   const emailForm = req.body.email;
   const emailQuery = await User.findOne({where: {email: emailForm}});
 
@@ -60,6 +60,8 @@ exports.validateRegisterForm = async (req, res, next) => {
   // Prepare options for email first
   const firstname = req.body.firstname;
   const localURL = `http://${req.headers.host}/login`;
+
+  // send email using mail.send(options) method
   await mail.send({
     to: emailForm, 
     filename: 'successRegister',
