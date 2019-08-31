@@ -29,4 +29,8 @@ router.post("/register", registerController.validateRegisterForm, registerContro
 router.get('/projects', loginController.isLoggedIn, dashboardController.projects);
 router.get('/project/:id/edit', loginController.isLoggedIn, dashboardController.editProject);
 
+// PDF
+router.get('/pdf/:id/view', sampleController.pdfView);
+// router.get('/pdf/:id/generate', sampleController.generate);
+
 module.exports = router;
