@@ -1,0 +1,34 @@
+doctype html
+
+html
+  head
+    
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description' content='')
+    meta(name='author' content='')
+    link(rel='apple-touch-icon' sizes='180x180' href='/img/favicons/apple-touch-icon.png')
+    link(rel='icon' type='image/png' sizes='32x32' href='/img/favicons/favicon-32x32.png')
+    link(rel='icon' type='image/png' sizes='16x16' href='/img/favicons/favicon-16x16.png')
+    link(rel='manifest' href='/img/favicons/site.webmanifest')
+    link(rel='mask-icon' href='/img/favicons/safari-pinned-tab.svg' color='#5bbad5')
+    meta(name='msapplication-TileColor' content='#da532c')
+    meta(name='theme-color' content='#ffffff')
+
+    link(href='/dist/style.css' rel='stylesheet')
+
+  body
+    .container
+      block content
+
+
+  //- Initialize Jquery first
+  script(src="/vendor/jquery/jquery.js" type="text/javascript")
+
+  //- these libraries will generate pdf
+  script(type="text/javascript" src="/vendor/pdfmake/pdfmake.min.js")
+  script(type="text/javascript" src="/vendor/pdfmake/vfs_fonts.js")
+  //- Base64 image
+  script(type="text/javascript" src="/vendor/pdfmake/images.js")
+
+  block pdfmake
