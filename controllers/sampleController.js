@@ -50,7 +50,8 @@ const HardLandscaping = models.Hard_landscaping;
 const WindowAndDoor = models.Window_and_door;
 const JoineryAllowance = models.Joinery_allowance;
 const Electrical = models.Electrical;
-const InteriorFinish = models.InteriorFinish;
+const InteriorTrim = models.Interior_trim; //- Forgot these
+const InteriorFinish = models.Interior_finish;
 const Plumbing = models.Plumbing;
 const Drainage = models.Drainage;
 const Other = models.Other;
@@ -72,7 +73,13 @@ exports.pdfView = async (req, res) => {
     {model: Interior},
     {model: Exterior},
     {model: HardLandscaping},
+    {model: InteriorTrim}, //- Forgot these
+    {model: InteriorFinish}, //- Forgot these
     {model: WindowAndDoor},
+    {model: JoineryAllowance}, //- Forgot these
+    // {model: Electrical}, //- Forgot these TOFIX
+    {model: Plumbing}, //- Forgot these
+    {model: Drainage}, //- Forgot these
     {model: Other}
   ]});
 

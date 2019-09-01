@@ -293,10 +293,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
   [ {text:'Gutter', bold:'true'},'','',''],
-  [ {text:'Gutter Material:', bold:'true'}, '__', {text:'Profile:', bold:'true'},'__'],
+  [ {text:'Gutter Material:', bold:'true'}, '#{project.Exterior.gutter_material}', {text:'Profile:', bold:'true'},'#{project.Exterior.gutter_profile}'],
   ]
   }
   },
@@ -305,10 +305,11 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
   [ {text:'Downpipe', bold:'true'},'','',''],
-  [ {text:'Material:', bold:'true'}, '__', {text:'Profile:', bold:'true'},'__'],
+  [ {text:'Material:', bold:'true'}, "#{project.Exterior.downpipe_material}", {text:'Profile:', bold:'true'},'#{project.Exterior.downpipe_profile}'],
+  [ {text:'Work Required:', bold:'true'}, {text:'#{project.Exterior.downpipe_work_required}', colSpan: 3},'','']
   ]
   }
   },
@@ -317,10 +318,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*' ],
   body: [
-  [ {text:'Fascia', bold:'true'},'','',''],
-  [ {text:'Fascia Type:', bold:'true'}, '__','',''],
+  [ {text:'Fascia', bold:'true'},''],
+  [ {text:'Fascia Type:', bold:'true'}, '#{project.Exterior.fascia_type}'],
   ]
   }
   },
@@ -342,10 +343,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Deck', bold:'true'}, '__', {text:'Type:', bold:'true'},'__'],
-  [ {text:'Work Required:', bold:'true'}, '__', '',''],
+  [ {text:'Deck', bold:'true'},'','',''],
+  [ {text:'Type:', bold:'true'}, "#{project.Hard_landscaping.deck_type}", {text:'Work Required:', bold:'true'},'#{project.Hard_landscaping.deck_work_required}']
   ]
   }
   },
@@ -354,10 +355,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Handrail', bold:'true'}, '__', {text:'Type:', bold:'true'},'__'],
-  [ {text:'Work Required:', bold:'true'}, '__', '',''],
+  [ {text:'Handrail', bold:'true'},'','',''],
+  [ {text:'Type:', bold:'true'}, "#{project.Hard_landscaping.handrail_type}", {text:'Work Required:', bold:'true'},'#{project.Hard_landscaping.handrail_work_required}']
   ]
   }
   },
@@ -366,10 +367,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Paving', bold:'true'}, '__', {text:'Type:', bold:'true'},'__'],
-  [ {text:'Work Required:', bold:'true'}, '__', '',''],
+  [ {text:'Paving', bold:'true'},'','',''],
+  [ {text:'Type:', bold:'true'}, "#{project.Hard_landscaping.paving_type}", {text:'Work Required:', bold:'true'},'#{project.Hard_landscaping.paving_work_required}']
   ]
   }
   },
@@ -378,10 +379,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Driveway', bold:'true'}, '__', {text:'Type:', bold:'true'},'__'],
-  [ {text:'Work Required:', bold:'true'}, '__', '',''],
+  [ {text:'Driveway', bold:'true'},'','',''],
+  [ {text:'Type:', bold:'true'}, "#{project.Hard_landscaping.driveway_type}", {text:'Work Required:', bold:'true'},'#{project.Hard_landscaping.driveway_work_required}']
   ]
   }
   },
@@ -390,10 +391,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Fencing', bold:'true'}, '__', {text:'Type:', bold:'true'},'__'],
-  [ {text:'Work Required:', bold:'true'}, '__', '',''],
+  [ {text:'Fencing', bold:'true'},'','',''],
+  [ {text:'Type:', bold:'true'}, "#{project.Hard_landscaping.fencing_type}", {text:'Work Required:', bold:'true'},'#{project.Hard_landscaping.fencing_work_required}']
   ]
   }
   },
@@ -402,9 +403,9 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Other', bold:'true'}, '__' ],
+  [ {text:'Other:', bold:'true'}, {text: '#{project.Hard_landscaping.other_work_required}', colSpan: 3}, '', '' ],
   ]
   }
   },
@@ -417,7 +418,7 @@ block pdfmake
   align: 'right',
   widths: [ 'auto', '*' ],
   body: [
-  [ {text:'Painting Exterior:', bold:'true'}, '__'],
+  [ {text:'Painting Interior:', bold:'true'}, '#{project.Interior.painting_interior}'],
   ]
   }
   },
@@ -439,11 +440,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Scotia Type:', bold:'true'}, '__', {text:'Skirting Type:', bold:'true'},'__'],
-  [ {text:'Window Architrave:', bold:'true'}, '__', {text:'Door Architrave:', bold:'true'},'__'],
-  [ {text:'Council Fees:', bold:'true'}, '__', '','']
+  [ {text:'Scotia Type:', bold:'true'}, '#{project.Interior_trim.scotia_type}', {text:'Skirting Type:', bold:'true'},'#{project.Interior_trim.skirting_type}'],
+  [ {text:'Window Architrave:', bold:'true'}, '#{project.Interior_trim.window_architrave}', {text:'Door Architrave:', bold:'true'},'#{project.Interior_trim.door_architrave}']
   ]
   }
   },
@@ -467,13 +467,13 @@ block pdfmake
   widths: [ 'auto', '*', '*' ],
   body: [
   [ '', 'Floor Covering', 'Wall Finish'],
-  [ {text:'Kitchen: ', bold:'true'}, '__', '__'],
-  [ {text:'Living: ', bold:'true'}, '__', '__'],
-  [ {text:'Bedrooms: ', bold:'true'}, '__', '__'],
-  [ {text:'Bathrooms: ', bold:'true'}, '__', '__'],
-  [ {text:'Ensuite: ', bold:'true'}, '__', '__'],
-  [ {text:'Laundry: ', bold:'true'}, '__', '__'],
-  [ {text:'Other: ', bold:'true'}, {colSpan: 2, text: '__'}, '']
+  [ {text:'Kitchen: ', bold:'true'}, '#{project.Interior_finish.kitchen_floor_covering}', '#{project.Interior_finish.kitchen_wall_finish}'],
+  [ {text:'Living: ', bold:'true'}, '#{project.Interior_finish.living_floor_covering}', '#{project.Interior_finish.living_wall_finish}'],
+  [ {text:'Bedrooms: ', bold:'true'}, '#{project.Interior_finish.bedrooms_floor_covering}', '#{project.Interior_finish.bedrooms_wall_finish}'],
+  [ {text:'Bathrooms: ', bold:'true'}, '#{project.Interior_finish.bathroom_floor_covering}', '#{project.Interior_finish.bathroom_wall_finish}'],
+  [ {text:'Ensuite: ', bold:'true'}, '#{project.Interior_finish.ensuite_floor_covering}', '#{project.Interior_finish.ensuite_wall_finish}'],
+  [ {text:'Laundry: ', bold:'true'}, '#{project.Interior_finish.laundry_floor_covering}', '#{project.Interior_finish.laundry_wall_finish}'],
+  [ {text:'Other: ', bold:'true'}, '#{project.Interior_finish.other_floor_covering}', '#{project.Interior_finish.other_wall_finish}'],
   ]
   }
   },
@@ -497,8 +497,8 @@ block pdfmake
   align: 'right',
   widths: [ 'auto', '*' ],
   body: [
-  [ {text:'Interior Door Type:', bold:'true'}, '__',],
-  [ {text:'Door Hardware:', bold:'true'}, ' __ '],
+  [ {text:'Interior Door Type:', bold:'true'}, '#{project.Window_and_door.interior_door_type}',],
+  [ {text:'Door Hardware:', bold:'true'}, '#{project.Window_and_door.door_hardware}'],
   ]
   }
   },
@@ -506,7 +506,7 @@ block pdfmake
   {
   layout: 'lightHorizontalLines', // optional
   table: {
-  // Windows and Doors
+  // Joinery Allowances
   headerRows: 1,
   align: 'right',
   widths: ['*'],
@@ -522,11 +522,12 @@ block pdfmake
   widths: [ '*', '*' ],
   body: [
   [ {text:'Areas: ', bold:'true'}, {text:'Amount: ', bold:'true'}],
-  [ {text:'Kitchen: ', bold:'true'}, '$__'],
-  [ {text:'Laundry: ', bold:'true'}, '$__'],
-  [ {text:'Wardrobe Masterbed: ', bold:'true'}, '$__'],
-  [ {text:'Wardrobe Other: ', bold:'true'}, '$__'],
-  [ {text:'Other: ', bold:'true'}, '$__']
+  [ {text:'Kitchen: ', bold:'true'}, '$ #{project.Joinery_allowance.kitchen}'],
+  [ {text:'Laundry: ', bold:'true'}, '$ #{project.Joinery_allowance.laundry}'],
+  //- NOTE: wardrobe_masterbed = "wardrobe_master_bed"
+  [ {text:'Wardrobe Masterbed: ', bold:'true'}, '$ #{project.Joinery_allowance.wardrobe_master_bed}'],
+  [ {text:'Wardrobes Other:  #{project.Joinery_allowance.wardrobes_other}', bold:'true'}, '$ #{project.Joinery_allowance.wardrobe_other_amount}'],
+  [ {text:'Other: #{project.Joinery_allowance.other}', bold:'true'}, '$ #{project.Joinery_allowance.other_amount}']
   ]
   }
   },
@@ -550,10 +551,10 @@ block pdfmake
   align: 'right',
   widths: [ 'auto', '*' ],
   body: [
-  [ {text:'Allowance Type:', bold:'true'}, '__',],
-  [ {text:'HWC:', bold:'true'}, '__'],
-  [ {text:'New Connection:', bold:'true'}, '__'],
-  [ {text:'Comments:', bold:'true'}, '__']
+  [ {text:'Allowance Type:', bold:'true'}, '#{project.Plumbing.allowance_type}',],
+  [ {text:'HWC:', bold:'true'}, '#{project.Plumbing.HWC}'],
+  [ {text:'New Connection:', bold:'true'}, '#{project.Plumbing.newConnectionToYesNo()}'],
+  [ {text:'Comments:', bold:'true'}, '#{project.Plumbing.comments}']
   ]
   }
   },
@@ -604,8 +605,8 @@ block pdfmake
   align: 'right',
   widths: [ 'auto', '*' ],
   body: [
-  [ {text:'New Connection:', bold:'true'}, '__'],
-  [ {text:'Comments:', bold:'true'}, '__']
+  [ {text:'New Connection:', bold:'true'}, '#{project.Drainage.newConnectionToYesNo()}'],
+  [ {text:'Comments:', bold:'true'}, '#{project.Drainage.comments}']
   ]
   }
   },
@@ -629,9 +630,8 @@ block pdfmake
   widths: [ 'auto', '*', '*' ],
   body: [
   [ '', 'Demolition', 'Renovation'],
-  [ {text:'', bold:'true'}, '__', '__'],
-  [ {text:'', bold:'true'}, '__', '__'],
-  [ {text:'Comments: ', bold:'true'}, {colSpan: 2, text: '__'}, '']
+  [ {text:'', bold:'true'}, '#{project.Other.demolition}', '#{project.Other.renovation}'],
+  [ {text:'Comments: ', bold:'true'}, {colSpan: 2, text: '#{project.Other.comments}'}, '']
   ]
   }
   },
