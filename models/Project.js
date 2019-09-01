@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
   Project.prototype.decodeProjCode = function(id) {
     return hashids.decode(id);
   };
+
+  Project.prototype.generateProjCode = function() {
+    return hashids.encode(this.id);
+  }
   
   Project.associate = function(models) {
     Project.belongsTo(models.User, {foreignKey: 'UserId'});

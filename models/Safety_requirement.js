@@ -7,6 +7,31 @@ module.exports = (sequelize, DataTypes) => {
     security_fencing: DataTypes.STRING,
     ProjectId: DataTypes.INTEGER
   }, {timestamps: false});
+
+  Safety_requirements.prototype.siteSignToYesNo = function() {
+    if (this.site_sign === true){
+      return "Yes"
+    }
+
+    return "No"
+  };
+
+  Safety_requirements.prototype.fallInToYesNo = function() {
+    if (this.fall_in_protection === true){
+      return "Yes"
+    }
+
+    return "No"
+  };
+
+  Safety_requirements.prototype.crossingToYesNo = function() {
+    if (this.fall_in_protection === true){
+      return "Yes"
+    }
+
+    return "No"
+  };
+
   Safety_requirements.associate = function(models) {
     // associations can be defined here
     Safety_requirements.belongsTo(models.Project, {foreignKey: 'ProjectId'});

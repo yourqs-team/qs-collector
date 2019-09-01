@@ -28,8 +28,8 @@ block pdfmake
   widths: [ '*', 150, '*', 150 ],
   body: [
   [ {text:'Details', style:'header'}, '', '', ''],
-  [ {text:'Company Name:', bold:'true'}, '__', {text:'Contact #:', bold:'true'}, '__'],
-  [ {text:'Contact Name:', bold:'true'}, '__', {text:'Email:', bold:'true'}, '__']
+  [ {text:'Company Name:', bold:'true'}, '#{project.User.company}', {text:'Contact #:', bold:'true'}, '#{project.User.contact}'],
+  [ {text:'Contact Name:', bold:'true'}, '#{project.User.fullname()}', {text:'Email:', bold:'true'}, '#{project.User.email}']
   ]
   }
   },
@@ -41,9 +41,9 @@ block pdfmake
   align: 'right',
   widths: [ '*', 150, '*', 150 ],
   body: [
-  [ {text:'Project', style:'header'}, '', {text:'\nProject Code:', bold:'true'}, '\n__'],
-  [ {text:'Project Name:', bold:'true'}, '__', {text:'Date:', bold:'true'}, '__'],
-  [ {text:'Client Name:', bold:'true'}, '__', {text:'Address:', bold:'true'}, '__']
+  [ {text:'Project', style:'header'}, '', {text:'\nProject Code:', bold:'true'}, '#{project.generateProjCode()}'],
+  [ {text:'Project Name:', bold:'true'}, '#{project.project_name}', {text:'Date:', bold:'true'}, '#{project.createAt}'],
+  [ {text:'Client Name:', bold:'true'}, '#{project.User.firstname}', {text:'Address:', bold:'true'}, '#{project.project_address}']
   ]
   }
   },
@@ -67,11 +67,11 @@ block pdfmake
   align: 'right',
   widths: [ 'auto', '*', '*', '*' ],
   body: [
-  [ {text:'Markup:', bold:'true'}, 'Plus __ %', '',''],
-  [ {text:'# of Builders:', bold:'true'}, ' __ People', {text:'Supervision:', bold:'true'}, '__ Hrs / Week'],
-  [ {text:'Administration:', bold:'true'}, '__ Hrs / Week', {text:'Project Management:', bold:'true'}, '__ Hrs / Week'],
-  [ {text:'Travel Distance:', bold:'true'}, '__ km', {text:'Travel Distance - Price:', bold:'true'}, '$ __  / km'],
-  [ {text:'No of Vehicles:', bold:'true'}, '__', '','']
+  [ {text:'Markup:', bold:'true'}, 'Plus #{project.Manpower.markup} %', '',''],
+  [ {text:'# of Builders:', bold:'true'}, '#{project.Manpower.no_builder} People', {text:'Supervision:', bold:'true'}, '#{project.Manpower.supervision} Hrs / Week'],
+  [ {text:'Administration:', bold:'true'}, '#{project.Manpower.administration} Hrs / Week', {text:'Project Management:', bold:'true'}, '#{project.Manpower.project_management} Hrs / Week'],
+  [ {text:'Travel Distance:', bold:'true'}, '#{project.Manpower.travel_distance} km', {text:'Travel Distance - Price:', bold:'true'}, '$ #{project.Manpower.travel_price} / km'],
+  [ {text:'No of Vehicles:', bold:'true'}, '#{project.Manpower.no_vehicles}', '','']
   ]
   }
   },
@@ -95,9 +95,9 @@ block pdfmake
   align: 'right',
   widths: [ 'auto', 'auto', 'auto', 'auto' ],
   body: [
-  [ {text:'Site Access:', bold:'true'}, 'Plus __ %', {text:'Carpet Protection:', bold:'true'},'__'],
-  [ {text:'Space for Material Storage:', bold:'true'}, ' __ People', {text:'Carpet Protection:', bold:'true'}, '__ Hrs / Week'],
-  [ {text:'Living Arrangements:', bold:'true'}, '__', {text:'Allow Extra Site-Specific Time:', bold:'true'}, '__ hrs']
+  [ {text:'Site Access:', bold:'true'}, '#{project.Site_arrangement.site_access}', {text:'Comment:', bold:'true'},'#{project.Site_arrangement.comment}'],
+  [ {text:'Space for Material Storage:', bold:'true'}, '#{project.Site_arrangement.space_for_material_storage}', {text:'Carpet Protection:', bold:'true'}, '#{project.Site_arrangement.carpetToYesNo()}'],
+  [ {text:'Living Arrangements:', bold:'true'}, '#{project.Site_arrangement.living_arrangement}', {text:'Allow Extra Site-Specific Time:', bold:'true'}, '#{project.Site_arrangement.allow_extra_site_specific_time} hrs']
   ]
   }
   },
@@ -119,11 +119,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ 'auto', '*', 'auto', '*' ],
   body: [
-  [ {text:'Site Sign:', bold:'true'}, '__', {text:'Security Fencing:', bold:'true'},'__'],
-  [ {text:'Fall-in Protection:', bold:'true'}, ' __ ', {text:'Crossing Protection:', bold:'true'}, '__'],
-  [ {text:'Living Arrangements:', bold:'true'}, '__', '','']
+  [ {text:'Site Sign:', bold:'true'}, '#{project.Safety_requirement.siteSignToYesNo()}', {text:'Security Fencing:', bold:'true'},'#{project.Safety_requirement.security_fencing}'],
+  [ {text:'Fall-in Protection:', bold:'true'}, '#{project.Safety_requirement.fallInToYesNo()}', {text:'Crossing Protection:', bold:'true'}, '#{project.Safety_requirement.crossingToYesNo()}']
   ]
   }
   },
@@ -145,10 +144,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ 'auto', '*', 'auto', '*' ],
   body: [
-  [ {text:'Estimated Project Duration:', bold:'true'}, '__', {text:'All Risk Insurance:', bold:'true'},'__'],
-  [ {text:'Building Guarantee:', bold:'true'}, ' __ ','',''],
+  [ {text:'Estimated Project Duration:', bold:'true'}, '#{project.Allowance_and_insurance.estimated_project_duration} Weeks', {text:'All Risk Insurance:', bold:'true'},'#{project.Allowance_and_insurance.riskInsuranceToYesNo()}'],
+  [ {text:'Building Guarantee:', bold:'true'}, '#{project.Allowance_and_insurance.building_guarantee}','',''],
   ]
   }
   },
@@ -172,7 +171,7 @@ block pdfmake
   align: 'right',
   widths: [ 'auto', 'auto', 'auto', 'auto', 'auto', 'auto' ],
   body: [
-  [ {text:'Temporary Power:', bold:'true'}, '__', {text:'Temporary Water:', bold:'true'},'__', {text:'Site Shed:', bold:'true'},'__'],
+  [ {text:'Temporary Power:', bold:'true'}, '#{project.Temporary_service.TempPowerToYesNo()}', {text:'Temporary Water:', bold:'true'},'#{project.Temporary_service.TempWaterToYesNo()}', {text:'Site Shed:', bold:'true'},'#{project.Temporary_service.site_shed}'],
   ]
   }
   },
@@ -180,7 +179,7 @@ block pdfmake
   {
   layout: 'lightHorizontalLines', // optional
   table: {
-  // Professional Service Allowances
+  // Professional Service Allowances = Proffesional_service_allowance
   headerRows: 1,
   align: 'right',
   widths: ['*'],
@@ -194,11 +193,12 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ 'auto', '*', 'auto', '*' ],
   body: [
-  [ {text:'Plans:', bold:'true'}, '__', {text:'Geotechnical:', bold:'true'},'__'],
-  [ {text:'Engineer:', bold:'true'}, '__', {text:'Surveyor:', bold:'true'},'__'],
-  [ {text:'Council Fees:', bold:'true'}, '__', '','']
+  //- NOTE: Profesional Service Allowances = Proffesional_service_allowance on Models
+  [ {text:'Plans:', bold:'true'}, '$ #{project.Proffesional_service_allowance.plans}', {text:'Geotechnical:', bold:'true'},'$ #{project.Proffesional_service_allowance.geotechnical}'],
+  [ {text:'Engineer:', bold:'true'}, '$ #{project.Proffesional_service_allowance.engineer}', {text:'Surveyor:', bold:'true'},'$ #{project.Proffesional_service_allowance.surveyor}'],
+  [ {text:'Council Fees:', bold:'true'}, '$ #{project.Proffesional_service_allowance.council_fees}', '','']
   ]
   }
   },
@@ -211,7 +211,7 @@ block pdfmake
   align: 'right',
   widths: [ 'auto', '*' ],
   body: [
-  [ {text:'Painting Exterior:', bold:'true'}, '__'],
+  [ {text:'Painting Exterior:', bold:'true'}, '#{project.Exterior.painting_exterior}'],
   ]
   }
   },
@@ -220,10 +220,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Wall Cladding:', bold:'true'}, '__', {text:'Type:', bold:'true'},'__'],
-  [ {text:'Work Required:', bold:'true'}, '__','','']
+  [ {text:'Wall Cladding', bold:'true'},'','','' ],
+  [ {text:'Type:', bold:'true'},'#{project.Exterior.wall_cladding_type}', {text:'Work Required:', bold:'true'}, '#{project.Exterior.wall_cladding_work_required}',]
   ]
   }
   },
@@ -232,10 +232,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Base Cladding:', bold:'true'}, '__', {text:'Type:', bold:'true'},'__'],
-  [ {text:'Work Required:', bold:'true'}, '__','','']
+  [ {text:'Base Cladding', bold:'true'},'','','' ],
+  [ {text:'Type:', bold:'true'},'#{project.Exterior.base_cladding_type}', {text:'Work Required:', bold:'true'}, '#{project.Exterior.base_cladding_work_required}',]
   ]
   }
   },
@@ -244,10 +244,11 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Soffit Cladding:', bold:'true'}, '__', {text:'Type:', bold:'true'},'__'],
-  [ {text:'Work Required:', bold:'true'}, '__','','']
+  //- NOTE: soffit_cladding_work_require = "soffit_cladding_work_required"
+  [ {text:'Soffit Cladding', bold:'true'},'','','' ],
+  [ {text:'Type:', bold:'true'},'#{project.Exterior.soffit_cladding_type}', {text:'Work Required:', bold:'true'}, '#{project.Exterior.soffit_cladding_work_require}',]
   ]
   }
   },
@@ -256,10 +257,10 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
-  [ {text:'Exterior Joinery:', bold:'true'}, '__', {text:'Type:', bold:'true'},'__'],
-  [ {text:'Work Required:', bold:'true'}, '__','','']
+  [ {text:'Exterior Joinery', bold:'true'},'','','' ],
+  [ {text:'Type:', bold:'true'},'#{project.Exterior.exterior_joinery_type}', {text:'Work Required:', bold:'true'}, '#{project.Exterior.exterior_joinery_work_required}',]
   ]
   }
   },
@@ -268,9 +269,9 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ 'auto', 'auto'],
   body: [
-  [ {text:'Entrance Door:', bold:'true'}, '__', {text:'Type:', bold:'true'},'__'],
+  [ {text:'Entrance Door - Type:', bold:'true'}, '#{project.Exterior.entrance_door_type}' ],
   ]
   }
   },
@@ -279,11 +280,11 @@ block pdfmake
   layout: 'lightHorizontalLines',
   table: {
   align: 'right',
-  widths: [ 'auto', 'auto', 'auto', 'auto' ],
+  widths: [ '*', '*', '*', '*' ],
   body: [
   [ {text:'Roof', bold:'true'},'','',''],
-  [ {text:'Pitch:', bold:'true'}, '__', {text:'Cladding Type:', bold:'true'},'__'],
-  [ {text:'Work Required:', bold:'true'}, '__','','']
+  [ {text:'Pitch:', bold:'true'}, '#{project.Exterior.roof_pitch}', {text:'Cladding Type:', bold:'true'},'#{project.Exterior.roof_cladding_type}'],
+  [ {text:'Work Required:', bold:'true'}, {text:'#{project.Exterior.roof_work_required}', colSpan: 3},'','']
   ]
   }
   },

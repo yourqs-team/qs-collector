@@ -9,6 +9,15 @@ module.exports = (sequelize, DataTypes) => {
     allow_extra_site_specific_time: DataTypes.INTEGER,
     ProjectId: DataTypes.INTEGER
   }, {timestamps: false});
+
+  Site_arrangement.prototype.carpetToYesNo = function() {
+    if (this.carpet_protection === true){
+      return "Yes"
+    }
+
+    return "No"
+  };
+
   Site_arrangement.associate = function(models) {
     // associations can be defined here
     Site_arrangement.belongsTo(models.Project, {foreignKey: 'ProjectId'});

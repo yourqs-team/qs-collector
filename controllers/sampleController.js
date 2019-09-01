@@ -79,5 +79,6 @@ exports.pdfView = async (req, res) => {
   //3. Render
   // res.json(project);
   res.render('pdf-templates/project-scope', {project});
+
 }
 
