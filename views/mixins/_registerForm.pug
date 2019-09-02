@@ -29,10 +29,13 @@ mixin registerForm()
               div.form-group.form-row
                 .col
                   label.small(for='gender') Gender
-                  select.form-control.cust-select(name='gender' value=(!userData ? '' : userData.gender ))
+                  select.form-control.cust-select(name='gender')
                     - const orientation = ["Male", "Female", "Rather not to say"];
                     each gender in orientation
-                      option(value=gender) #{gender}
+                      if (userData && gender.includes(userData.gender))
+                        option(value=gender selected) #{gender}
+                      else
+                        option(value=gender) #{gender}
                 .col
                   label.small(for='birthday') Birthday
                   input.form-control.form-control-user(type="date" name="birthday" value=(!userData ? '' : userData.birthday ))
