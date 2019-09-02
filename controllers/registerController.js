@@ -22,8 +22,8 @@ exports.validateRegisterForm = async (req, res, next) => {
   req.checkBody('username', 'Fill up Username!').notEmpty();
   req.checkBody('contact', 'Fill up Contact Number!').notEmpty();
   req.checkBody('birthday', 'Fill up birthday').notEmpty();
-  req.checkBody('company', 'Fill up Contact Number!').notEmpty();
-  req.checkBody('address', 'Fill up Contact Number!').notEmpty();
+  req.checkBody('company', 'Fill up Company!').notEmpty();
+  req.checkBody('address', 'Fill up Address!').notEmpty();
 
   //3. Validate Format Date
   req.checkBody('birthday', 'That Date is not valid!').isDate({format: 'DD-MM-YYYY'});
@@ -43,32 +43,37 @@ exports.validateRegisterForm = async (req, res, next) => {
 
   //6. confirm username is already registered
   const usernameForm = req.body.username
-  const user = await User.findOne({where: {username: usernameForm }});
+  if (usernameForm != ''){ // if the usernameForm is empty
+    const user = await User.findOne({where: {username: usernameForm }});
 
-  if (user) {// if user exists
-    req.flash('error', 'Username already exist.');
+    if (user) {// if user exists
+      req.flash('error', 'Username already exist.');
+    }
   }
+ 
 
-  //6. confirm email is already registered
+  //7. confirm email is already registered
   const emailForm = req.body.email;
-  const emailQuery = await User.findOne({where: {email: emailForm}});
+  if (emailForm != ''){ // if the email is empty
+    const emailQuery = await User.findOne({where: {email: emailForm}});
 
-  if (emailQuery) {// if email exists
-    req.flash('error', 'Email already is in used.');
+    if (emailQuery) {// if email exists
+      req.flash('error', 'Email already is in use.');
+    }
+
+    // Prepare options for email first
+    const firstname = req.body.firstname;
+    const localURL = `http://${req.headers.host}/login`;
+
+    // send email using mail.send(options) method
+    await mail.send({
+      to: emailForm, 
+      filename: 'successRegister',
+      subject: 'YourQS - Your have successfully registered to our online app',
+      firstname,
+      localURL
+    });
   }
-
-  // Prepare options for email first
-  const firstname = req.body.firstname;
-  const localURL = `http://${req.headers.host}/login`;
-
-  // send email using mail.send(options) method
-  await mail.send({
-    to: emailForm, 
-    filename: 'successRegister',
-    subject: 'YourQS - Your have successfully registered to our online app',
-    firstname,
-    localURL
-  });
 
   // express-validator module calls validationErrors() method and returns objects
   const errors = req.validationErrors();
