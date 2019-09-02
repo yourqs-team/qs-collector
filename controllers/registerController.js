@@ -55,17 +55,30 @@ exports.validateRegisterForm = async (req, res, next) => {
   //7. confirm email is already registered
   const emailForm = req.body.email;
   if (emailForm != ''){ // if the email is empty
+
     const emailQuery = await User.findOne({where: {email: emailForm}});
 
     if (emailQuery) {// if email exists
       req.flash('error', 'Email already is in use.');
     }
 
+    // express-validator module calls validationErrors() method and returns objects
+    const errors = req.validationErrors();
+    if (errors) { // if there are any errors
+      // return all error messages back to front end
+      req.flash('error', errors.map(err => err.msg));
+      // render pages
+      res.render('register', { title: 'Register', userData: req.body, flashes: req.flash() });
+      return;
+    }
+
+    // Proceed here if there are NO errors
+
     // Prepare options for email first
     const firstname = req.body.firstname;
     const localURL = `http://${req.headers.host}/login`;
 
-    // send email using mail.send(options) method
+    // send email using mail.send(options) method coming from handlers/mail
     await mail.send({
       to: emailForm, 
       filename: 'successRegister',
@@ -73,15 +86,6 @@ exports.validateRegisterForm = async (req, res, next) => {
       firstname,
       localURL
     });
-  }
-
-  // express-validator module calls validationErrors() method and returns objects
-  const errors = req.validationErrors();
-  if (errors) {
-    // return all error messages back to front end
-    req.flash('error', errors.map(err => err.msg));
-    res.render('register', { title: 'Register', userData: req.body, flashes: req.flash() });
-    return;
   }
 
   // and lastly proceed to next function indicated on routes/index
