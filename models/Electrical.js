@@ -8,13 +8,13 @@ module.exports = (sequelize, DataTypes) => {
     ProjectId: DataTypes.INTEGER
   }, {timestamps: false});
 
-  // Electrical.prototype.newConnectionToYesNo = function() {
-  //   if (this.new_connection === true){
-  //     return "Yes"
-  //   }
+  Electrical.prototype.newConnectionToYesNo = function() {
+    if (this.new_connection === true){
+      return "Yes"
+    }
 
-  //   return "No"
-  // };
+    return "No"
+  };
 
   Electrical.associate = function(models) {
     // associations can be defined here

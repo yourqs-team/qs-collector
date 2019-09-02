@@ -578,10 +578,10 @@ block pdfmake
   align: 'right',
   widths: [ 'auto', '*' ],
   body: [
-  [ {text:'Allowance Type:', bold:'true'}, '__',],
-  [ {text:'Distribution Board:', bold:'true'}, '__'],
-  [ {text:'New Connection:', bold:'true'}, '__'],
-  [ {text:'Comments:', bold:'true'}, '__']
+  [ {text:'Allowance Type:', bold:'true'}, '#{project.Electrical.allowance_type}',],
+  [ {text:'Distribution Board:', bold:'true'}, '#{project.Electrical.distribution_board}'],
+  [ {text:'New Connection:', bold:'true'}, '#{project.Electrical.newConnectionToYesNo()}'],
+  [ {text:'Comments:', bold:'true'}, '#{project.Electrical.comments}']
   ]
   }
   },
