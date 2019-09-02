@@ -1,6 +1,7 @@
 'use strict';
 const Hashids = require('hashids');
 const hashids = new Hashids(process.env.SHA256 || 'JapIsAwesome', 6);
+const moment = require('moment');
 
 module.exports = (sequelize, DataTypes) => {
   const Project = sequelize.define('Project', {
@@ -20,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
 
   Project.prototype.generateProjCode = function() {
     return hashids.encode(this.id);
+  }
+
+  Project.prototype.createdAtToNZTime = function(){
+    return moment(this.createdAt).format('DD/MM/YYYY')
   }
   
   Project.associate = function(models) {

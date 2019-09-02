@@ -56,6 +56,9 @@ const Plumbing = models.Plumbing;
 const Drainage = models.Drainage;
 const Other = models.Other;
 
+const moment = require('moment');
+
+
 exports.pdfView = async (req, res) => {
   //1. decode ID first to retrieve primary key
   // let project_id = hashids.decode(req.params); // returns primary key of project

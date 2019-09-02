@@ -41,8 +41,8 @@ block pdfmake
   align: 'right',
   widths: [ '*', 150, '*', 150 ],
   body: [
-  [ {text:'Project', style:'header'}, '', {text:'\nProject Code:', bold:'true'}, '#{project.generateProjCode()}'],
-  [ {text:'Project Name:', bold:'true'}, '#{project.project_name}', {text:'Date:', bold:'true'}, '#{project.createAt}'],
+  [ {text:'Project', style:'header'}, '', {text:'\nProject Code:', bold:'true'}, '\n#{project.generateProjCode()}'],
+  [ {text:'Project Name:', bold:'true'}, '#{project.project_name}', {text:'Date:', bold:'true'}, '#{project.createdAtToNZTime()}'],
   [ {text:'Client Name:', bold:'true'}, '#{project.User.firstname}', {text:'Address:', bold:'true'}, '#{project.project_address}']
   ]
   }
