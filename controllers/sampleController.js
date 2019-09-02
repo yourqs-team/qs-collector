@@ -77,7 +77,7 @@ exports.pdfView = async (req, res) => {
     {model: InteriorFinish}, //- Forgot these
     {model: WindowAndDoor},
     {model: JoineryAllowance}, //- Forgot these
-    // {model: Electrical}, //- Forgot these TOFIX
+    {model: Electrical}, //- Forgot these TOFIX
     {model: Plumbing}, //- Forgot these
     {model: Drainage}, //- Forgot these
     {model: Other}

@@ -43,6 +43,7 @@ module.exports = (sequelize, DataTypes) => {
     Project.hasOne(models.Interior_finish);
     Project.hasOne(models.Window_and_door);
     Project.hasOne(models.Joinery_allowance);
+    Project.hasOne(models.Electrical); // added this
     Project.hasOne(models.Plumbing);
     Project.hasOne(models.Drainage);
     Project.hasOne(models.Other);
