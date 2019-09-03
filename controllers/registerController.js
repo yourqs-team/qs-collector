@@ -18,6 +18,7 @@ exports.validateRegisterForm = async (req, res, next) => {
   //1. Sanitize some of the forms
   req.sanitizeBody('firstname');
   req.sanitizeBody('lastname');
+  req.sanitizeBody('username');
   req.sanitizeBody('company');
 
   //2. Validate empty strings
@@ -40,57 +41,53 @@ exports.validateRegisterForm = async (req, res, next) => {
     gmail_remove_subaddress: false
   });
 
+
   //5. confirm password
   req.checkBody('password', 'Password Cannot be Blank!').notEmpty();
   req.checkBody('confirmPass', 'Confirmed Password cannot be blank!').notEmpty();
   req.checkBody('confirmPass', 'Oops! Your passwords do not match').equals(req.body.password);
 
-  //6. confirm username is already registered
+  //6. confirm username/email is already registered
   const usernameForm = req.body.username
-  if (usernameForm != ''){ // if the usernameForm is empty
-    const user = await User.findOne({where: {username: usernameForm }});
+  const user = await User.findOne({where: {username: usernameForm }});
+  const emailForm = req.body.email
+  const email = await User.findOne({where: {email: emailForm }});
 
-    if (user) {// if user exists
-      req.flash('error', 'Username already exist.');
-    }
+  if (user) {// if user exists
+    req.flash('error', 'Username already is in use.');
   }
- 
 
-  //7. confirm email is already registered
-  const emailForm = req.body.email;
-  if (emailForm != ''){ // if the email is empty
+  if (email){
+    req.flash('error', 'Email already is in use.');
+  }
 
-    const emailQuery = await User.findOne({where: {email: emailForm}});
-
-    if (emailQuery) {// if email exists
-      req.flash('error', 'Email already is in use.');
-    }
-
-    // express-validator module calls validationErrors() method and returns objects
-    const errors = req.validationErrors();
-    if (errors) { // if there are any errors
-      // return all error messages back to front end
+  // express-validator module calls validationErrors() method and returns objects
+  const errors = req.validationErrors();
+  if (errors || email || user) { // if there are any errors OR email exist OR username exist
+    // return all error messages back to front end
+    if (errors){
       req.flash('error', errors.map(err => err.msg));
-      // render pages
-      res.render('register', { title: 'Register', userData: req.body, flashes: req.flash() });
-      return;
     }
-
-    // Proceed here if there are NO errors
-
-    // Prepare options for email first
-    const firstname = req.body.firstname;
-    const localURL = `http://${req.headers.host}/login`;
-
-    // send email using mail.send(options) method coming from handlers/mail
-    await mail.send({
-      to: emailForm, 
-      filename: 'successRegister',
-      subject: 'YourQS - Your have successfully registered to our online app',
-      firstname,
-      localURL
-    });
+    // render pages
+    res.render('register', { title: 'Register', userData: req.body, flashes: req.flash() });
+    return;
   }
+
+  // Proceed here if there are NO errors
+
+  // Prepare options for email first
+  const firstname = req.body.firstname;
+  const localURL = `http://${req.headers.host}/login`;
+
+  // send email using mail.send(options) method coming from handlers/mail
+  await mail.send({
+    to: emailForm, 
+    filename: 'successRegister',
+    subject: 'YourQS - Your have successfully registered to our online app',
+    firstname,
+    localURL
+  });
+  
 
   // and lastly proceed to next function indicated on routes/index
   next();
