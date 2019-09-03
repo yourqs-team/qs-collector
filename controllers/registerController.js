@@ -3,12 +3,11 @@ const { check, sanitize } = require("express-validator");
 const Sequelize =  require("sequelize");
 const mail = require("../handlers/mail");
 const Op = Sequelize.Op;
+// Addy Key and secret
+const a_key = process.env.ADDY_KEY || "key";
+const a_secret = process.env.ADDY_SECRET || "secret";
 
 exports.registerForm = (req, res) => {
-  //Addy Key and secret
-  const a_key = process.env.ADDY_KEY || "key";
-  const a_secret = process.env.ADDY_SECRET || "secret";
-
   res.render("register", { title: "Register", a_key, a_secret});
 };
 
@@ -69,7 +68,7 @@ exports.validateRegisterForm = async (req, res, next) => {
       req.flash('error', errors.map(err => err.msg));
     }
     // render pages
-    res.render('register', { title: 'Register', userData: req.body, flashes: req.flash() });
+    res.render('register', { title: 'Register', userData: req.body, flashes: req.flash(), a_key, a_secret});
     return;
   }
 
