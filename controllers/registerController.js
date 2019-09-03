@@ -5,7 +5,11 @@ const mail = require("../handlers/mail");
 const Op = Sequelize.Op;
 
 exports.registerForm = (req, res) => {
-  res.render("register", { title: "Register"});
+  //Addy Key and secret
+  const a_key = process.env.ADDY_KEY || "key";
+  const a_secret = process.env.ADDY_SECRET || "secret";
+
+  res.render("register", { title: "Register", a_key, a_secret});
 };
 
 // Middleware for validation on registration form using express-validator
