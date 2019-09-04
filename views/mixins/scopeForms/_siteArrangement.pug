@@ -1,4 +1,8 @@
 mixin siteArrangement()
+  - const siteAcess = ["Good", "Bad", "Very Bad"]
+  - const spaceForMaterialStorage = ["None", "Good", "Bad"];
+  - const livingArrangements = ["Vacated", "Nights at Home", "Nights and Days at Home"];
+  - const carpetProtection = ["Yes", "No"];
   .col-lg-6
     .card.shadow.mb-4
       .card-header.py-3.d-flex.flex-row.align-items-center.justify-content-between
@@ -12,6 +16,9 @@ mixin siteArrangement()
             label.small(for='site-access') Site Access
             .form-group.input-group
               select.form-control(name="site-access")
+                option(value="none" selected disabled hidden) Select an Option
+                each val in siteAcess
+                  option= val
             label.small(for='space-for-material-storage') Space for Material Storage
             .input-group
               select.form-control(name="space-for-material-storage")

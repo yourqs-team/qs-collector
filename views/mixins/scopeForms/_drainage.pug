@@ -1,21 +1,12 @@
-mixin plumbing()
+mixin drainage()
     .col-lg-6
         .card.shadow.mb-4
             .card-header.py-3.d-flex.flex-row.align-items-center.justify-content-between
-                h6.m-0.font-weight-bold.text-primary Plumbing
+                h6.m-0.font-weight-bold.text-primary Drainage
                 .dropdown.no-arrow
-                    a#dropdownMenuLink.dropdown-toggle(href="#plumbing" data-toggle="collapse" role="button" aria-expanded="true")
+                    a#dropdownMenuLink.dropdown-toggle(href="#drainage" data-toggle="collapse" role="button" aria-expanded="true")
                         i.fas.fa-ellipsis-v.fa-sm.fa-fw.text-gray-400
-            .card-body.collapse#plumbing
-                div.form-group.form-row
-                    .col.col-lg-6
-                        label.small(for="plans") Allowance Type
-                        .input-group
-                            select.form-control(name="plans")
-                    .col.col-lg-6
-                        label.small(for='geotechnical') HWC
-                        .input-group
-                            select.form-control(name="geotechnical")
+            .card-body.collapse#drainage
                 div.form-group.form-row
                     h6.m-3.font-weight-bold.text-dark New Connection?
                     div.form-check.form-check-inline
