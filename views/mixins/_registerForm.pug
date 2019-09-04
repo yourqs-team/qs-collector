@@ -48,8 +48,7 @@ mixin registerForm()
                 input.form-control.form-control-user(required type='text' placeholder='Enter your company name' id="company" name='company' value=(!userData ? '' : userData.company ))
               div.form-group
                 label.small(for='address') Address
-                textarea.form-control.form-control-user.cust-textarea(required id='address' placeholder='Enter your desired address' name='address') 
-                  =!userData ? '' : userData.address
+                input.form-control.form-control-user(required id='address' placeholder='Enter your address' name='address' value=(!userData ? '' : userData.address))
 
               button.btn.btn-primary.btn-user.btn-block(type='submit') Register
               //- hr
