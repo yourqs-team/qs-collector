@@ -1,0 +1,12 @@
+mixin interior()
+    .col-lg-12.d-flex.flex-row.flex-wrap.align-items-center
+        h4.m-0.mr-4.font-weight-bold.text-primary Interior
+        .btn-group.btn-group-toggle(data-toggle='buttons')
+            label.btn.btn-primary.active
+                input#option1(type='radio', name='options', autocomplete='off', checked='')
+                |  Owner
+            label.btn.btn-primary
+                input#option2(type='radio', name='options', autocomplete='off')
+                |  Subcontractor
+        hr.w-100
+    

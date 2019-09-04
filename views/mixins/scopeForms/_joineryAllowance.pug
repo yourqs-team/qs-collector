@@ -1,0 +1,40 @@
+mixin joineryAllowance()
+    .col-lg-6
+        .card.shadow.mb-4
+            .card-header.py-3.d-flex.flex-row.align-items-center.justify-content-between
+                h6.m-0.font-weight-bold.text-primary Professional Service Allowances
+                .dropdown.no-arrow
+                    a#dropdownMenuLink.dropdown-toggle(href="#joineryAllowance" data-toggle="collapse" role="button" aria-expanded="true")
+                        i.fas.fa-ellipsis-v.fa-sm.fa-fw.text-gray-400
+            .card-body.collapse#joineryAllowance
+                div.form-group.form-row
+                    .col.col-md-12.col-lg-6
+                        label.small(for="plans") Kitchen
+                        .input-group
+                            .input-group-prepend
+                                span.input-group-text $
+                            input.form-control(name="plans")
+                    .col.col-md-12.col-lg-6
+                        label.small(for='geotechnical') Laundry
+                        .input-group
+                            .input-group-prepend
+                                span.input-group-text $
+                            input.form-control(name="geotechnical")
+                div.form-group.form-row
+                    .col.col-md-12.col-lg-6
+                        label.small(for="plans") Wardrobe Master Bed
+                        .input-group
+                            .input-group-prepend
+                                span.input-group-text $
+                            input.form-control(name="plans")
+                    .col.col-md-12.col-lg-6
+                        label.small(for='geotechnical') Wardrobes Other
+                        .input-group
+                            .input-group-prepend
+                                span.input-group-text $
+                            input.form-control(name="geotechnical")
+                div.form-group.form-row
+                    .col
+                        label.small(for="site-sign") Other
+                        .input-group
+                            input.form-control(name="site-sign") 

@@ -7,6 +7,12 @@ include mixins/scopeForms/_safetyRequirement
 include mixins/scopeForms/_allowanceAndInsurance
 include mixins/scopeForms/_temporaryService
 include mixins/scopeForms/_professionalServiceAllowance
+include mixins/scopeForms/_interior
+include mixins/scopeForms/_interiorTrims
+include mixins/scopeForms/_interiorFinishes
+include mixins/scopeForms/_windowsAndDoors
+include mixins/scopeForms/_joineryAllowance
+include mixins/scopeForms/_plumbing
 
 block content
   .container
@@ -25,3 +31,9 @@ block content
         +allowanceAndInsurance()
         +temporaryService()
         +professionalServiceAllowance()
+        +interior()
+        +interiorTrims()
+        +windowsAndDoors()
+        +interiorFinishes()
+        +joineryAllowance()
+        +plumbing()
