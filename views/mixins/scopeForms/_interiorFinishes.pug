@@ -1,4 +1,5 @@
 mixin interiorFinishes()
+    - const types = ['None or Existing','Carpet','Vinyl','Tiles','Timber Overlay','Other'];
     .col-lg-12
         .card.shadow.mb-4
             .card-header.py-3.d-flex.flex-row.align-items-center.justify-content-between
@@ -15,6 +16,8 @@ mixin interiorFinishes()
                                 label.small(for="site-sign") Kitchen
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -24,6 +27,8 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Living Room
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -33,6 +38,8 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Bedrooms
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -42,6 +49,8 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Bathrooms
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -51,6 +60,8 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Ensuite
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -60,6 +71,8 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Laundry
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -68,7 +81,7 @@ mixin interiorFinishes()
                             .col
                                 label.small(for="site-sign") Other Area
                                 .input-group
-                                    input.form-control(name="site-sign")    
+                                    input.form-control(name="site-sign")  
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Wall Finish          
                         div.form-group.form-row
@@ -76,6 +89,8 @@ mixin interiorFinishes()
                                 label.small(for="site-sign") Kitchen
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -85,6 +100,8 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Living Room
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -94,6 +111,8 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Bedrooms
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -103,6 +122,8 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Bathrooms
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -112,6 +133,8 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Ensuite
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -121,6 +144,8 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Laundry
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        for type in types
+                                            option= type
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group

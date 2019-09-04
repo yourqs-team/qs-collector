@@ -13,6 +13,11 @@ include mixins/scopeForms/_interiorFinishes
 include mixins/scopeForms/_windowsAndDoors
 include mixins/scopeForms/_joineryAllowance
 include mixins/scopeForms/_plumbing
+include mixins/scopeForms/_electrical
+include mixins/scopeForms/_drainage
+include mixins/scopeForms/_other
+include mixins/scopeForms/_exterior
+include mixins/scopeForms/_hardLandscaping
 
 block content
   .container
@@ -37,3 +42,8 @@ block content
         +interiorFinishes()
         +joineryAllowance()
         +plumbing()
+        +electrical()
+        +drainage()
+        +other()
+        +exterior()
+        +hardLandscaping()

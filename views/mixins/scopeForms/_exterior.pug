@@ -1,0 +1,109 @@
+mixin exterior()
+    .col-lg-12.d-flex.flex-row.flex-wrap.align-items-center
+        h4.m-0.mr-4.font-weight-bold.text-primary Exterior
+        .btn-group.btn-group-toggle(data-toggle='buttons')
+            label.btn.btn-primary.active
+                input#owner(type='radio', name='options', autocomplete='off', checked='')
+                |  Owner
+            label.btn.btn-primary
+                input#subcontractor(type='radio', name='options', autocomplete='off')
+                |  Subcontractor
+        hr.w-100
+    .col-lg-12
+        .card.shadow.mb-4
+            .card-header.py-3.d-flex.flex-row.align-items-center.justify-content-between
+                h6.m-0.font-weight-bold.text-primary Exterior Finishes
+                .dropdown.no-arrow
+                    a#dropdownMenuLink.dropdown-toggle(href="#exterior" data-toggle="collapse" role="button" aria-expanded="true")
+                        i.fas.fa-ellipsis-v.fa-sm.fa-fw.text-gray-400
+            .card-body.collapse#exterior
+                .row.d-flex.flex-wrap
+                    .col.col-12.col-sm-12.col-md-12.col-lg-6
+                        h6.m-0.font-weight-bold.text-primary.w-100 Wall Cladding
+                        div.form-group.form-row
+                            .col.col-12
+                                label.small(for="site-sign") Type
+                                .input-group
+                                    input.form-control(name="site-sign")
+                            .col.col-12
+                                label.small(for="site-sign") Work Required
+                                .input-group
+                                    input.form-control(name="site-sign")
+                        h6.m-0.font-weight-bold.text-primary.w-100 Base Cladding
+                        div.form-group.form-row
+                            .col.col-12
+                                label.small(for="site-sign") Type
+                                .input-group
+                                    select.form-control(name="site-sign")
+                            .col.col-12
+                                label.small(for="site-sign") Work Required
+                                .input-group
+                                    input.form-control(name="site-sign")  
+                        h6.m-0.font-weight-bold.text-primary.w-100 Soffit Cladding     
+                        div.form-group.form-row
+                            .col.col-12
+                                label.small(for="site-sign") Type
+                                .input-group
+                                    select.form-control(name="site-sign")
+                            .col.col-12
+                                label.small(for="site-sign") Work Required
+                                .input-group
+                                    input.form-control(name="site-sign") 
+                        h6.m-0.font-weight-bold.text-primary.w-100 Exterior Joinery
+                        div.form-group.form-row
+                            .col.col-12
+                                label.small(for="site-sign") Type
+                                .input-group
+                                    select.form-control(name="site-sign")
+                            .col.col-12
+                                label.small(for="site-sign") Work Required
+                                .input-group
+                                    input.form-control(name="site-sign") 
+                        h6.m-0.font-weight-bold.text-primary.w-100 Entrance Door
+                        div.form-group.form-row
+                            .col.col-12
+                                label.small(for="site-sign") Type
+                                .input-group
+                                    select.form-control(name="site-sign")
+                    .col.col-12.col-sm-12.col-md-12.col-lg-6
+                        h6.m-0.font-weight-bold.text-primary.w-100 Roof
+                        div.form-group.form-row
+                            .col.col-12
+                                label.small(for="site-sign") Pitch
+                                .input-group
+                                    input.form-control(name="site-sign")
+                            .col.col-12
+                                label.small(for="site-sign") Cladding Type
+                                .input-group
+                                    input.form-control(name="site-sign")
+                            .col.col-12
+                                label.small(for="site-sign") Work Required
+                                .input-group
+                                    input.form-control(name="site-sign")
+                        h6.m-0.font-weight-bold.text-primary.w-100 Gutter
+                        div.form-group.form-row
+                            .col.col-12
+                                label.small(for="site-sign") Gutter Material
+                                .input-group
+                                    select.form-control(name="site-sign")
+                            .col.col-12
+                                label.small(for="site-sign") Profile
+                                .input-group
+                                    select.form-control(name="site-sign")
+                        h6.m-0.font-weight-bold.text-primary.w-100 Downpipe
+                        div.form-group.form-row
+                            .col.col-12
+                                label.small(for="site-sign") Material
+                                .input-group
+                                    select.form-control(name="site-sign")
+                            .col.col-12
+                                label.small(for="site-sign") Profile
+                                .input-group
+                                    select.form-control(name="site-sign")
+                        h6.m-0.font-weight-bold.text-primary.w-100 Fascia
+                        div.form-group.form-row
+                            .col.col-12
+                                label.small(for="site-sign") Type
+                                .input-group
+                                    select.form-control(name="site-sign")
+                        
