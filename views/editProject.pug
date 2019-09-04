@@ -19,15 +19,33 @@ include mixins/scopeForms/_other
 include mixins/scopeForms/_exterior
 include mixins/scopeForms/_hardLandscaping
 
+//- PDF Generator
+block pdfGenerator
+  //- these libraries will generate pdf
+  script(type="text/javascript" src="/vendor/pdfmake/pdfmake.min.js")
+  script(type="text/javascript" src="/vendor/pdfmake/vfs_fonts.js")
+
+  //- Base64 images to initialize for rendering
+  script(type="text/javascript" src="/vendor/pdfmake/images.js")
+
+  //- call the template
+  include pdf-templates/_projectScopeRenderer
+
 block content
   .container
     form.scope-form
       // Page Heading
-      .d-sm-flex.align-items-center.justify-content-between.mb-4
-        h1.h3.mb-0.text-gray-800.d-none.d-sm-none.d-md-block #{title}
+      .d-sm-inline-block.align-items-center.justify-content-between.mb-4
+        h1.h3.mb-2.text-gray-800.d-none.d-sm-none.d-md-block #{title}
         a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href='#')
           i.fas.fa-save.fa-sm.text-white-50
           |  Save Project
+
+        //- The download PDF function is inside pdf-templates/_projectScopeRenderer
+        button.ml-2.d-sm-inline-block.btn.btn-sm.btn-danger.shadow-sm(OnClick='downloadPDF()') 
+          i.fas.fa-file-pdf.fa-sm.text-white-50
+          |  &nbsp;Download PDF
+        
       .row
         +mainProject()
         +manpower()

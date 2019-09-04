@@ -1,8 +1,6 @@
-//-NOTE: this is for pdf/:id/view
-extends pdf-layout
+//- This is just a copy from project-scope.pug
 
-block pdfmake
- script.
+script.
   // playground requires you to assign document definition to a variable called dd
   var dd = {
   content: [
@@ -658,5 +656,7 @@ block pdfmake
   footer: function(currentPage, pageCount) { return[{ text: 'Page ' + currentPage.toString() + ' of ' + pageCount, alignment: 'center', bold: true}]; }
   }
 
-block content
-  button(onClick="pdfMake.createPdf(dd).download();") Download
+  //- Download
+  const downloadPDF = () => {
+   pdfMake.createPdf(dd).download( 'YourQS-#{project.project_name}-#{project.generateProjCode()}.pdf');
+  }
