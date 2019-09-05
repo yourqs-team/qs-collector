@@ -19,10 +19,10 @@ passport.use(new LocalStrategy( {usernameField: 'username', passwordField: 'pass
     .then( function(user){
       // see models/users.js for validPassword InstanceMethod
       if (!user) {
-          return done(null, false, { message: 'Incorrect username and password. Please try again.' });
+          return done(null, false, { message: 'Incorrect username / password. Please try again.' });
       }
       if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect username and password. Please try again.' });
+        return done(null, false, { message: 'Incorrect username / password. Please try again.' });
       }
       return done(null, user, { message: 'You have sucessfully logged in!' });
     });
