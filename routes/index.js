@@ -27,7 +27,7 @@ router.post("/register", catchErrors(registerController.validateRegisterForm), r
 
 // Dashboard
 router.get('/projects', loginController.isLoggedIn, dashboardController.projects);
-router.get('/project/:id/edit', loginController.isLoggedIn, dashboardController.editProject);
+router.get('/project/:id/edit', loginController.isLoggedIn, catchErrors(dashboardController.editProject));
 
 // PDF
 router.get('/pdf/:id/view', sampleController.pdfView);
