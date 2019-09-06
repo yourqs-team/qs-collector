@@ -31,27 +31,27 @@ module.exports = (sequelize, DataTypes) => {
     Project.belongsTo(models.User, {foreignKey: 'UserId'});
 
     //Project
-    Project.hasOne(models.Manpower);
-    Project.hasOne(models.Site_arrangement);
-    Project.hasOne(models.Safety_requirement);
-    Project.hasOne(models.Allowance_and_insurance);
-    Project.hasOne(models.Temporary_service);
-    Project.hasOne(models.Proffesional_service_allowance);
+    Project.hasOne(models.Manpower, {onDelete: 'cascade'});
+    Project.hasOne(models.Site_arrangement, {onDelete: 'cascade'});
+    Project.hasOne(models.Safety_requirement, {onDelete: 'cascade'});
+    Project.hasOne(models.Allowance_and_insurance, {onDelete: 'cascade'});
+    Project.hasOne(models.Temporary_service, {onDelete: 'cascade'});
+    Project.hasOne(models.Proffesional_service_allowance, {onDelete: 'cascade'});
 
     //Exterior
-    Project.hasOne(models.Exterior);
-    Project.hasOne(models.Hard_landscaping);
+    Project.hasOne(models.Exterior, {onDelete: 'cascade'});
+    Project.hasOne(models.Hard_landscaping, {onDelete: 'cascade'});
     
     //Interior
-    Project.hasOne(models.Interior);
-    Project.hasOne(models.Interior_trim);
-    Project.hasOne(models.Interior_finish);
-    Project.hasOne(models.Window_and_door);
-    Project.hasOne(models.Joinery_allowance);
-    Project.hasOne(models.Electrical); // added this
-    Project.hasOne(models.Plumbing);
-    Project.hasOne(models.Drainage);
-    Project.hasOne(models.Other);
+    Project.hasOne(models.Interior, {onDelete: 'cascade'});
+    Project.hasOne(models.Interior_trim, {onDelete: 'cascade'});
+    Project.hasOne(models.Interior_finish, {onDelete: 'cascade'});
+    Project.hasOne(models.Window_and_door, {onDelete: 'cascade'});
+    Project.hasOne(models.Joinery_allowance, {onDelete: 'cascade'});
+    Project.hasOne(models.Electrical, {onDelete: 'cascade'}); // added this
+    Project.hasOne(models.Plumbing, {onDelete: 'cascade'});
+    Project.hasOne(models.Drainage, {onDelete: 'cascade'});
+    Project.hasOne(models.Other, {onDelete: 'cascade'});
   };
   return Project;
 };

@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Temporary_service.associate = function(models) {
     // associations can be defined here
-    Temporary_service.belongsTo(models.Project, {foreignKey: 'ProjectId'});
+    Temporary_service.belongsTo(models.Project, {foreignKey: 'ProjectId', onDelete: 'cascade'});
   };
   return Temporary_service;
 };

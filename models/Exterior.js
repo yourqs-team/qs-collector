@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps: false});
   Exterior.associate = function(models) {
     // associations can be defined here
-    Exterior.belongsTo(models.Project, {foreignKey: "ProjectId"});
+    Exterior.belongsTo(models.Project, {foreignKey: "ProjectId", onDelete: 'cascade'});
   };
   return Exterior;
 };

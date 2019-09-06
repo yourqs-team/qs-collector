@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps: false});
   Hard_landscaping.associate = function(models) {
     // associations can be defined here
-    Hard_landscaping.belongsTo(models.Project, {foreignKey: 'ProjectId'});
+    Hard_landscaping.belongsTo(models.Project, {foreignKey: 'ProjectId', onDelete: 'cascade'});
   };
   return Hard_landscaping;
 };

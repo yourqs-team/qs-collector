@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps: false});
   Proffesional_service_allowance.associate = function(models) {
     // associations can be defined here
-    Proffesional_service_allowance.belongsTo(models.Project, {foreignKey: 'ProjectId'});
+    Proffesional_service_allowance.belongsTo(models.Project, {foreignKey: 'ProjectId', onDelete: 'cascade'});
   };
   return Proffesional_service_allowance;
 };

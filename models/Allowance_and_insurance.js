@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Allowance_and_insurance.associate = function(models) {
     // associations can be defined here
-    Allowance_and_insurance.belongsTo(models.Project, {foreignKey: "ProjectId"});
+    Allowance_and_insurance.belongsTo(models.Project, {foreignKey: "ProjectId", onDelete: 'cascade'});
   };
   return Allowance_and_insurance;
 };

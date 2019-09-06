@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Plumbing.associate = function(models) {
     // associations can be defined here
-    Plumbing.belongsTo(models.Project, {foreignKey: "ProjectId"});
+    Plumbing.belongsTo(models.Project, {foreignKey: "ProjectId", onDelete: 'cascade'});
   };
   return Plumbing;
 };

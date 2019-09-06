@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Safety_requirements.associate = function(models) {
     // associations can be defined here
-    Safety_requirements.belongsTo(models.Project, {foreignKey: 'ProjectId'});
+    Safety_requirements.belongsTo(models.Project, {foreignKey: 'ProjectId', onDelete: 'cascade'});
   };
   return Safety_requirements;
 };

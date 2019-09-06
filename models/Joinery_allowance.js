@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps: false});
   Joinery_allowance.associate = function(models) {
     // associations can be defined here
-    Joinery_allowance.belongsTo(models.Project, {foreignKey: "ProjectId"});
+    Joinery_allowance.belongsTo(models.Project, {foreignKey: "ProjectId", onDelete: 'cascade'});
   };
   return Joinery_allowance;
 };
