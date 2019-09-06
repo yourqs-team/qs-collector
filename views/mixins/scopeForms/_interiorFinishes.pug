@@ -1,5 +1,4 @@
 mixin interiorFinishes()
-    - const types = ['None or Existing','Carpet','Vinyl','Tiles','Timber Overlay','Other'];
     .col-lg-12
         .card.shadow.mb-4
             .card-header.py-3.d-flex.flex-row.align-items-center.justify-content-between
@@ -16,8 +15,16 @@ mixin interiorFinishes()
                                 label.small(for="site-sign") Kitchen
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.kitchen_floor_covering)
+                                            each val in forms.option10
+                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option10 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -27,8 +34,16 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Living Room
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.kitchen_floor_covering)
+                                            each val in forms.option10
+                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option10 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -38,8 +53,16 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Bedrooms
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.kitchen_floor_covering)
+                                            each val in forms.option10
+                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option10 
+                                                option(value=val) #{val} 
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -49,8 +72,16 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Bathrooms
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.kitchen_floor_covering)
+                                            each val in forms.option10
+                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option10 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -60,8 +91,16 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Ensuite
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.kitchen_floor_covering)
+                                            each val in forms.option10
+                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option10 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -71,8 +110,16 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Laundry
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.kitchen_floor_covering)
+                                            each val in forms.option10
+                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option10 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -89,19 +136,35 @@ mixin interiorFinishes()
                                 label.small(for="site-sign") Kitchen
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.kitchen_wall_finish)
+                                            each val in forms.option11
+                                                if(val.includes(project.Interior_finish.kitchen_wall_finish))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option11 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
                                     input.form-control(name="site-sign")
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for='security-fencing') Living Room
+                                label.small(for='security-fencing') Living
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.living_wall_finish)
+                                            each val in forms.option11
+                                                if(val.includes(project.Interior_finish.living_wall_finish))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option11 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -111,8 +174,16 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Bedrooms
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.bedrooms_wall_finish)
+                                            each val in forms.option11
+                                                if(val.includes(project.Interior_finish.bedrooms_wall_finish))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option11 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -122,8 +193,16 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Bathrooms
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.bathroom_wall_finish)
+                                            each val in forms.option12
+                                                if(val.includes(project.Interior_finish.bathroom_wall_finish))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option12 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -133,8 +212,16 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Ensuite
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.ensuite_wall_finish)
+                                            each val in forms.option12
+                                                if(val.includes(project.Interior_finish.ensuite_wall_finish))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option12 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group
@@ -144,8 +231,16 @@ mixin interiorFinishes()
                                 label.small(for='security-fencing') Laundry
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        for type in types
-                                            option= type
+                                        if(project.Interior_finish.laundry_wall_finish)
+                                            each val in forms.option12
+                                                if(val.includes(project.Interior_finish.laundry_wall_finish))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option12 
+                                                option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="site-sign") Other
                                 .input-group

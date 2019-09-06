@@ -1,5 +1,5 @@
 mixin siteArrangement()
-  - const siteAcess = ["Good", "Bad", "Very Bad"]
+  - const siteAccess = ["Good", "Bad", "Very Bad"]
   - const spaceForMaterialStorage = ["None", "Good", "Bad"];
   - const livingArrangements = ["Vacated", "Nights at Home", "Nights and Days at Home"];
   - const carpetProtection = ["Yes", "No"];
@@ -16,12 +16,30 @@ mixin siteArrangement()
             label.small(for='site-access') Site Access
             .form-group.input-group
               select.form-control(name="site-access")
-                option(value="none" selected disabled hidden) Select an Option
-                each val in siteAcess
-                  option= val
+                if(project.Site_arrangement.site_access)
+                  each val in forms.option1
+                    if(val.includes(project.Site_arrangement.site_access))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option1
+                    option(value=val) #{val}
+
             label.small(for='space-for-material-storage') Space for Material Storage
             .input-group
               select.form-control(name="space-for-material-storage")
+                if(project.Site_arrangement.space_for_material_storage)
+                  each val in forms.option2
+                    if(val.includes(project.Site_arrangement.space_for_material_storage))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option2
+                    option(value=val) #{val}
           .col.col-md-12.col-lg-6
             label.small(for='comment') Comment
             .input-group
@@ -31,11 +49,31 @@ mixin siteArrangement()
           .col
             label.small(for='living-arrangement') Living Arrangements
             select.form-control(name="living-arrangement")
+              if(project.Site_arrangement.living_arrangement)
+                each val in forms.option3
+                  if(val.includes(project.living_arrangement))
+                    option(value=val selected) #{val}
+                  else
+                    option(value=val) #{val}
+              else
+                option(value="none" selected disabled hidden) Select an Option
+                each val in forms.option3
+                  option(value=val) #{val}
         div.form-group.form-row
           .col.col-md-12.col-lg-6
             label.small(for='carpet-protection') Carpet Protection
             .input-group
               select.form-control(type="number" name="carpet-protection")
+                if(project.Site_arrangement.carpet_protection)
+                    each val in forms.option4
+                      if(val.includes(project.Site_arrangement.site_access))
+                        option(value=val selected) #{val}
+                      else
+                        option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option4
+                    option(value=val) #{val}
           .col.col-md-12.col-lg-6
             label.small(for='allow-extra-specific-time') Allow Extra Specific Time
             .input-group

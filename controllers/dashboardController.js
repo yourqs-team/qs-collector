@@ -1,5 +1,6 @@
 const Hashids = require('hashids');
 const hashids = new Hashids(process.env.SHA256 || 'JapIsAwesome', 6);
+const forms =  require("../handlers/forms");
 // Models
 const models = require('../models/index');
 const User = models.User;
@@ -43,7 +44,6 @@ exports.editProject = async (req, res) => {
   //1. decode ID first to retrieve primary key
   let project_id = hashids.decode(req.params); // returns primary key of project
 
-  //2. Select the project
   const project = await Project.findOne({where: project_id, include: [
     {model: User},
     {model: Manpower},
@@ -64,8 +64,44 @@ exports.editProject = async (req, res) => {
     {model: Drainage}, //- Forgot these
     {model: Other}
   ]});
+  //2. Select the project
 
   //3. Render
   // res.json(project);
-  res.render('editProject', {title: "Edit Project", project});
+  res.render('editProject', {title: "Edit Project", project, forms});
+}
+
+exports.createProject = async (req, res) => {
+
+
+  // Project.create({where: project_name})
+
+  // res.redirect('/e');
+  const project_name = req.body.project_name;
+  const project_address = req.body.project_address;
+  const user_id = req.user.id;
+
+  const project = await Project.create({
+    where: {project_name: project_name, project_address: project_address},
+    include: [
+      {model: User},
+      {model: Manpower},
+      {model: SafetyRequirement},
+      {model: TemporaryService},
+      {model: SiteArrangement},
+      {model: AllowanceAndInsurance},
+      {model: ProffesionalServiceAllowance},
+      {model: Interior},
+      {model: Exterior},
+      {model: HardLandscaping},
+      {model: InteriorTrim}, //- Forgot these
+      {model: InteriorFinish}, //- Forgot these
+      {model: WindowAndDoor},
+      {model: JoineryAllowance}, //- Forgot these
+      {model: Electrical}, //- Forgot these TOFIX
+      {model: Plumbing}, //- Forgot these
+      {model: Drainage}, //- Forgot these
+      {model: Other}
+    ]
+  })
 }

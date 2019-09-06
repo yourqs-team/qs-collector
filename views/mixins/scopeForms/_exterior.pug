@@ -1,14 +1,21 @@
 mixin exterior()
-    .col-lg-12.d-flex.flex-row.flex-wrap.align-items-center
+    .col-lg-12.align-items-center
         h4.m-0.mr-4.font-weight-bold.text-primary Exterior
-        .btn-group.btn-group-toggle(data-toggle='buttons')
-            label.btn.btn-primary.active
-                input#owner(type='radio', name='options', autocomplete='off', checked='')
-                |  Owner
-            label.btn.btn-primary
-                input#subcontractor(type='radio', name='options', autocomplete='off')
-                |  Subcontractor
         hr.w-100
+        .input-group.row.mb-4
+            .col-4
+                label.small(for="exterior") Painting Exterior
+                select.form-control(name="exterior")
+                    if(project.Exterior.painting_exterior)
+                        each val in forms.option15
+                            if(val.includes(project.Exterior.painting_exterior))
+                                option(value=val selected) #{val}
+                            else
+                                option(value=val) #{val}
+                    else
+                        option(value="none" selected disabled hidden) Select an Option
+                        each val in forms.option15
+                            option(value=val) #{val}
     .col-lg-12
         .card.shadow.mb-4
             .card-header.py-3.d-flex.flex-row.align-items-center.justify-content-between
@@ -35,6 +42,16 @@ mixin exterior()
                                 label.small(for="site-sign") Type
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        if(project.Exterior.base_cladding_type)
+                                            each val in forms.option16
+                                                if(val.includes(project.Exterior.base_cladding_type))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option16
+                                                option(value=val) #{val}
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
@@ -44,7 +61,7 @@ mixin exterior()
                             .col.col-12
                                 label.small(for="site-sign") Type
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    input.form-control(name="site-sign")
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
@@ -55,6 +72,16 @@ mixin exterior()
                                 label.small(for="site-sign") Type
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        if(project.Exterior.exterior_joinery)
+                                            each val in forms.option17
+                                                if(val.includes(project.Exterior.exterior_joinery))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option17
+                                                option(value=val) #{val}
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
@@ -64,7 +91,7 @@ mixin exterior()
                             .col.col-12
                                 label.small(for="site-sign") Type
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    input.form-control(name="site-sign")
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Roof
                         div.form-group.form-row
@@ -75,7 +102,17 @@ mixin exterior()
                             .col.col-12
                                 label.small(for="site-sign") Cladding Type
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    select.form-control(name="site-sign")
+                                        if(project.Exterior.roof_cladding_type)
+                                            each val in forms.option18
+                                                if(val.includes(project.Exterior.roof_cladding_type))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option18
+                                                option(value=val) #{val}
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
@@ -86,24 +123,74 @@ mixin exterior()
                                 label.small(for="site-sign") Gutter Material
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        if(project.Exterior.gutter_material)
+                                            each val in forms.option19
+                                                if(val.includes(project.Exterior.gutter_material))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option19
+                                                option(value=val) #{val}
                             .col.col-12
                                 label.small(for="site-sign") Profile
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        if(project.Exterior.gutter_profile)
+                                            each val in forms.option20
+                                                if(val.includes(project.Exterior.gutter_profile))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option20
+                                                option(value=val) #{val}
                         h6.m-0.font-weight-bold.text-primary.w-100 Downpipe
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="site-sign") Material
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        if(project.Exterior.downpipe_material)
+                                            each val in forms.option19
+                                                if(val.includes(project.Exterior.downpipe_material))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option19
+                                                option(value=val) #{val}
                             .col.col-12
                                 label.small(for="site-sign") Profile
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        if(project.Exterior.downpipe_profile)
+                                            each val in forms.option21
+                                                if(val.includes(project.Exterior.downpipe_profile))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option21
+                                                option(value=val) #{val}
                         h6.m-0.font-weight-bold.text-primary.w-100 Fascia
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="site-sign") Type
                                 .input-group
                                     select.form-control(name="site-sign")
+                                        if(project.Exterior.fascia_type)
+                                            each val in forms.option22
+                                                if(val.includes(project.Exterior.fascia_type))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option22
+                                                option(value=val) #{val}
                         
