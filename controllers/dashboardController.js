@@ -232,8 +232,8 @@ exports.updateProject = async (req, res) => {
 
   // update
   project.update({
-      project_name: project_name,
-      project_address: project_address,
+      project_name: req.body.project_name,
+      project_address: req.body.project_address,
       Manpower: {
         markup: req.body.manpower_markup,
         no_builder: req.body.manpower_no_builder,
