@@ -105,18 +105,72 @@ exports.editProject = async (req, res) => {
 
 exports.createProject = async (req, res) => {
 
-
-  // Project.create({where: project_name})
-
-  // res.redirect('/e');
   const project_name = req.body.project_name;
   const project_address = req.body.project_address;
-  const user_id = req.user.id;
+  const user = req.user;
 
   const project = await Project.create({
-    where: {project_name: project_name, project_address: project_address},
+      project_name: project_name,
+      project_address: project_address,
+      UserId: user.id,
+      Manpower: {},
+      SafetyRequirement: {
+        site_sign: true,
+        fall_in_protection: "None",
+        security_fencing: "None",
+        crossing_protection: true
+      },
+      Temporary_service: {
+        temporary_power: false,
+        temporary_water: false,
+        site_shed: "None"
+      },
+      Site_arrangement: {
+        living_arrangements: "Vacated"
+      },
+      Allowance_and_insurance: {
+        building_guarantee: "None"
+      },
+      Proffesional_service_allowance:{},
+      Interior: {
+        painting_interior: "Subcontract"
+      },
+      Exterior: {
+        painting_exterior: "Subcontract",
+        exterior_joinery_type: "Aluminium",
+        gutter_material: "Plastic",
+        gutter_profile: "Classic",
+        downpipe_material: "Steel",
+        downpipe_profile: "Round 80",
+        fascia_type: "Pine 150x25"
+      },
+      Hard_landscaping: {
+        deck_type: "Hardwood",
+        handrail_type: "Timber",
+        paving_type: "None",
+        driveway_type: "None",
+        fencing_type: "None"
+      },
+      Interior_trim: {},
+      Interior_finish:{},
+      Window_and_door:{
+        interior_door_type: "MDF Hollow",
+        door_hardware: "Standard"
+      },
+      Joinery_allowance:{},
+      Electrical:{
+        allowance_type: "Standard",
+        distribution_board: "None"
+      },
+      Plumbing:{
+        allowance_type: "Standard"
+      },
+      Drainage:{
+        new_connection: false
+      },
+      Other:{}
+  }, {
     include: [
-      {model: User},
       {model: Manpower},
       {model: SafetyRequirement},
       {model: TemporaryService},
@@ -126,14 +180,16 @@ exports.createProject = async (req, res) => {
       {model: Interior},
       {model: Exterior},
       {model: HardLandscaping},
-      {model: InteriorTrim}, //- Forgot these
-      {model: InteriorFinish}, //- Forgot these
+      {model: InteriorTrim},
+      {model: InteriorFinish}, 
       {model: WindowAndDoor},
-      {model: JoineryAllowance}, //- Forgot these
-      {model: Electrical}, //- Forgot these TOFIX
-      {model: Plumbing}, //- Forgot these
-      {model: Drainage}, //- Forgot these
+      {model: JoineryAllowance}, 
+      {model: Electrical},
+      {model: Plumbing}, 
+      {model: Drainage}, 
       {model: Other}
     ]
-  })
+ });
+
+  res.json(project);
 }
