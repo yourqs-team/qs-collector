@@ -76,6 +76,8 @@ exports.validateRegisterForm = async (req, res, next) => {
 
   // Prepare options for email first
   const firstname = req.body.firstname;
+  const username = req.body.username;
+  const password = req.body.password;
   const localURL = `http://${req.headers.host}/login`;
 
   // send email using mail.send(options) method coming from handlers/mail
@@ -84,7 +86,9 @@ exports.validateRegisterForm = async (req, res, next) => {
     filename: 'successRegister',
     subject: 'YourQS - Your have successfully registered to our online app',
     firstname,
-    localURL
+    localURL,
+    username,
+    password
   });
   
 

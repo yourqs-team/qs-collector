@@ -23,7 +23,8 @@ exports.send = async (options) => {
   const html = generateHTML(options.filename, options);
   const text = htmlToText.fromString(html);
 
-  const mailOptions = {
+  const mailOptions = { 
+    priority: 'high',
     from: `YourQS - Online App <yourqs.sender@gmail.com>`,
     to: options.to,
     subject: options.subject,
