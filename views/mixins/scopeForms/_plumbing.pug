@@ -55,4 +55,4 @@ mixin plumbing()
                     .col
                         label.small(for="comment") Comment
                         .input-group
-                            textarea.form-control#comment
+                            textarea.form-control#comment(name="comment") #{project.Plumbing.comments}

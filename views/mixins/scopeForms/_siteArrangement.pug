@@ -43,8 +43,7 @@ mixin siteArrangement()
           .col.col-md-12.col-lg-6
             label.small(for='comment') Comment
             .input-group
-              textarea.form-control(name="", rows="4" style="min-height: 122px;")
-
+              textarea.form-control(name="" rows="4" style="min-height: 122px;") #{project.Site_arrangement.comment}
         .form-group.form-row
           .col
             label.small(for='living-arrangement') Living Arrangements
@@ -77,6 +76,6 @@ mixin siteArrangement()
           .col.col-md-12.col-lg-6
             label.small(for='allow-extra-specific-time') Allow Extra Specific Time
             .input-group
-              input.form-control(type="number" name="allow-extra-specific-time")
+              input.form-control(type="number" name="allow-extra-specific-time" value=`${project.Site_arrangement.allow_extra_site_specific_time}`)
               .input-group-append
                 span.input-group-text Hrs

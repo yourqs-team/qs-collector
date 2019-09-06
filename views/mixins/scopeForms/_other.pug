@@ -11,14 +11,14 @@ mixin other()
                     .col
                         label.small(for="comment") Demolition
                         .input-group
-                            textarea.form-control#comment
+                            textarea.form-control#comment(name="comment") #{project.Other.demolition}
                 .div.form-group.form-row
                     .col
                         label.small(for="comment") Renovation
                         .input-group
-                            textarea.form-control#comment
+                            textarea.form-control#comment(name="comment") #{project.Other.renovation}
                 .div.form-group.form-row
                     .col
                         label.small(for="comment") Comments
                         .input-group
-                            textarea.form-control#comment
+                            textarea.form-control#comment(name="comment") #{project.Other.comments}

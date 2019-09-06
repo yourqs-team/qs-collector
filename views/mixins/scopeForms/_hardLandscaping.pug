@@ -28,7 +28,7 @@ mixin hardLandscaping()
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="site-sign" value=`${project.Hard_landscaping.deck_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Handrail
                         div.form-group.form-row
                             .col.col-12
@@ -48,7 +48,7 @@ mixin hardLandscaping()
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign")  
+                                    input.form-control(name="site-sign" value=`${project.Hard_landscaping.handrail_work_required}`) 
                         h6.m-0.font-weight-bold.text-primary.w-100 Paving     
                         div.form-group.form-row
                             .col.col-12
@@ -68,7 +68,7 @@ mixin hardLandscaping()
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="site-sign" value=`${project.Hard_landscaping.paving_work_required}`)
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Driveway
                             div.form-group.form-row
@@ -89,7 +89,7 @@ mixin hardLandscaping()
                                 .col.col-12
                                     label.small(for="site-sign") Work Required
                                     .input-group
-                                        input.form-control(name="site-sign")
+                                        input.form-control(name="site-sign" value=`${project.Hard_landscaping.paving_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Fencing
                         div.form-group.form-row
                             .col.col-12
@@ -109,11 +109,15 @@ mixin hardLandscaping()
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="site-sign" value=`${project.Hard_landscaping.fencing_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Other
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="site-sign") Type
                                 .input-group
-                                    textarea.form-control(name="site-sign")
+                                    input.form-control(name="site-sign" value=`${project.Hard_landscaping.other_type}`) 
+                            .col.col-12
+                                label.small(for="site-sign") Work Required
+                                .input-group
+                                    input.form-control(name="site-sign" value=`${project.Hard_landscaping.other_work_required}`) 
                         

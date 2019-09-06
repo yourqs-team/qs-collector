@@ -31,11 +31,11 @@ mixin exterior()
                             .col.col-12
                                 label.small(for="site-sign") Type
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="site-sign" value=`${project.Exterior.wall_cladding_type}`)
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="site-sign" value=`${project.Exterior.wall_cladding_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Base Cladding
                         div.form-group.form-row
                             .col.col-12
@@ -55,26 +55,26 @@ mixin exterior()
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign")  
+                                    input.form-control(name="site-sign" value=`${project.Exterior.base_cladding_work_required}`)  
                         h6.m-0.font-weight-bold.text-primary.w-100 Soffit Cladding     
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="site-sign") Type
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="site-sign" value=`${project.Exterior.soffit_cladding_type}`)
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign") 
+                                    input.form-control(name="site-sign" value=`${project.Exterior.soffit_cladding_work_require}`) 
                         h6.m-0.font-weight-bold.text-primary.w-100 Exterior Joinery
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="site-sign") Type
                                 .input-group
                                     select.form-control(name="site-sign")
-                                        if(project.Exterior.exterior_joinery)
+                                        if(project.Exterior.exterior_joinery_type)
                                             each val in forms.option17
-                                                if(val.includes(project.Exterior.exterior_joinery))
+                                                if(val.includes(project.Exterior.exterior_joinery_type))
                                                     option(value=val selected) #{val}
                                                 else
                                                     option(value=val) #{val}
@@ -85,20 +85,20 @@ mixin exterior()
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign") 
+                                    input.form-control(name="site-sign" value=`${project.Exterior.exterior_joinery_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Entrance Door
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="site-sign") Type
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="site-sign" value=`${project.Exterior.entrance_door_type}`)
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Roof
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="site-sign") Pitch
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="site-sign" value=`${project.Exterior.roof_pitch}`)
                             .col.col-12
                                 label.small(for="site-sign") Cladding Type
                                 .input-group
@@ -116,7 +116,7 @@ mixin exterior()
                             .col.col-12
                                 label.small(for="site-sign") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="site-sign" value=`${project.Exterior.roof_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Gutter
                         div.form-group.form-row
                             .col.col-12
