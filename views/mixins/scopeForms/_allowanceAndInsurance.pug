@@ -18,8 +18,29 @@ mixin allowanceAndInsurance()
             label.small(for='all-risk-insurance') All Risk Insurance
             .input-group
               select.form-control(name="all-risk-insurance")
+                if(project.Allowance_and_insurance.risk_insurance)
+                  each val in forms.option4
+                    if(val.includes(project.Allowance_and_insurance.risk_insurance))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option4
+                    option(value=val) #{val}
         .form-group.form-row
           .col.col-md-12.col-lg-12
             label.small(for='all-risk-insurance') Building Guarantee
             .input-group
               select.form-control(name="all-risk-insurance")
+                if(project.Allowance_and_insurance.building_guarantee)
+                  each val in forms.option6
+                    if(val.includes(project.Safety_requirement.building_guarantee))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option6
+                    option(value=val) #{val}
+              

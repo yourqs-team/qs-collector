@@ -12,8 +12,28 @@ mixin windowsAndDoors()
                         label.small(for='interior-door-type') Interior Door Type
                         .input-group
                             select.form-control(name="temporary-power")
+                                if(project.Window_and_door.interior_door_type)
+                                    each val in forms.option8
+                                        if(val.includes(project.Window_and_door.interior_door_type))
+                                            option(value=val selected) #{val}
+                                        else
+                                            option(value=val) #{val}
+                                else
+                                    option(value="none" selected disabled hidden) Select an Option
+                                    each val in forms.option8
+                                        option(value=val) #{val}
                 .form-group.form-row
                     .col.col-md-12.col-lg-12
                         label.small(for='door-hardware') Door Hardware
                         .input-group
                             select.form-control(name="temporary-water")
+                                if(project.Window_and_door.door_hardware)
+                                    each val in forms.option9
+                                        if(val.includes(project.Window_and_door.door_hardware))
+                                            option(value=val selected) #{val}
+                                        else
+                                            option(value=val) #{val}
+                                else
+                                    option(value="none" selected disabled hidden) Select an Option
+                                    each val in forms.option9
+                                        option(value=val) #{val}

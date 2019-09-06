@@ -12,18 +12,45 @@ mixin plumbing()
                         label.small(for="plans") Allowance Type
                         .input-group
                             select.form-control(name="plans")
+                                if(project.Plumbing.allowance_type)
+                                    each val in forms.option9
+                                        if(val.includes(project.Plumbing.allowance_type))
+                                            option(value=val selected) #{val}
+                                        else
+                                            option(value=val) #{val}
+                                else
+                                    option(value="none" selected disabled hidden) Select an Option
+                                    each val in forms.option9 
+                                        option(value=val) #{val}
                     .col.col-lg-6
                         label.small(for='geotechnical') HWC
                         .input-group
                             select.form-control(name="geotechnical")
+                                if(project.Plumbing.HWC)
+                                    each val in forms.option13
+                                        if(val.includes(project.Plumbing.HWC))
+                                            option(value=val selected) #{val}
+                                        else
+                                            option(value=val) #{val}
+                                else
+                                    option(value="none" selected disabled hidden) Select an Option
+                                    each val in forms.option13
+                                        option(value=val) #{val}
                 div.form-group.form-row
-                    h6.m-3.font-weight-bold.text-dark New Connection?
-                    div.form-check.form-check-inline
-                        input.form-check-input(type='radio' name="yes" id="yes" value="yes")
-                        label.small.form-check-label(for="newConnection") Yes
-                    div.form-check.form-check-inline
-                        input.form-check-input(type='radio' name="yes" id="yes" value="yes")
-                        label.small.form-check-label(for="newConnection") No
+                    .col.col-lg-6
+                        label.small(for='geotechnical') New Connection?
+                        .input-group
+                            select.form-control(name="geotechnical")
+                                if(project.Plumbing.new_connection)
+                                    each val in forms.option4
+                                        if(val.includes(project.Plumbing.new_connection))
+                                            option(value=val selected) #{val}
+                                        else
+                                            option(value=val) #{val}
+                                else
+                                    option(value="none" selected disabled hidden) Select an Option
+                                    each val in forms.option4
+                                        option(value=val) #{val}
                 .div.form-group.form-row
                     .col
                         label.small(for="comment") Comment

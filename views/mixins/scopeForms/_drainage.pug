@@ -8,13 +8,19 @@ mixin drainage()
                         i.fas.fa-ellipsis-v.fa-sm.fa-fw.text-gray-400
             .card-body.collapse#drainage
                 div.form-group.form-row
-                    h6.m-3.font-weight-bold.text-dark New Connection?
-                    div.form-check.form-check-inline
-                        input.form-check-input(type='radio' name="yes" id="yes" value="yes")
-                        label.small.form-check-label(for="newConnection") Yes
-                    div.form-check.form-check-inline
-                        input.form-check-input(type='radio' name="yes" id="yes" value="yes")
-                        label.small.form-check-label(for="newConnection") No
+                    label.small(for='drainage-new-connection') New Connection?
+                        .input-group
+                            select.form-control(name="drainage-new-connection")
+                                if(project.Drainage.new_connections)
+                                    each val in forms.option4
+                                        if(val.includes(project.Drainage.new_connections))
+                                            option(value=val selected) #{val}
+                                        else
+                                            option(value=val) #{val}
+                                else
+                                    option(value="none" selected disabled hidden) Select an Option
+                                    each val in forms.option4
+                                        option(value=val) #{val}
                 .div.form-group.form-row
                     .col
                         label.small(for="comment") Comment

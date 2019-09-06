@@ -28,6 +28,7 @@ html
     //- Modular Javascript comes here.
     block javascript
 
+
   body#page-top
 
   #wrapper
@@ -39,7 +40,7 @@ html
         //- Navigation
         include dashboard/topbar.pug
         //- Main Content
-        //- include dashboard/content.pug
+        //- include dashboard/static-content.pug
         block content
 
       //- Footer
@@ -52,6 +53,8 @@ html
 
   //- Logout Modal
   include modals/logoutModal.pug
+  //- Create Project Modal
+  include modals/projectModal.pug
 
   //- Bootstrap JS
   script(src="/vendor/jquery/jquery.js" type="text/javascript")

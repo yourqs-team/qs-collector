@@ -12,16 +12,56 @@ mixin safetyRequirement()
             label.small(for="site-sign") Site Sign
             .input-group
               select.form-control(name="site-sign")
+                if(project.Safety_requirement.site_sign)
+                  each val in forms.option4
+                    if(val.includes(project.Safety_requirement.site_sign))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option4
+                    option(value=val) #{val}
           .col.col-md-12.col-lg-6
             label.small(for='security-fencing') Security Fencing
             .input-group
               select.form-control(name="security-fencing")
+                if(project.Safety_requirement.security_fencing)
+                  each val in forms.option5
+                    if(val.includes(project.Safety_requirement.security_fencing))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option5
+                    option(value=val) #{val}
         div.form-group.form-row
           .col.col-md-12.col-lg-6
             label.small(for='fall-in-protection') Fall in Protection
             .input-group
               select.form-control(name="fall-in-protection")
+                if(project.Safety_requirement.fall_in_protection)
+                  each val in forms.option4
+                    if(val.includes(project.Safety_requirement.fall_in_protection))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option4
+                    option(value=val) #{val}
           .col.col-md-12.col-lg-6
             label.small(for='project-management') Crossing Protection
             .input-group
               select.form-control(name="project-management")
+                if(project.Safety_requirement.crossing_protection)
+                  each val in forms.option4
+                    if(val.includes(project.Safety_requirement.crossing_protection))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option4
+                    option(value=val) #{val}

@@ -9,21 +9,47 @@ mixin electrical()
             .card-body.collapse#electrical
                 div.form-group.form-row
                     .col.col-lg-6
-                        label.small(for="plans") Allowance Type
+                        label.small(for="allowance_type") Allowance Type
                         .input-group
-                            select.form-control(name="plans")
+                            select.form-control(name="allowance_type")
+                                if(project.Electrical.allowance_type)
+                                    each val in forms.option9
+                                        if(val.includes(project.Electrical.allowance_type))
+                                            option(value=val selected) #{val}
+                                        else
+                                            option(value=val) #{val}
+                                else
+                                    option(value="none" selected disabled hidden) Select an Option
+                                    each val in forms.option9 
+                                        option(value=val) #{val}
                     .col.col-lg-6
                         label.small(for='geotechnical') Distribution Board
                         .input-group
                             select.form-control(name="geotechnical")
+                                if(project.Electrical.distribution_board)
+                                    each val in forms.option14
+                                        if(val.includes(project.Electrical.distribution_board))
+                                            option(value=val selected) #{val}
+                                        else
+                                            option(value=val) #{val}
+                                else
+                                    option(value="none" selected disabled hidden) Select an Option
+                                    each val in forms.option14
+                                        option(value=val) #{val}
                 div.form-group.form-row
-                    h6.m-3.font-weight-bold.text-dark New Connection?
-                    div.form-check.form-check-inline
-                        input.form-check-input(type='radio' name="yes" id="yes" value="yes")
-                        label.small.form-check-label(for="newConnection") Yes
-                    div.form-check.form-check-inline
-                        input.form-check-input(type='radio' name="yes" id="yes" value="yes")
-                        label.small.form-check-label(for="newConnection") No
+                    label.small(for='electrical-new-connection') New Connection?
+                        .input-group
+                            select.form-control(name="electrical-new-connection")
+                                if(project.Electrical.new_connection)
+                                    each val in forms.option4
+                                        if(val.includes(project.Electrical.new_connection))
+                                            option(value=val selected) #{val}
+                                        else
+                                            option(value=val) #{val}
+                                else
+                                    option(value="none" selected disabled hidden) Select an Option
+                                    each val in forms.option4
+                                        option(value=val) #{val}
                 .div.form-group.form-row
                     .col
                         label.small(for="comment") Comment

@@ -1,12 +1,19 @@
 mixin interior()
-    .col-lg-12.d-flex.flex-row.flex-wrap.align-items-center
+    .col-lg-12.align-items-center
         h4.m-0.mr-4.font-weight-bold.text-primary Interior
-        .btn-group.btn-group-toggle(data-toggle='buttons')
-            label.btn.btn-primary.active
-                input#owner(type='radio', name='options', autocomplete='off', checked='')
-                |  Owner
-            label.btn.btn-primary
-                input#subcontractor(type='radio', name='options', autocomplete='off')
-                |  Subcontractor
         hr.w-100
+        .input-group.row.mb-4
+            .col-4
+                label.small(for="interior") Painting Exterior
+                select.form-control(name="interior")
+                    if(project.Interior.painting_interior)
+                        each val in forms.option15
+                            if(val.includes(project.Interior.painting_interior))
+                                option(value=val selected) #{val}
+                            else
+                                option(value=val) #{val}
+                    else
+                        option(value="none" selected disabled hidden) Select an Option
+                        each val in forms.option15
+                            option(value=val) #{val}
     

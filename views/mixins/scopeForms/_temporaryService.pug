@@ -12,13 +12,43 @@ mixin temporaryService()
             label.small(for='temporary-power') Temporary Power
             .input-group
               select.form-control(name="temporary-power")
+                if(project.Temporary_service.temporary_power)
+                  each val in forms.option4
+                    if(val.includes(project.Temporary_service.temporary_power))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option4
+                    option(value=val) #{val}
         .form-group.form-row
           .col.col-md-12.col-lg-12
             label.small(for='temporary-water') Temporary Water
             .input-group
               select.form-control(name="temporary-water")
+                if(project.Temporary_service.temporary_water)
+                  each val in forms.option4
+                    if(val.includes(project.Temporary_service.temporary_water))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option4
+                    option(value=val) #{val}
         .form-group.form-row
           .col.col-md-12.col-lg-12
             label.small(for='site-shed') Site Shed
             .input-group
               select.form-control(name="site-shed")
+                if(project.Temporary_service.site_shed)
+                  each val in forms.option7
+                    if(val.includes(project.Temporary_service.site_shed))
+                      option(value=val selected) #{val}
+                    else
+                      option(value=val) #{val}
+                else
+                  option(value="none" selected disabled hidden) Select an Option
+                  each val in forms.option7
+                    option(value=val) #{val}
