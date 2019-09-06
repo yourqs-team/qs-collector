@@ -1,5 +1,7 @@
 extends dashboard-layout
 
+include mixins/_flashMsg
+
 include mixins/scopeForms/_mainProject
 include mixins/scopeForms/_manpower
 include mixins/scopeForms/_siteArrangement
@@ -33,6 +35,7 @@ block pdfGenerator
 
 block content
   .container
+    +flashMsg()
     form.scope-form
       // Page Heading
       .d-sm-inline-block.align-items-center.justify-content-between.mb-4

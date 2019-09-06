@@ -103,7 +103,7 @@ exports.editProject = async (req, res) => {
   return; // stop further execution in this callback
 }
 
-exports.createProject = async (req, res) => {
+exports.createProject = async (req, res, next) => {
 
   const project_name = req.body.project_name;
   const project_address = req.body.project_address;
@@ -191,5 +191,10 @@ exports.createProject = async (req, res) => {
     ]
  });
 
-  res.json(project);
+  // Encode the project id first to be able to redirect on current project
+  const project_id = hashids.encode(project.id);
+
+  // Redirect to newly create project and flash a message that they have successfully created a project
+  req.flash("success", "You have created a project!");
+  res.redirect(`/project/${project_id}/edit`);
 }
