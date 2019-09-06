@@ -2,8 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Safety_requirements = sequelize.define('Safety_requirement', {
     site_sign: DataTypes.BOOLEAN,
-    fall_in_protection: DataTypes.BOOLEAN,
-    crossing_protection: DataTypes.BOOLEAN,
+    fall_in_protection: DataTypes.BOOLEAN, // TOFIX: should be string see: dashboarcController.createProject -> safetyRequirement
+    crossing_protection: DataTypes.BOOLEAN, // TOFIX: should be string see:  dashboarcController.createProject -> safetyRequirement
     security_fencing: DataTypes.STRING,
     ProjectId: DataTypes.INTEGER
   }, {timestamps: false});

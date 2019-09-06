@@ -35,7 +35,7 @@ mixin allowanceAndInsurance()
               select.form-control(name="all-risk-insurance")
                 if(project.Allowance_and_insurance.building_guarantee)
                   each val in forms.option6
-                    if(val.includes(project.Safety_requirement.building_guarantee))
+                    if(val.includes(project.Allowance_and_insurance.building_guarantee))
                       option(value=val selected) #{val}
                     else
                       option(value=val) #{val}

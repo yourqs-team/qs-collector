@@ -27,7 +27,7 @@ mixin mainProject()
           p.m-0= project.User.firstname
         .col.col-md-12.col-lg-4.p-2.text-center
           strong.text-primary Project Created
-          p.m-0 10/21/12
+          p.m-0 #{project.createdAtToNZTime()}
         .col.col-md-12.col-lg-4.p-2.text-center
           strong.text-primary Project Code
           p.m-0= project.encodeProjCode(project.id)

@@ -114,10 +114,10 @@ exports.createProject = async (req, res) => {
       project_address: project_address,
       UserId: user.id,
       Manpower: {},
-      SafetyRequirement: {
+      Safety_requirement: {
         site_sign: true,
-        fall_in_protection: "None",
-        security_fencing: "None",
+        fall_in_protection: false, //TOFIX: boolean to string | default value: 'None'
+        security_fencing: false, //TOFIX: boolean to string | default value: 'None'
         crossing_protection: true
       },
       Temporary_service: {
