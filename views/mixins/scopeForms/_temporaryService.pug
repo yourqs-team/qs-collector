@@ -15,13 +15,13 @@ mixin temporaryService()
                 if(project.Temporary_service.temporary_power)
                   each val in forms.option4
                     if(val.includes(project.Temporary_service.temporary_power))
-                      option(value=val selected) #{val}
+                      option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
-                      option(value=val) #{val}
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
                 else
-                  option(value="none" selected disabled hidden) Select an Option
-                  each val in forms.option4
-                    option(value=val) #{val}
+                    option(value="none" selected disabled hidden) Select an Option
+                    each val in forms.option4
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
         .form-group.form-row
           .col.col-md-12.col-lg-12
             label.small(for='temporary-water') Temporary Water
@@ -30,13 +30,13 @@ mixin temporaryService()
                 if(project.Temporary_service.temporary_water)
                   each val in forms.option4
                     if(val.includes(project.Temporary_service.temporary_water))
-                      option(value=val selected) #{val}
+                      option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
-                      option(value=val) #{val}
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
                 else
-                  option(value="none" selected disabled hidden) Select an Option
-                  each val in forms.option4
-                    option(value=val) #{val}
+                    option(value="none" selected disabled hidden) Select an Option
+                    each val in forms.option4
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
         .form-group.form-row
           .col.col-md-12.col-lg-12
             label.small(for='site-shed') Site Shed

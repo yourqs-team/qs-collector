@@ -66,13 +66,13 @@ mixin siteArrangement()
                 if(project.Site_arrangement.carpet_protection)
                     each val in forms.option4
                       if(val.includes(project.Site_arrangement.site_access))
-                        option(value=val selected) #{val}
-                      else
-                        option(value=val) #{val}
+                        option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
+                    else
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
                 else
-                  option(value="none" selected disabled hidden) Select an Option
-                  each val in forms.option4
-                    option(value=val) #{val}
+                    option(value="none" selected disabled hidden) Select an Option
+                    each val in forms.option4
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
           .col.col-md-12.col-lg-6
             label.small(for='allow-extra-specific-time') Allow Extra Specific Time
             .input-group
