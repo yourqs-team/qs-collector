@@ -1,0 +1,29 @@
+#deleteProjectModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='deleteProjectodalLabel' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#deleteProjectModalLabel.modal-title.text-danger Delete this project?
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body 
+        .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+          strong Are you sure to remove this project? 
+          br
+          | This cannot be retrieved after deleting this project.
+        table.table
+          tbody
+            tr
+              th(scope="row") Project Name
+              td#projName
+            tr
+              th(scope="row") Project Code
+              td#projCode 
+            tr
+              th(scope="row") Project Owned by
+              td#projOwner
+            tr
+              th(scope="row") Project Created
+              td#projDate
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Cancel
+        a#deleteTrigger.btn.btn-danger(href='#') Delete This Project

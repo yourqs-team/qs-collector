@@ -12,6 +12,6 @@ mixin showProjects(project)
             a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href=`/project/${project.encodeProjCode(project.id)}/edit`)
               i.fas.fa-pencil-alt.fa-sm.text-white-50
               |  Edit Form
-            a.text-danger.ml-3(href='#') Delete
+            a.deleteProject.text-danger.ml-3(href='#' data-proj-code=`${project.encodeProjCode(project.id)}` data-proj-name=`${project.project_name}` data-proj-owner=`${project.User.fullname()}` data-proj-date=`${project.createdAtToNZTime()}`) Delete
           .col-auto
             i.fas.fa-folder.fa-2x.text-gray-300

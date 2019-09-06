@@ -25,13 +25,13 @@ router.get("/logout", loginController.logout);
 router.get("/register", registerController.registerForm);
 router.post("/register", catchErrors(registerController.validateRegisterForm), registerController.createUser);
 
-// Dashboard
+// Project Dashboard
 router.get('/projects', loginController.isLoggedIn, dashboardController.projects);
 router.post('/project/create', loginController.isLoggedIn, catchErrors(dashboardController.createProject), catchErrors(dashboardController.editProject));
 router.get('/project/:id/edit', loginController.isLoggedIn, catchErrors(dashboardController.editProject));
+router.get('/project/:id/delete', loginController.isLoggedIn, catchErrors(dashboardController.deleteProject));
 
 // PDF
 router.get('/pdf/:id/view', sampleController.pdfView);
-// router.get('/pdf/:id/generate', sampleController.generate);
 
 module.exports = router;

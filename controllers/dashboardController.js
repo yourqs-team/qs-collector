@@ -103,7 +103,7 @@ exports.editProject = async (req, res) => {
   return; // stop further execution in this callback
 }
 
-exports.createProject = async (req, res, next) => {
+exports.createProject = async (req, res) => {
 
   const project_name = req.body.project_name;
   const project_address = req.body.project_address;
@@ -197,4 +197,21 @@ exports.createProject = async (req, res, next) => {
   // Redirect to newly create project and flash a message that they have successfully created a project
   req.flash("success", "You have created a project!");
   res.redirect(`/project/${project_id}/edit`);
+  return;
+}
+
+exports.deleteProject = async (req, res) => {
+
+  //1. Decrypt code first
+  const project_id = hashids.decode(req.params.id)[0];
+
+  //2. Check decoded project ID.
+  confirmValidProject(project_id, req, res);
+
+  const project = await Project.destroy({
+    where: {id: project_id}
+  });
+
+  req.flash("success", "You have successfully deleted a project!");
+  res.redirect("/projects");
 }

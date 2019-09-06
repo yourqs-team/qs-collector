@@ -82,3 +82,29 @@
     image.src = url;
   })("https://i.imgur.com/RjlZjYJ.gif");
 })(jQuery); // End of use strict
+
+$(document).ready(function() {
+
+  $(".deleteProject").click(function(e){
+    e.preventDefault(); // prevent to trigger href
+    
+    //1. Open the modal
+    $("#deleteProjectModal").modal("show");
+
+    //2. Retrieve the data from data-attr
+    const proj_name = $(this).data("proj-name");
+    const proj_code = $(this).data("proj-code");
+    const proj_owner = $(this).data("proj-owner");
+    const proj_date = $(this).data("proj-date");
+    const proj_url = "/project/" + proj_code + "/delete";
+  
+    //3. Put inside the table
+    $('#projName').html(proj_name);
+    $('#projCode').html(proj_code);
+    $('#projOwner').html(proj_owner);
+    $('#projDate').html(proj_date);
+
+    //4. Put inside button trigger
+    $("#deleteTrigger").attr("href", proj_url);
+  });
+});
