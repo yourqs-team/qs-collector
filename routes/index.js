@@ -29,6 +29,7 @@ router.post("/register", catchErrors(registerController.validateRegisterForm), r
 router.get('/projects', loginController.isLoggedIn, dashboardController.projects);
 router.post('/project/create', loginController.isLoggedIn, catchErrors(dashboardController.createProject), catchErrors(dashboardController.editProject));
 router.get('/project/:id/edit', loginController.isLoggedIn, catchErrors(dashboardController.editProject));
+router.post('/project/:id/update', loginController.isLoggedIn, catchErrors(dashboardController.updateProject));
 router.get('/project/:id/delete', loginController.isLoggedIn, catchErrors(dashboardController.deleteProject));
 
 // PDF
