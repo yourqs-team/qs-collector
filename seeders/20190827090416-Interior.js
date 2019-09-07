@@ -16,19 +16,19 @@ module.exports = {
     }], {});
 
     await queryInterface.bulkInsert('Interior_finishes', [{
-      kitchen_floor_covering: "Vynil",
+      kitchen_floor_covering: "Vinyl",
       kitchen_wall_finish: "Paint",
-      living_floor_covering: "Vynil",
+      living_floor_covering: "Vinyl",
       living_wall_finish: "Paint",
-      bedrooms_floor_covering: "Vynil",
+      bedrooms_floor_covering: "Vinyl",
       bedrooms_wall_finish: "Paint",
-      bathroom_floor_covering: "Vynil",
+      bathroom_floor_covering: "Vinyl",
       bathroom_wall_finish: "Paint",
-      ensuite_floor_covering: "Vynil",
+      ensuite_floor_covering: "Vinyl",
       ensuite_wall_finish: "Paint",
-      laundry_floor_covering: "Vynil",
+      laundry_floor_covering: "Vinyl",
       laundry_wall_finish: "Paint",
-      other_floor_covering: "Vynil",
+      other_floor_covering: "Vinyl",
       other_wall_finish: "Paint",
       ProjectId: 1
     }], {});

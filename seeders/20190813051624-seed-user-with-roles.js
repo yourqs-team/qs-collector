@@ -42,13 +42,13 @@ module.exports = {
       [
         {
           username: "admin",
-          password: "admin",
+          password: "admin123",
           email: "test@gmail.com",
           contact: "02080413349",
           firstname: "Jap",
           lastname: "Ignacio",
           gender: "Male",
-          company: "Initar",
+          company: "QS Collector",
           address: "Far Far Away",
           birthday: new Date("08/01/1991").toISOString(),
           createdAt: new Date(),
@@ -56,14 +56,14 @@ module.exports = {
           RoleId: 1 // 1
         },
         {
-          username: "marlon",
-          password: "123marlon",
+          username: "test",
+          password: "test123",
           email: "test@gmail.com",
           contact: "02080413349",
           firstname: "Marlon",
           lastname: "Parra",
           gender: "Male",
-          company: "Initar",
+          company: "QS Collector",
           address: "Close By",
           birthday: new Date("08/01/1991").toISOString(),
           createdAt: new Date(),
