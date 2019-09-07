@@ -9,9 +9,9 @@ mixin plumbing()
       .card-body.collapse#plumbing
         div.form-group.form-row
           .col.col-lg-6
-            label.small(for="plans") Allowance Type
+            label.small(for="plumbing_allowance_type") Allowance Type
             .input-group
-              select.form-control(name="plans")
+              select.form-control(name="plumbing_allowance_type")
                 if(project.Plumbing.allowance_type)
                   each val in forms.option9
                     if(val.includes(project.Plumbing.allowance_type))
@@ -23,9 +23,9 @@ mixin plumbing()
                   each val in forms.option9 
                     option(value=val) #{val}
           .col.col-lg-6
-            label.small(for='geotechnical') HWC
+            label.small(for='plumbing_HWC') HWC
             .input-group
-              select.form-control(name="geotechnical")
+              select.form-control(name="plumbing_HWC")
                 if(project.Plumbing.HWC)
                   each val in forms.option13
                     if(val.includes(project.Plumbing.HWC))
@@ -38,9 +38,9 @@ mixin plumbing()
                     option(value=val) #{val}
         div.form-group.form-row
           .col.col-lg-6
-            label.small(for='geotechnical') New Connection?
+            label.small(for='plumbing_new_connection') New Connection?
             .input-group
-              select.form-control(name="geotechnical")
+              select.form-control(name="plumbing_new_connection")
                 if(project.Plumbing.new_connection)
                   each val in forms.option4
                     if(val.includes(project.Plumbing.new_connection))
@@ -53,6 +53,6 @@ mixin plumbing()
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
         .div.form-group.form-row
           .col
-            label.small(for="comment") Comment
+            label.small(for="plumbing_comment") Comment
             .input-group
-              textarea.form-control#comment(name="comment") #{project.Plumbing.comments}
+              textarea.form-control#comment(name="plumbing_comment") #{project.Plumbing.comments}

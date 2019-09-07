@@ -9,9 +9,9 @@ mixin temporaryService()
       .card-body.collapse#temporaryService
         .form-group.form-row
           .col.col-md-12.col-lg-12
-            label.small(for='temporary-power') Temporary Power
+            label.small(for='temporary_power') Temporary Power
             .input-group
-              select.form-control(name="temporary-power")
+              select.form-control(name="temporary_power")
                 if(project.Temporary_service.temporary_power)
                   each val in forms.option4
                     if(val.includes(project.Temporary_service.temporary_power))
@@ -24,9 +24,9 @@ mixin temporaryService()
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
         .form-group.form-row
           .col.col-md-12.col-lg-12
-            label.small(for='temporary-water') Temporary Water
+            label.small(for='temporary_water') Temporary Water
             .input-group
-              select.form-control(name="temporary-water")
+              select.form-control(name="temporary_water")
                 if(project.Temporary_service.temporary_water)
                   each val in forms.option4
                     if(val.includes(project.Temporary_service.temporary_water))
@@ -39,9 +39,9 @@ mixin temporaryService()
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
         .form-group.form-row
           .col.col-md-12.col-lg-12
-            label.small(for='site-shed') Site Shed
+            label.small(for='site_shed') Site Shed
             .input-group
-              select.form-control(name="site-shed")
+              select.form-control(name="site_shed")
                 if(project.Temporary_service.site_shed)
                   each val in forms.option7
                     if(val.includes(project.Temporary_service.site_shed))

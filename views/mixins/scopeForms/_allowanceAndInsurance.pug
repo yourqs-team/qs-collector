@@ -15,9 +15,9 @@ mixin allowanceAndInsurance()
               .input-group-append
                 span.input-group-text weeks
           .col.col-md-12.col-lg-6
-            label.small(for='all-risk-insurance') All Risk Insurance
+            label.small(for='all_risk_insurance') All Risk Insurance
             .input-group
-              select.form-control(name="all-risk-insurance")
+              select.form-control(name="all_risk_insurance")
                 if(project.Allowance_and_insurance.risk_insurance)
                   each val in forms.option4
                     if(val.includes(project.Allowance_and_insurance.new_connections))
@@ -30,9 +30,9 @@ mixin allowanceAndInsurance()
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
         .form-group.form-row
           .col.col-md-12.col-lg-12
-            label.small(for='all-risk-insurance') Building Guarantee
+            label.small(for='building_guarantee') Building Guarantee
             .input-group
-              select.form-control(name="all-risk-insurance")
+              select.form-control(name="building_guarantee")
                 if(project.Allowance_and_insurance.building_guarantee)
                   each val in forms.option6
                     if(val.includes(project.Safety_requirement.building_guarantee))

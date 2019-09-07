@@ -12,9 +12,9 @@ mixin interiorFinishes()
                         h6.m-0.font-weight-bold.text-primary.w-100 Floor Covering
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for="site-sign") Kitchen
+                                label.small(for="kitchen_floor_covering") Kitchen
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="kitchen_floor_covering")
                                         if(project.Interior_finish.kitchen_floor_covering)
                                             each val in forms.option10
                                                 if(val.includes(project.Interior_finish.kitchen_floor_covering))
@@ -26,17 +26,17 @@ mixin interiorFinishes()
                                             each val in forms.option10 
                                                 option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="kitchen_floor_covering_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="kitchen_floor_covering_other")
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for='security-fencing') Living Room
+                                label.small(for='living_room_floor_covering') Living Room
                                 .input-group
-                                    select.form-control(name="site-sign")
-                                        if(project.Interior_finish.kitchen_floor_covering)
+                                    select.form-control(name="living_room_floor_covering")
+                                        if(project.Interior_finish.living_room_floor_covering)
                                             each val in forms.option10
-                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                if(val.includes(project.Interior_finish.living_room_floor_covering))
                                                     option(value=val selected) #{val}
                                                 else
                                                     option(value=val) #{val}
@@ -45,17 +45,17 @@ mixin interiorFinishes()
                                             each val in forms.option10 
                                                 option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="living_room_floor_covering_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="living_room_floor_covering_other")
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for='security-fencing') Bedrooms
+                                label.small(for='bedrooms_floor_covering') Bedrooms
                                 .input-group
-                                    select.form-control(name="site-sign")
-                                        if(project.Interior_finish.kitchen_floor_covering)
+                                    select.form-control(name="bedrooms_floor_covering")
+                                        if(project.Interior_finish.bedroom_floor_covering)
                                             each val in forms.option10
-                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                if(val.includes(project.Interior_finish.bedroom_floor_covering))
                                                     option(value=val selected) #{val}
                                                 else
                                                     option(value=val) #{val}
@@ -64,17 +64,17 @@ mixin interiorFinishes()
                                             each val in forms.option10 
                                                 option(value=val) #{val} 
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="bedrooms_floor_covering_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign")      
+                                    input.form-control(name="bedrooms_floor_covering_other")      
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for='security-fencing') Bathrooms
+                                label.small(for='bathrooms_floor_covering') Bathrooms
                                 .input-group
-                                    select.form-control(name="site-sign")
-                                        if(project.Interior_finish.kitchen_floor_covering)
+                                    select.form-control(name="bathrooms_floor_covering")
+                                        if(project.Interior_finish.bathroom_floor_covering)
                                             each val in forms.option10
-                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                if(val.includes(project.Interior_finish.bathroom_floor_covering))
                                                     option(value=val selected) #{val}
                                                 else
                                                     option(value=val) #{val}
@@ -83,17 +83,17 @@ mixin interiorFinishes()
                                             each val in forms.option10 
                                                 option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="bathrooms_floor_covering_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="bathrooms_floor_covering_other")
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for='security-fencing') Ensuite
+                                label.small(for='ensuite_floor_covering') Ensuite
                                 .input-group
-                                    select.form-control(name="site-sign")
-                                        if(project.Interior_finish.kitchen_floor_covering)
+                                    select.form-control(name="ensuite_floor_covering")
+                                        if(project.Interior_finish.ensuite_floor_covering)
                                             each val in forms.option10
-                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                if(val.includes(project.Interior_finish.ensuite_floor_covering))
                                                     option(value=val selected) #{val}
                                                 else
                                                     option(value=val) #{val}
@@ -102,17 +102,17 @@ mixin interiorFinishes()
                                             each val in forms.option10 
                                                 option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="ensuite_floor_covering_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign") 
+                                    input.form-control(name="ensuite_floor_covering_other") 
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for='security-fencing') Laundry
+                                label.small(for='laundry_floor_covering') Laundry
                                 .input-group
-                                    select.form-control(name="site-sign")
-                                        if(project.Interior_finish.kitchen_floor_covering)
+                                    select.form-control(name="laundry_floor_covering")
+                                        if(project.Interior_finish.laundry_floor_covering)
                                             each val in forms.option10
-                                                if(val.includes(project.Interior_finish.kitchen_floor_covering))
+                                                if(val.includes(project.Interior_finish.laundry_floor_covering))
                                                     option(value=val selected) #{val}
                                                 else
                                                     option(value=val) #{val}
@@ -121,21 +121,21 @@ mixin interiorFinishes()
                                             each val in forms.option10 
                                                 option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="laundry_floor_covering_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign") 
+                                    input.form-control(name="laundry_floor_covering_other") 
                         div.form-group.form-row
                             .col
-                                label.small(for="site-sign") Other Area
+                                label.small(for="other_area_floor_covering") Other Area
                                 .input-group
-                                    input.form-control(name="site-sign")  
+                                    input.form-control(name="other_area_floor_covering")  
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Wall Finish          
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for="site-sign") Kitchen
+                                label.small(for="kitchen_wall_finish") Kitchen
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="kitchen_wall_finish")
                                         if(project.Interior_finish.kitchen_wall_finish)
                                             each val in forms.option11
                                                 if(val.includes(project.Interior_finish.kitchen_wall_finish))
@@ -147,14 +147,14 @@ mixin interiorFinishes()
                                             each val in forms.option11 
                                                 option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="kitchen_wall_finish_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="kitchen_wall_finish_other")
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for='security-fencing') Living
+                                label.small(for='living_wall_finish') Living
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="living_wall_finish")
                                         if(project.Interior_finish.living_wall_finish)
                                             each val in forms.option11
                                                 if(val.includes(project.Interior_finish.living_wall_finish))
@@ -166,14 +166,14 @@ mixin interiorFinishes()
                                             each val in forms.option11 
                                                 option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="living_wall_finish_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="living_wall_finish_other")
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for='security-fencing') Bedrooms
+                                label.small(for='bedrooms_wall_finish') Bedrooms
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="bedrooms_wall_finish")
                                         if(project.Interior_finish.bedrooms_wall_finish)
                                             each val in forms.option11
                                                 if(val.includes(project.Interior_finish.bedrooms_wall_finish))
@@ -185,9 +185,9 @@ mixin interiorFinishes()
                                             each val in forms.option11 
                                                 option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="bedrooms_wall_finish_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign")      
+                                    input.form-control(name="bedrooms_wall_finish_other")      
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
                                 label.small(for='security-fencing') Bathrooms
@@ -209,9 +209,9 @@ mixin interiorFinishes()
                                     input.form-control(name="site-sign")
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for='security-fencing') Ensuite
+                                label.small(for='ensuite_wall_finish') Ensuite
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="ensuite_wall_finish")
                                         if(project.Interior_finish.ensuite_wall_finish)
                                             each val in forms.option12
                                                 if(val.includes(project.Interior_finish.ensuite_wall_finish))
@@ -223,14 +223,14 @@ mixin interiorFinishes()
                                             each val in forms.option12 
                                                 option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="ensuite_wall_finish_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="ensuite_wall_finish_other")
                         div.form-group.form-row
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
-                                label.small(for='security-fencing') Laundry
+                                label.small(for='laundry_wall_finish') Laundry
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="laundry_wall_finish")
                                         if(project.Interior_finish.laundry_wall_finish)
                                             each val in forms.option12
                                                 if(val.includes(project.Interior_finish.laundry_wall_finish))
@@ -242,9 +242,9 @@ mixin interiorFinishes()
                                             each val in forms.option12 
                                                 option(value=val) #{val}
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
-                                label.small(for="site-sign") Other
+                                label.small(for="laundry_wall_finish_other") Other
                                 .input-group
-                                    input.form-control(name="site-sign")
+                                    input.form-control(name="laundry_wall_finish_other")
                         div.form-group.form-row
                             .col
                                 label.small(for="site-sign") Other Area

@@ -33,14 +33,14 @@ mixin mainProject()
           p.m-0= project.encodeProjCode(project.id)
       div.form-group.form-row
         .col.col-md-12
-          label.small(for="project-name") Project Name
+          label.small(for="project_name") Project Name
           .input-group
-            input.form-control(type="text" name="project-name" placeholder="Project Name" value=`${project.project_name}`) 
+            input.form-control(type="text" name="project_name" placeholder="Project Name" value=`${project.project_name}`) 
       div.form-group.form-row
         .col.col-md-12
-          label.small(for="project-address") Address
+          label.small(for="project_address") Address
           .input-group  
-            textarea.form-control(name="project-address" placeholder="Project Address" style="min-height: 122px")
+            textarea.form-control(name="project_address" placeholder="Project Address" style="min-height: 122px")
               = project.project_address
      
       hr              

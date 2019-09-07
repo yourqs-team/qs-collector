@@ -23,9 +23,9 @@ mixin electrical()
                   each val in forms.option9 
                     option(value=val) #{val}
           .col.col-lg-6
-            label.small(for='geotechnical') Distribution Board
+            label.small(for='distribution_board') Distribution Board
             .input-group
-              select.form-control(name="geotechnical")
+              select.form-control(name="distribution_board")
                 if(project.Electrical.distribution_board)
                   each val in forms.option14
                     if(val.includes(project.Electrical.distribution_board))
@@ -37,9 +37,9 @@ mixin electrical()
                   each val in forms.option14
                     option(value=val) #{val}
         div.form-group.form-row
-          label.small(for='electrical-new-connection') New Connection?
+          label.small(for='electrical_new_connection') New Connection?
             .input-group
-              select.form-control(name="electrical-new-connection")
+              select.form-control(name="electrical_new_connection")
                 if(project.Electrical.new_connection)
                   each val in forms.option4
                     if(val.includes(project.Electrical.new_connection))
@@ -52,6 +52,6 @@ mixin electrical()
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
         .div.form-group.form-row
           .col
-            label.small(for="comment") Comment
+            label.small(for="electrical_comment") Comment
             .input-group
-              textarea.form-control#comment(name="comment") #{project.Electrical.comments}
+              textarea.form-control#comment(name="electrical_comment") #{project.Electrical.comments}

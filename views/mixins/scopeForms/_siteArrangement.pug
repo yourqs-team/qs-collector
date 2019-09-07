@@ -27,9 +27,9 @@ mixin siteArrangement()
                   each val in forms.option1
                     option(value=val) #{val}
 
-            label.small(for='space-for-material-storage') Space for Material Storage
+            label.small(for='space_for_material_storage') Space for Material Storage
             .input-group
-              select.form-control(name="space-for-material-storage")
+              select.form-control(name="space_for_material_storage")
                 if(project.Site_arrangement.space_for_material_storage)
                   each val in forms.option2
                     if(val.includes(project.Site_arrangement.space_for_material_storage))
@@ -41,13 +41,13 @@ mixin siteArrangement()
                   each val in forms.option2
                     option(value=val) #{val}
           .col.col-md-12.col-lg-6
-            label.small(for='comment') Comment
+            label.small(for='space_for_material_storage_comment') Comment
             .input-group
-              textarea.form-control(name="" rows="4" style="min-height: 122px;") #{project.Site_arrangement.comment}
+              textarea.form-control(name="space_for_material_storage" rows="4" style="min-height: 122px;") #{project.Site_arrangement.comment}
         .form-group.form-row
           .col
-            label.small(for='living-arrangement') Living Arrangements
-            select.form-control(name="living-arrangement")
+            label.small(for='living_arrangement') Living Arrangements
+            select.form-control(name="living_arrangement")
               if(project.Site_arrangement.living_arrangement)
                 each val in forms.option3
                   if(val.includes(project.living_arrangement))
@@ -60,9 +60,9 @@ mixin siteArrangement()
                   option(value=val) #{val}
         div.form-group.form-row
           .col.col-md-12.col-lg-6
-            label.small(for='carpet-protection') Carpet Protection
+            label.small(for='carpet_protection') Carpet Protection
             .input-group
-              select.form-control(type="number" name="carpet-protection")
+              select.form-control(type="number" name="carpet_protection")
                 if(project.Site_arrangement.carpet_protection)
                     each val in forms.option4
                       if(val.includes(project.Site_arrangement.site_access))
@@ -74,8 +74,8 @@ mixin siteArrangement()
                     each val in forms.option4
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
           .col.col-md-12.col-lg-6
-            label.small(for='allow-extra-specific-time') Allow Extra Specific Time
+            label.small(for='allow_extra_specific_time') Allow Extra Specific Time
             .input-group
-              input.form-control(type="number" name="allow-extra-specific-time" value=`${project.Site_arrangement.allow_extra_site_specific_time}`)
+              input.form-control(type="number" name="allow_extra_specific_time" value=`${project.Site_arrangement.allow_extra_site_specific_time}`)
               .input-group-append
                 span.input-group-text Hrs

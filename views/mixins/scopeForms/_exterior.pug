@@ -28,20 +28,20 @@ mixin exterior()
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Wall Cladding
                         div.form-group.form-row
-                            .col.col-12
-                                label.small(for="site-sign") Type
+                            .colwall_cladding_type12
+                                label.small(for="wall_cladding_type") Type
                                 .input-group
-                                    input.form-control(name="site-sign" value=`${project.Exterior.wall_cladding_type}`)
+                                    input.form-control(name="wall_cladding_type" value=`${project.Exterior.wall_cladding_type}`)
                             .col.col-12
-                                label.small(for="site-sign") Work Required
+                                label.small(for="wall_cladding_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign" value=`${project.Exterior.wall_cladding_work_required}`)
+                                    input.form-control(name="wall_cladding_work_required" value=`${project.Exterior.wall_cladding_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Base Cladding
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="site-sign") Type
+                                label.small(for="base_cladding_type") Type
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="base_cladding_type")
                                         if(project.Exterior.base_cladding_type)
                                             each val in forms.option16
                                                 if(val.includes(project.Exterior.base_cladding_type))
@@ -53,25 +53,25 @@ mixin exterior()
                                             each val in forms.option16
                                                 option(value=val) #{val}
                             .col.col-12
-                                label.small(for="site-sign") Work Required
+                                label.small(for="base_cladding_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign" value=`${project.Exterior.base_cladding_work_required}`)  
+                                    input.form-control(name="base_cladding_work_required" value=`${project.Exterior.base_cladding_work_required}`)  
                         h6.m-0.font-weight-bold.text-primary.w-100 Soffit Cladding     
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="site-sign") Type
+                                label.small(for="soffit_cladding_type") Type
                                 .input-group
-                                    input.form-control(name="site-sign" value=`${project.Exterior.soffit_cladding_type}`)
+                                    input.form-control(name="soffit_cladding_type" value=`${project.Exterior.soffit_cladding_type}`)
                             .col.col-12
-                                label.small(for="site-sign") Work Required
+                                label.small(for="soffit_cladding_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign" value=`${project.Exterior.soffit_cladding_work_require}`) 
+                                    input.form-control(name="soffit_cladding_work_required" value=`${project.Exterior.soffit_cladding_work_require}`) 
                         h6.m-0.font-weight-bold.text-primary.w-100 Exterior Joinery
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="site-sign") Type
+                                label.small(for="exterior_joinery_type") Type
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="exterior_joinery_type")
                                         if(project.Exterior.exterior_joinery_type)
                                             each val in forms.option17
                                                 if(val.includes(project.Exterior.exterior_joinery_type))
@@ -83,26 +83,26 @@ mixin exterior()
                                             each val in forms.option17
                                                 option(value=val) #{val}
                             .col.col-12
-                                label.small(for="site-sign") Work Required
+                                label.small(for="exterior_joinery_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign" value=`${project.Exterior.exterior_joinery_work_required}`)
+                                    input.form-control(name="exterior_joinery_work_required" value=`${project.Exterior.exterior_joinery_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Entrance Door
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="site-sign") Type
+                                label.small(for="entrance_door_type") Type
                                 .input-group
-                                    input.form-control(name="site-sign" value=`${project.Exterior.entrance_door_type}`)
+                                    input.form-control(name="entrance_door_type" value=`${project.Exterior.entrance_door_type}`)
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Roof
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="site-sign") Pitch
+                                label.small(for="roof_pitch") Pitch
                                 .input-group
-                                    input.form-control(name="site-sign" value=`${project.Exterior.roof_pitch}`)
+                                    input.form-control(name="roof_pitch" value=`${project.Exterior.roof_pitch}`)
                             .col.col-12
-                                label.small(for="site-sign") Cladding Type
+                                label.small(for="roof_cladding_type") Cladding Type
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="roof_cladding_type")
                                         if(project.Exterior.roof_cladding_type)
                                             each val in forms.option18
                                                 if(val.includes(project.Exterior.roof_cladding_type))
@@ -114,15 +114,15 @@ mixin exterior()
                                             each val in forms.option18
                                                 option(value=val) #{val}
                             .col.col-12
-                                label.small(for="site-sign") Work Required
+                                label.small(for="roof_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="site-sign" value=`${project.Exterior.roof_work_required}`)
+                                    input.form-control(name="roof_work_required" value=`${project.Exterior.roof_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Gutter
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="site-sign") Gutter Material
+                                label.small(for="gutter_material") Gutter Material
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="gutter_material")
                                         if(project.Exterior.gutter_material)
                                             each val in forms.option19
                                                 if(val.includes(project.Exterior.gutter_material))
@@ -134,9 +134,9 @@ mixin exterior()
                                             each val in forms.option19
                                                 option(value=val) #{val}
                             .col.col-12
-                                label.small(for="site-sign") Profile
+                                label.small(for="gutter_profile") Profile
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="gutter_profile")
                                         if(project.Exterior.gutter_profile)
                                             each val in forms.option20
                                                 if(val.includes(project.Exterior.gutter_profile))
@@ -150,9 +150,9 @@ mixin exterior()
                         h6.m-0.font-weight-bold.text-primary.w-100 Downpipe
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="site-sign") Material
+                                label.small(for="downpipe_material") Material
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="downpipe_material")
                                         if(project.Exterior.downpipe_material)
                                             each val in forms.option19
                                                 if(val.includes(project.Exterior.downpipe_material))
@@ -164,9 +164,9 @@ mixin exterior()
                                             each val in forms.option19
                                                 option(value=val) #{val}
                             .col.col-12
-                                label.small(for="site-sign") Profile
+                                label.small(for="downpipe_profile") Profile
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="downpipe_profile")
                                         if(project.Exterior.downpipe_profile)
                                             each val in forms.option21
                                                 if(val.includes(project.Exterior.downpipe_profile))
@@ -180,9 +180,9 @@ mixin exterior()
                         h6.m-0.font-weight-bold.text-primary.w-100 Fascia
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="site-sign") Type
+                                label.small(for="fascia_type") Type
                                 .input-group
-                                    select.form-control(name="site-sign")
+                                    select.form-control(name="fascia_type")
                                         if(project.Exterior.fascia_type)
                                             each val in forms.option22
                                                 if(val.includes(project.Exterior.fascia_type))
