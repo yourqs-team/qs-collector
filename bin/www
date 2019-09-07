@@ -36,27 +36,42 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces and connect sequelize
  */
 
-if (process.env.SEQUELIZE_FORCE_SYNC_SCHEMA === true) {
-  console.log('danger dangerdangerdangerdangerdanger danger');
-  // return models.sequelize
-  //   .sync({force: true}) // NOTE BEFORE SEEDING: run this to sync its models to it the schema. to enforce onDelete 'cascade'
-  //   .then(result => {
-  //     server.listen(port);
-  //     server.on('error', onError);
-  //     server.on('listening', onListening);
-  //   });
-} else{
+if ( process.env.SEQUELIZE_FORCE_SYNC_SCHEMA === "ON" || process.env.SEQUELIZE_FORCE_SYNC_SCHEMA === "on" ){
+  
+  /**
+  * This is should be ONLY running after your initial of your database: 'sequelize db:migrate' -JAP
+  */
+
   return models.sequelize
-    .sync() // NOTE BEFORE SEEDING: {force: true} - to sync its models to it the schema.
+    .sync({force: true})
+    .then( 
+      result => {
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**** WARNING: ****━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SEQUELIZE_FORCE_SYNC_SCHEMA MODE: ON ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        console.log("You have successfully forced sync your defined schema on your models!");
+        console.log("Please close this by pressing 'CTRL + C' and turn 'OFF' your SEQUELIZE_FORCE_SYNC_SCHEMA on your environment variables.");
+        console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+    })
+    .catch(
+      error => {
+        console.log("Sorry, something went wrong...");
+        console.log(error);
+      }
+    );
+
+} else{
+  /**
+  * Normal deployment mode
+  */
+  return models.sequelize
+    .sync() 
     .then(result => {
       server.listen(port);
       server.on('error', onError);
       server.on('listening', onListening);
-      console.log('lhlkhkjhkljhjlhhhjhjhjjjjkljkljkjkj: ' + process.env.SEQUELIZE_FORCE_SYNC_SCHEMA);
     });
+  console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SEQUELIZE_FORCE_SYNC_SCHEMA MODE: OFF ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 }
-
-
 
 /**
  * Normalize a port into a number, string, or false.

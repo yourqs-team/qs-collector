@@ -5,12 +5,12 @@ mixin flashMsg()
       each category in categories
         each message in flashes[category]
           if (category === 'error')
-            .alert(class=`alert-danger alert-dismissible fade show`)
+            .alert(class=`alert-danger alert-dismissible fade show pr-5`)
               != "<strong class='capitalize'>"+ category +" : </strong> "+ message
               button.close(type='button', data-dismiss='alert', aria-label='Close')
                 span(aria-hidden='true') &times;
           else
-            .alert(class=`alert-${category} alert-dismissible fade show`)
+            .alert(class=`alert-${category} alert-dismissible fade show pr-5`)
               != "<strong class='capitalize'>"+ category +" : </strong> "+ message
               button.close(type='button', data-dismiss='alert', aria-label='Close')
                 span(aria-hidden='true') &times;
