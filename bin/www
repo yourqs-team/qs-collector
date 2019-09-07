@@ -49,7 +49,11 @@ if ( process.env.SEQUELIZE_FORCE_SYNC_SCHEMA === "ON" || process.env.SEQUELIZE_F
         console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**** WARNING: ****━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
         console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SEQUELIZE_FORCE_SYNC_SCHEMA MODE: ON ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
         console.log("You have successfully forced sync your defined schema on your models!");
-        console.log("Please close this by pressing 'CTRL + C' and turn 'OFF' your SEQUELIZE_FORCE_SYNC_SCHEMA on your environment variables.");
+        console.log("To run your server:");
+        console.log("1. Please close this by pressing 'CTRL + C'.");
+        console.log("2. Set your SEQUELIZE_FORCE_SYNC_SCHEMA='OFF' your inside your environment variables.");
+        console.log("3. Run 'node_modules/.bin/sequelize db:seed:all'");
+        console.log("4. and run 'npm start' again.");
         console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
     })
     .catch(
