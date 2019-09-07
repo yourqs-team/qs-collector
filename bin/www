@@ -36,13 +36,26 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces and connect sequelize
  */
 
-return models.sequelize
-  .sync()
-  .then(result => {
-    server.listen(port);
-    server.on('error', onError);
-    server.on('listening', onListening);
-  });
+if (process.env.SEQUELIZE_FORCE_SYNC_SCHEMA === true) {
+  console.log('danger dangerdangerdangerdangerdanger danger');
+  // return models.sequelize
+  //   .sync({force: true}) // NOTE BEFORE SEEDING: run this to sync its models to it the schema. to enforce onDelete 'cascade'
+  //   .then(result => {
+  //     server.listen(port);
+  //     server.on('error', onError);
+  //     server.on('listening', onListening);
+  //   });
+} else{
+  return models.sequelize
+    .sync() // NOTE BEFORE SEEDING: {force: true} - to sync its models to it the schema.
+    .then(result => {
+      server.listen(port);
+      server.on('error', onError);
+      server.on('listening', onListening);
+      console.log('lhlkhkjhkljhjlhhhjhjhjjjjkljkljkjkj: ' + process.env.SEQUELIZE_FORCE_SYNC_SCHEMA);
+    });
+}
+
 
 
 /**

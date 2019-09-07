@@ -116,8 +116,8 @@ exports.createProject = async (req, res) => {
       Manpower: {},
       Safety_requirement: {
         site_sign: true,
-        fall_in_protection: false, //TOFIX: boolean to string | default value: 'None'
-        security_fencing: false, //TOFIX: boolean to string | default value: 'None'
+        fall_in_protection: "None", //TOFIX: boolean to string | default value: 'None'
+        security_fencing: "None", //TOFIX: boolean to string | default value: 'None'
         crossing_protection: true
       },
       Temporary_service: {
@@ -246,8 +246,8 @@ exports.updateProject = async (req, res) => {
       },
       Safety_requirement: {
         site_sign: req.body.safetyRequirement_site_sign,
-        fall_in_protection:  req.body.safetyRequirement_fall_in_protection, //TOFIX: boolean to string | default value: 'None'
-        security_fencing: req.body.safetyRequirement_security_fencing, //TOFIX: boolean to string | default value: 'None'
+        fall_in_protection:  req.body.safetyRequirement_fall_in_protection, 
+        security_fencing: req.body.safetyRequirement_security_fencing,
         crossing_protection: req.body.safetyRequirement_crossing_protection
       },
       Temporary_service: {
