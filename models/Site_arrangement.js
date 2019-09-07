@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Site_arrangement.associate = function(models) {
     // associations can be defined here
-    Site_arrangement.belongsTo(models.Project, {foreignKey: 'ProjectId', onDelete: 'cascade'});
+    Site_arrangement.belongsTo(models.Project, {foreignKey: 'ProjectId', onDelete: 'cascade', hooks: true});
   };
   return Site_arrangement;
 };

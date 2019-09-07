@@ -2,8 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Safety_requirements = sequelize.define('Safety_requirement', {
     site_sign: DataTypes.BOOLEAN,
-    fall_in_protection: DataTypes.BOOLEAN, // TOFIX: should be string see: dashboarcController.createProject -> safetyRequirement
-    crossing_protection: DataTypes.BOOLEAN, // TOFIX: should be string see:  dashboarcController.createProject -> safetyRequirement
+    fall_in_protection: DataTypes.STRING, // TOFIX: should be string see: dashboarcController.createProject -> safetyRequirement
+    crossing_protection: DataTypes.STRING, // TOFIX: should be string see:  dashboarcController.createProject -> safetyRequirement
     security_fencing: DataTypes.STRING,
     ProjectId: DataTypes.INTEGER
   }, {timestamps: false});
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Safety_requirements.associate = function(models) {
     // associations can be defined here
-    Safety_requirements.belongsTo(models.Project, {foreignKey: 'ProjectId', onDelete: 'cascade'});
+    Safety_requirements.belongsTo(models.Project, {foreignKey: 'ProjectId', onDelete: 'cascade', hooks: true});
   };
   return Safety_requirements;
 };

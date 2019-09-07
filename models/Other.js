@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps: false});
   Other.associate = function(models) {
     // associations can be defined here
-    Other.belongsTo(models.Project, {foreignKey: "ProjectId", onDelete:'cascade'});
+    Other.belongsTo(models.Project, {foreignKey: "ProjectId", onDelete:'cascade', hooks: true});
   };
   return Other;
 };

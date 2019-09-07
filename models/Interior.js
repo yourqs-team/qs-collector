@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {timestamps: false});
   Interior.associate = function(models) {
     // associations can be defined here
-    Interior.belongsTo(models.Project, {foreignKey: "ProjectId", onDelete: 'cascade'});
+    Interior.belongsTo(models.Project, {foreignKey: "ProjectId", onDelete: 'cascade', hooks: true});
   };
   return Interior;
 };

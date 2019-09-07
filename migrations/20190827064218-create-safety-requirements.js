@@ -9,10 +9,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       site_sign: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING
       },
       fall_in_protection: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING
       },
       crossing_protection: {
         type: Sequelize.BOOLEAN

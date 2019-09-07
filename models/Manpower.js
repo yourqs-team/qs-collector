@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     ProjectId: DataTypes.INTEGER
   }, {timestamps: false});
   Manpower.associate = function(models) {
-    Manpower.belongsTo(models.Project, {foreignKey: 'ProjectId', onDelete: 'cascade'});
+    Manpower.belongsTo(models.Project, {foreignKey: 'ProjectId', onDelete: 'cascade', hooks: true});
   };
   return Manpower;
 };

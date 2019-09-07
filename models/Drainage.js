@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Drainage.associate = function(models) {
     // associations can be defined here
-    Drainage.belongsTo(models.Project, {foreignKey: "ProjectId", onDelete: 'cascade'});
+    Drainage.belongsTo(models.Project, {foreignKey: "ProjectId", onDelete: 'cascade', hooks: true});
   };
   return Drainage;
 };
