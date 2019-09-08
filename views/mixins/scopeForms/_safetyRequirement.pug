@@ -9,23 +9,23 @@ mixin safetyRequirement()
       .card-body.collapse#safetyRequirement
         div.form-group.form-row
           .col.col-md-12.col-lg-6
-            label.small(for="site-sign") Site Sign
+            label.small(for="site_sign") Site Sign
             .input-group
-              select.form-control(name="site-sign")
+              select.form-control(name="site_sign")
                 if(project.Safety_requirement.site_sign)
                   each val in forms.option4
                     if(val.includes(project.Safety_requirement.site_sign))
-                      option(value=val selected) #{val}
+                      option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
-                      option(value=val) #{val}
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
                 else
-                  option(value="none" selected disabled hidden) Select an Option
-                  each val in forms.option4
-                    option(value=val) #{val}
+                    option(value="none" selected disabled hidden) Select an Option
+                    each val in forms.option4
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
           .col.col-md-12.col-lg-6
-            label.small(for='security-fencing') Security Fencing
+            label.small(for='security_fencing') Security Fencing
             .input-group
-              select.form-control(name="security-fencing")
+              select.form-control(name="security_fencing")
                 if(project.Safety_requirement.security_fencing)
                   each val in forms.option5
                     if(val.includes(project.Safety_requirement.security_fencing))
@@ -38,30 +38,30 @@ mixin safetyRequirement()
                     option(value=val) #{val}
         div.form-group.form-row
           .col.col-md-12.col-lg-6
-            label.small(for='fall-in-protection') Fall in Protection
+            label.small(for='fall_in_protection') Fall in Protection
             .input-group
-              select.form-control(name="fall-in-protection")
+              select.form-control(name="fall_in_protection")
                 if(project.Safety_requirement.fall_in_protection)
                   each val in forms.option4
                     if(val.includes(project.Safety_requirement.fall_in_protection))
-                      option(value=val selected) #{val}
+                      option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
-                      option(value=val) #{val}
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
                 else
-                  option(value="none" selected disabled hidden) Select an Option
-                  each val in forms.option4
-                    option(value=val) #{val}
+                    option(value="none" selected disabled hidden) Select an Option
+                    each val in forms.option4
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
           .col.col-md-12.col-lg-6
-            label.small(for='project-management') Crossing Protection
+            label.small(for='project_management') Crossing Protection
             .input-group
-              select.form-control(name="project-management")
+              select.form-control(name="project_management")
                 if(project.Safety_requirement.crossing_protection)
                   each val in forms.option4
                     if(val.includes(project.Safety_requirement.crossing_protection))
-                      option(value=val selected) #{val}
+                      option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
-                      option(value=val) #{val}
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
                 else
-                  option(value="none" selected disabled hidden) Select an Option
-                  each val in forms.option4
-                    option(value=val) #{val}
+                    option(value="none" selected disabled hidden) Select an Option
+                    each val in forms.option4
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}

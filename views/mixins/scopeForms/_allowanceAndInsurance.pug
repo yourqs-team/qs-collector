@@ -9,30 +9,30 @@ mixin allowanceAndInsurance()
       .card-body.collapse#allowanceAndInsurance
         div.form-group.form-row
           .col.col-md-12.col-lg-6
-            label.small(for="estimated-project-duration") Estimated Project Duration
+            label.small(for="estimated_project_duration") Estimated Project Duration
             .input-group
-              input.form-control(type="number" name="estimated-project-duration")
+              input.form-control(type="number" name="estimated_project_duration" value=`${project.Allowance_and_insurance.estimated_project_duration}`)
               .input-group-append
                 span.input-group-text weeks
           .col.col-md-12.col-lg-6
-            label.small(for='all-risk-insurance') All Risk Insurance
+            label.small(for='all_risk_insurance') All Risk Insurance
             .input-group
-              select.form-control(name="all-risk-insurance")
+              select.form-control(name="all_risk_insurance")
                 if(project.Allowance_and_insurance.risk_insurance)
                   each val in forms.option4
-                    if(val.includes(project.Allowance_and_insurance.risk_insurance))
-                      option(value=val selected) #{val}
+                    if(val.includes(project.Allowance_and_insurance.new_connections))
+                        option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
-                      option(value=val) #{val}
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
                 else
-                  option(value="none" selected disabled hidden) Select an Option
-                  each val in forms.option4
-                    option(value=val) #{val}
+                    option(value="none" selected disabled hidden) Select an Option
+                    each val in forms.option4
+                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
         .form-group.form-row
           .col.col-md-12.col-lg-12
-            label.small(for='all-risk-insurance') Building Guarantee
+            label.small(for='building_guarantee') Building Guarantee
             .input-group
-              select.form-control(name="all-risk-insurance")
+              select.form-control(name="building_guarantee")
                 if(project.Allowance_and_insurance.building_guarantee)
                   each val in forms.option6
                     if(val.includes(project.Allowance_and_insurance.building_guarantee))

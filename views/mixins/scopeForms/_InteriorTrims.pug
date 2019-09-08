@@ -9,19 +9,19 @@ mixin interiorTrims()
             .card-body.collapse#interior
                 div.form-group.form-row
                     .col.col-md-12.col-lg-6
-                        label.small(for="engineer") Engineer
+                        label.small(for="scotia_type") Scotia Type
                         .input-group
-                            input.form-control(name="engineer")
+                            input.form-control(name="scotia_type" value=`${project.Interior_trim.scotia_type}`)
                     .col.col-md-12.col-lg-6
-                        label.small(for='surveyor') Surveyor
+                        label.small(for='skirting_type') Skirting Type
                         .input-group
-                            input.form-control(name="surveyor")
+                            input.form-control(name="skirting_type" value=`${project.Interior_trim.skirting_type}`)
                 div.form-group.form-row
                     .col.col-md-12.col-lg-6
-                        label.small(for="engineer") Engineer
+                        label.small(for="window_architrave") Window Architrave
                         .input-group
-                            input.form-control(name="engineer")
+                            input.form-control(name="window_architrave" value=`${project.Interior_trim.window_architrave}`)
                     .col.col-md-12.col-lg-6
-                        label.small(for='surveyor') Surveyor
+                        label.small(for='door_architrave') Door Architrave
                         .input-group
-                            input.form-control(name="surveyor")
+                            input.form-control(name="door_architrave" value=`${project.Interior_trim.door_architrave}`)

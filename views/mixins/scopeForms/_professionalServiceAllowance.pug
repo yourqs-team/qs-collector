@@ -13,35 +13,35 @@ mixin professionalServiceAllowance()
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(name="plans")
+              input.form-control(name="plans" value=`${project.Proffesional_service_allowance.plans}`)
           .col.col-md-12.col-lg-6
             label.small(for='geotechnical') Geotechnical
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(name="geotechnical")
+              input.form-control(name="geotechnical"  value=`${project.Proffesional_service_allowance.geotechnical}`)
         div.form-group.form-row
           .col.col-md-12.col-lg-6
             label.small(for="engineer") Engineer
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(name="engineer")
+              input.form-control(name="engineer"  value=`${project.Proffesional_service_allowance.engineer}`)
           .col.col-md-12.col-lg-6
             label.small(for='surveyor') Surveyor
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(name="surveyor")
+              input.form-control(name="surveyor"  value=`${project.Proffesional_service_allowance.surveyor}`)
         div.form-group.form-row
           .col.col-md-12.col-lg-6
-            label.small(for="council-fees") Council Fees
+            label.small(for="council_fees") Council Fees
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(name="council-fees")
+              input.form-control(name="council_fees"  value=`${project.Proffesional_service_allowance.council_fees}`)
         div.form-group.form-row
           .col
               label.small(for="site-sign") Other Area
               .input-group
-                  input.form-control(name="site-sign") 
+                  input.form-control(name="site-sign"  value=`${project.Proffesional_service_allowance.other_area}`) 

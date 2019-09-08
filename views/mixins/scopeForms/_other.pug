@@ -9,16 +9,16 @@ mixin other()
             .card-body.collapse#other
                 .div.form-group.form-row
                     .col
-                        label.small(for="comment") Demolition
+                        label.small(for="demolition_comment") Demolition
                         .input-group
-                            textarea.form-control#comment
+                            textarea.form-control#comment(name="demolition_comment") #{project.Other.demolition}
                 .div.form-group.form-row
                     .col
-                        label.small(for="comment") Renovation
+                        label.small(for="renovation_comment") Renovation
                         .input-group
-                            textarea.form-control#comment
+                            textarea.form-control#comment(name="renovation_comment") #{project.Other.renovation}
                 .div.form-group.form-row
                     .col
-                        label.small(for="comment") Comments
+                        label.small(for="other_comment") Comments
                         .input-group
-                            textarea.form-control#comment
+                            textarea.form-control#comment(name="other_comment") #{project.Other.comments}

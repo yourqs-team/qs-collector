@@ -4,8 +4,8 @@ mixin interior()
         hr.w-100
         .input-group.row.mb-4
             .col-4
-                label.small(for="interior") Painting Exterior
-                select.form-control(name="interior")
+                label.small(for="painting_interior") Painting Interior
+                select.form-control(name="painting_interior")
                     if(project.Interior.painting_interior)
                         each val in forms.option15
                             if(val.includes(project.Interior.painting_interior))

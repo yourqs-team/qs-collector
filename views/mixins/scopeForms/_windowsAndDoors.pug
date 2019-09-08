@@ -9,9 +9,9 @@ mixin windowsAndDoors()
             .card-body.collapse#windowsAndDoors
                 .form-group.form-row
                     .col.col-md-12.col-lg-12
-                        label.small(for='interior-door-type') Interior Door Type
+                        label.small(for='interior_door_type') Interior Door Type
                         .input-group
-                            select.form-control(name="temporary-power")
+                            select.form-control(name="interior_door_type")
                                 if(project.Window_and_door.interior_door_type)
                                     each val in forms.option8
                                         if(val.includes(project.Window_and_door.interior_door_type))
@@ -24,9 +24,9 @@ mixin windowsAndDoors()
                                         option(value=val) #{val}
                 .form-group.form-row
                     .col.col-md-12.col-lg-12
-                        label.small(for='door-hardware') Door Hardware
+                        label.small(for='door_hardware') Door Hardware
                         .input-group
-                            select.form-control(name="temporary-water")
+                            select.form-control(name="door_hardware")
                                 if(project.Window_and_door.door_hardware)
                                     each val in forms.option9
                                         if(val.includes(project.Window_and_door.door_hardware))

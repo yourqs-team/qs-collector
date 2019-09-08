@@ -13,51 +13,47 @@ mixin manpower()
             .input-group
               .input-group-prepend
                 span.input-group-text Plus
-              input.form-control(type="number" name="markup")
+              input.form-control(type="number" name="markup" value=`${project.Manpower.markup}`)
               .input-group-append
                 span.input-group-text %
         div.form-group.form-row
           .col.col-md-12.col-lg-6
-            label.small(for="number-of-builders") # of Builders
+            label.small(for="no_builders") # of Builders
             .input-group
-              input.form-control(type="number" name="number-of-builders")
+              input.form-control(type="number" name="no_builders" value=`${project.Manpower.no_builder}`)
               .input-group-append
                 span.input-group-text People
           .col.col-md-12.col-lg-6
             label.small(for='supervision') Supervision
             .input-group
-              input.form-control(type="number" name="supervision")
+              input.form-control(type="number" name="supervision" value=`${project.Manpower.supervision}`)
               .input-group-append
                 span.input-group-text Hrs/Week
         div.form-group.form-row
           .col.col-md-12.col-lg-6
             label.small(for='administration') Administration
             .input-group
-              input.form-control(type="number" name="administration")
+              input.form-control(type="number" name="administration" value=`${project.Manpower.administration}`)
               .input-group-append
                 span.input-group-text Hrs/Week
           .col.col-md-12.col-lg-6
-            label.small(for='project-management') Project Management
+            label.small(for='project_management') Project Management
             .input-group
-              input.form-control(type="number" name="project-management")
+              input.form-control(type="number" name="project_management" value=`${project.Manpower.project_management}`)
               .input-group-append
                 span.input-group-text Hrs/Week
         div.form-group.form-row
           .col.col-md-12.col-lg-6
-            label.small(for='travel-distance') Travel Distance
+            label.small(for='travel_distance') Travel Distance
             .input-group
-              input.form-control(type="number" name="travel-distance")
+              input.form-control(type="number" name="travel_distance" value=`${project.Manpower.administration}`)
               .input-group-append
                 span.input-group-text km
           .col.col-md-12.col-lg-6
-            label.small(for='travel-distance-price') Travel Distance - Price
+            label.small(for='travel_distance_price') Travel Distance - Price
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(type="number" name="travel-distance-price")
+              input.form-control(type="number" name="travel_distance_price" value=`${project.Manpower.travel_distance_price}`)
               .input-group-append
                 span.input-group-text Week
-        .form-group.form-row
-          .col
-            label.small(for='travel-distance-price') Week Price
-            input.form-control(type="number" name="travel-distance-price")
