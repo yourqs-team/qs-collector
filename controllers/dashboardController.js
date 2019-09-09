@@ -193,11 +193,11 @@ exports.createProject = async (req, res) => {
 
   // Encode the project id first to be able to redirect on current project
   const project_id = hashids.encode(project.id);
-
+  res.json(project);
   // Redirect to newly create project and flash a message that they have successfully created a project
-  req.flash("success", "You have created a project!");
-  res.redirect(`/project/${project_id}/edit`);
-  return;
+  // req.flash("success", "You have created a project!");
+  // res.redirect(`/project/${project_id}/edit`);
+  // return;
 }
 
 exports.updateProject = async (req, res) => {
@@ -232,168 +232,190 @@ exports.updateProject = async (req, res) => {
     checkOwnership(project, req.user, req, res);
   }
 
-  // update
-  project.update({
-      project_name: req.body.project_name,
-      project_address: req.body.project_address,
-      Manpower: {
-        markup: req.body.manpower_markup,
-        no_builder: req.body.manpower_no_builder,
-        administration: req.body.manpower_administration,
-        supervision: req.body.manpower_supervision,
-        project_management: req.body.manpower_project_management,
-        no_vehicles: req.body.manpower_no_vehicles,
-        travel_distance: req.body.manpower_travel_distance,
-        travel_price: req.body.manpower_travel_price
-      },
-      Safety_requirement: {
-        site_sign: req.body.safetyRequirement_site_sign,
-        fall_in_protection:  req.body.safetyRequirement_fall_in_protection, 
-        security_fencing: req.body.safetyRequirement_security_fencing,
-        crossing_protection: req.body.safetyRequirement_crossing_protection
-      },
-      Temporary_service: {
-        temporary_power: req.body.tempService_temporary_power,
-        temporary_water: req.body.tempService_temporary_water,
-        site_shed: req.body.tempService_side_shed
-      },
-      Site_arrangement: {
-        site_access: req.body.siteArrange_site_access,
-        space_for_material_storage: req.body.siteArrange_space_for_material_storage,
-        comment: req.body.siteArrange_comment,
-        living_arrangement: req.body.siteArrange_living_arrangement,
-        carpet_protection: req.body.siteArrange_carpet_protection,
-        allow_extra_site_specific_time: req.body.siteArrange_allow_extra_site_specific_time
-      },
-      Allowance_and_insurance: {
-        estimated_project_duration: req.body.allowAndInsur_estimated_project_duration,
-        risk_insurance: req.body.allowAndInsur_risk_insurance,
-        building_guarantee: req.body.allowAndInsur_building_guarantee
-      },
-      Proffesional_service_allowance:{
-        plans: req.body.profServAllow_plans,
-        engineer: req.body.profServAllow_engineer,
-        council_fees: req.body.profServAllow_council_fees,
-        geotechnical: req.body.profServAllow_geotechnical,
-        surveyor: req.body.profServAllow_surveyor
-      },
-      Interior: {
-        painting_interior: req.body.painting_interior
-      },
-      Exterior: {
-        painting_exterior: req.body.exterior_painting_exterior,
-        wall_cladding_type: req.body.exterior_wall_cladding_type,
-        wall_cladding_work_required: req.body.exterior_wall_cladding_work_required,
-        base_cladding_type: req.body.exterior_base_cladding_type,
-        base_cladding_work_required: req.body.exterior_base_cladding_work_required,
-        soffit_cladding_type: req.body.exterior_soffit_cladding_type,
-        soffit_cladding_work_require: req.body.exterior_soffit_cladding_work_require,
-        exterior_joinery_type: req.body.exterior_exterior_joinery_type,
-        exterior_joinery_work_required: req.body.exterior_exterior_joinery_work_required,
-        entrance_door_type: req.body.exterior_entrance_door_type,
-        roof_pitch: req.body.exterior_roof_pitch,
-        roof_cladding_type: req.body.exterior_roof_cladding_type,
-        roof_work_required: req.body.exterior_roof_work_required,
-        gutter_material: req.body.exterior_gutter_material,
-        gutter_profile: req.body.exterior_gutter_profile,
-        downpipe_material: req.body.exterior_downpipe_material,
-        downpipe_profile: req.body.exterior_downpipe_profile,
-        downpipe_work_required: req.body.exterior_downpipe_work_required,
-        fascia_type: req.body.exterior_fascia_type
-      },
-      Hard_landscaping: {
-        deck_type: req.body.hardLandscaping_deck_type,
-        deck_work_required: req.body.hardLandscaping_deck_work_required,
-        handrail_type: req.body.hardLandscaping_handrail_type,
-        handrail_work_required: req.body.hardLandscaping_handrail_work_required,
-        paving_type: req.body.hardLandscaping_paving_type,
-        paving_work_required: req.body.hardLandscaping_paving_work_required,
-        driveway_type: req.body.hardLandscaping_driveway_type,
-        driveway_work_required: req.body.hardLandscaping_driveway_work_required,
-        fencing_type: req.body.hardLandscaping_fencing_type,
-        fencing_work_required: req.body.hardLandscaping_fencing_work_required,
-        other_type: req.body.hardLandscaping_other_type,
-        other_work_required: req.body.hardLandscaping_other_work_required
-      },
-      Interior_trim: {
-        scotia_type: req.body.interiorTrim_scotia_type,
-        skirting_type: req.body.interiorTrim_skirting_type,
-        window_architrave: req.body.interiorTrim_window_architrave,
-        door_architrave: req.body.interiorTrim_door_architrave
-      },
-      Interior_finish:{
-        kitchen_floor_covering: req.body.interiorFinish_kitchen_floor_covering,
-        kitchen_wall_finish: req.body.interiorFinish_kitchen_wall_finish,
-        living_floor_covering: req.body.interiorFinish_living_floor_covering,
-        living_wall_finish: req.body.interiorFinish_living_wall_finish,
-        bedrooms_floor_covering: req.body.interiorFinish_bedrooms_floor_covering,
-        bedrooms_wall_finish: req.body.interiorFinish_bedrooms_wall_finish,
-        bathroom_floor_covering: req.body.interiorFinish_bathroom_floor_covering,
-        bathroom_wall_finish: req.body.interiorFinish_bathroom_wall_finish,
-        ensuite_floor_covering: req.body.interiorFinish_ensuite_floor_covering,
-        ensuite_wall_finish: req.body.interiorFinish_ensuite_wall_finish,
-        laundry_floor_covering: req.body.interiorFinish_laundry_floor_covering,
-        laundry_wall_finish: req.body.interiorFinish_laundry_wall_finish,
-        other_floor_covering: req.body.interiorFinish_other_floor_covering,
-        other_wall_finish: req.body.interiorFinish_other_wall_finish
-      },
-      Window_and_door:{
-        interior_door_type: req.body.windowAndDoor_interior_door_type,
-        door_hardware: req.body.windowAndDoor_door_hardware
-      },
-      Joinery_allowance:{
-        kitchen: req.body.joineryAllowance_kitchen,
-        laundry: req.body.joineryAllowance_laundry,
-        wardrobe_master_bed: req.body.joineryAllowance_wardrobe_master_bed,
-        wardrobes_other: req.body.joineryAllowance_wardrobes_other,
-        wardrobe_other_amount: req.body.joineryAllowance_wardrobe_other_amount,
-        other: req.body.joineryAllowance_other,
-        other_amount: req.body.joineryAllowance_other_amount
-      },
-      Electrical:{
-        allowance_type: req.body.electrical_allowance_type,
-        distribution_board: req.body.electrical_allowance_type,
-        new_connection: req.body.electrical_new_connection,
-        comments: req.body.electrical_comments
-      },
-      Plumbing:{
-        allowance_type: req.body.plumbing_allowance_type,
-        HWC: req.body.plumbing_HWC,
-        new_connection: req.body.plumbing_new_connection,
-        comments: req.body.plumbing_comments
-      },
-      Drainage:{
-        new_connections: req.body.drainage_new_connection,
-        comments: req.body.drainage_comments
-      },
-      Other:{
-        demolition: req.body.other_demolition,
-        renovation: req.body.other_renovation,
-        comments: req.body.other_comments
-      }
-  }, {
-    include: [
-      {model: Manpower},
-      {model: SafetyRequirement},
-      {model: TemporaryService},
-      {model: SiteArrangement},
-      {model: AllowanceAndInsurance},
-      {model: ProffesionalServiceAllowance},
-      {model: Interior},
-      {model: Exterior},
-      {model: HardLandscaping},
-      {model: InteriorTrim},
-      {model: InteriorFinish}, 
-      {model: WindowAndDoor},
-      {model: JoineryAllowance}, 
-      {model: Electrical},
-      {model: Plumbing}, 
-      {model: Drainage}, 
-      {model: Other}
-    ]
- });
 
+  // Update - Project
+  await project.update({
+      project_name: req.body.project_name,
+      project_address: req.body.project_address
+  });
+
+  // Update - Manpower
+  await project.Manpower.update({
+    id: project_id,
+    ProjectId: project_id,
+    markup: req.body.manpower_markup,
+    no_builder: req.body.manpower_no_builder,
+    administration: req.body.manpower_administration,
+    supervision: req.body.manpower_supervision,
+    project_management: req.body.manpower_project_management,
+    no_vehicles: req.body.manpower_no_vehicles,
+    travel_distance: req.body.manpower_travel_distance,
+    travel_price: req.body.manpower_travel_price
+  });
+
+  // Update - Safety Requirement
+  await project.Safety_requirement.update({
+    site_sign: req.body.safetyRequirement_site_sign,
+    fall_in_protection:  req.body.safetyRequirement_fall_in_protection, 
+    security_fencing: req.body.safetyRequirement_security_fencing,
+    crossing_protection: req.body.safetyRequirement_crossing_protection
+  });
+
+  // Update - Temporary Service
+  await project.Temporary_service.update({
+    temporary_power: req.body.tempService_temporary_power,
+    temporary_water: req.body.tempService_temporary_water,
+    site_shed: req.body.tempService_side_shed
+  });
+
+  // Update - Site Arrangement
+  await project.Site_arrangement.update({
+    site_access: req.body.siteArrange_site_access,
+    space_for_material_storage: req.body.siteArrange_space_for_material_storage,
+    comment: req.body.siteArrange_comment,
+    living_arrangement: req.body.siteArrange_living_arrangement,
+    carpet_protection: req.body.siteArrange_carpet_protection,
+    allow_extra_site_specific_time: req.body.siteArrange_allow_extra_site_specific_time
+  });
+
+  // Update - Allowance and Insurance
+  await project.Allowance_and_insurance.update({
+    estimated_project_duration: req.body.allowAndInsur_estimated_project_duration,
+    risk_insurance: req.body.allowAndInsur_risk_insurance,
+    building_guarantee: req.body.allowAndInsur_building_guarantee
+  });
+
+  // Update - Proffesional Service Allowance
+  await project.Proffesional_service_allowance.update({
+    plans: req.body.profServAllow_plans,
+    engineer: req.body.profServAllow_engineer,
+    council_fees: req.body.profServAllow_council_fees,
+    geotechnical: req.body.profServAllow_geotechnical,
+    surveyor: req.body.profServAllow_surveyor
+  });
+
+  // Update - Interior
+  await project.Interior.update({
+    painting_interior: req.body.painting_interior
+  });
+
+  // Update - Exterior
+  await project.Exterior.update({
+    painting_exterior: req.body.exterior_painting_exterior,
+    wall_cladding_type: req.body.exterior_wall_cladding_type,
+    wall_cladding_work_required: req.body.exterior_wall_cladding_work_required,
+    base_cladding_type: req.body.exterior_base_cladding_type,
+    base_cladding_work_required: req.body.exterior_base_cladding_work_required,
+    soffit_cladding_type: req.body.exterior_soffit_cladding_type,
+    soffit_cladding_work_require: req.body.exterior_soffit_cladding_work_require,
+    exterior_joinery_type: req.body.exterior_exterior_joinery_type,
+    exterior_joinery_work_required: req.body.exterior_exterior_joinery_work_required,
+    entrance_door_type: req.body.exterior_entrance_door_type,
+    roof_pitch: req.body.exterior_roof_pitch,
+    roof_cladding_type: req.body.exterior_roof_cladding_type,
+    roof_work_required: req.body.exterior_roof_work_required,
+    gutter_material: req.body.exterior_gutter_material,
+    gutter_profile: req.body.exterior_gutter_profile,
+    downpipe_material: req.body.exterior_downpipe_material,
+    downpipe_profile: req.body.exterior_downpipe_profile,
+    downpipe_work_required: req.body.exterior_downpipe_work_required,
+    fascia_type: req.body.exterior_fascia_type
+  });
+
+  // Update - Hard Landscaping
+  await project.Hard_landscaping.update({
+    deck_type: req.body.hardLandscaping_deck_type,
+    deck_work_required: req.body.hardLandscaping_deck_work_required,
+    handrail_type: req.body.hardLandscaping_handrail_type,
+    handrail_work_required: req.body.hardLandscaping_handrail_work_required,
+    paving_type: req.body.hardLandscaping_paving_type,
+    paving_work_required: req.body.hardLandscaping_paving_work_required,
+    driveway_type: req.body.hardLandscaping_driveway_type,
+    driveway_work_required: req.body.hardLandscaping_driveway_work_required,
+    fencing_type: req.body.hardLandscaping_fencing_type,
+    fencing_work_required: req.body.hardLandscaping_fencing_work_required,
+    other_type: req.body.hardLandscaping_other_type,
+    other_work_required: req.body.hardLandscaping_other_work_required
+  });
+
+  // Update - Interior Trim
+  await project.Interior_trim.update({
+    scotia_type: req.body.interiorTrim_scotia_type,
+    skirting_type: req.body.interiorTrim_skirting_type,
+    window_architrave: req.body.interiorTrim_window_architrave,
+    door_architrave: req.body.interiorTrim_door_architrave
+  });
+
+  // Update - Interior Finish
+  await project.Interior_finish.update({
+    kitchen_floor_covering: req.body.interiorFinish_kitchen_floor_covering,
+    kitchen_wall_finish: req.body.interiorFinish_kitchen_wall_finish,
+    living_floor_covering: req.body.interiorFinish_living_floor_covering,
+    living_wall_finish: req.body.interiorFinish_living_wall_finish,
+    bedrooms_floor_covering: req.body.interiorFinish_bedrooms_floor_covering,
+    bedrooms_wall_finish: req.body.interiorFinish_bedrooms_wall_finish,
+    bathroom_floor_covering: req.body.interiorFinish_bathroom_floor_covering,
+    bathroom_wall_finish: req.body.interiorFinish_bathroom_wall_finish,
+    ensuite_floor_covering: req.body.interiorFinish_ensuite_floor_covering,
+    ensuite_wall_finish: req.body.interiorFinish_ensuite_wall_finish,
+    laundry_floor_covering: req.body.interiorFinish_laundry_floor_covering,
+    laundry_wall_finish: req.body.interiorFinish_laundry_wall_finish,
+    other_floor_covering: req.body.interiorFinish_other_floor_covering,
+    other_wall_finish: req.body.interiorFinish_other_wall_finish
+  });
+
+  // Update - Window and Door
+  await project.Window_and_door.update({
+    interior_door_type: req.body.windowAndDoor_interior_door_type,
+    door_hardware: req.body.windowAndDoor_door_hardware
+  });
+
+  // Update - Joinery Allowance
+  await project.Joinery_allowance.update({
+    kitchen: req.body.joineryAllowance_kitchen,
+    laundry: req.body.joineryAllowance_laundry,
+    wardrobe_master_bed: req.body.joineryAllowance_wardrobe_master_bed,
+    wardrobes_other: req.body.joineryAllowance_wardrobes_other,
+    wardrobe_other_amount: req.body.joineryAllowance_wardrobe_other_amount,
+    other: req.body.joineryAllowance_other,
+    other_amount: req.body.joineryAllowance_other_amount
+  });
+
+  // Update - Electrical
+  await project.Electrical.update({
+    allowance_type: req.body.electrical_allowance_type,
+    distribution_board: req.body.electrical_allowance_type,
+    new_connection: req.body.electrical_new_connection,
+    comments: req.body.electrical_comments
+  });
+
+  // Update - Plumbing
+  await project.Plumbing.update({
+    allowance_type: req.body.plumbing_allowance_type,
+    HWC: req.body.plumbing_HWC,
+    new_connection: req.body.plumbing_new_connection,
+    comments: req.body.plumbing_comments
+  });
+
+  // Update - Drainage
+  await project.Drainage.update({
+    new_connections: req.body.drainage_new_connection,
+    comments: req.body.drainage_comments
+  });
+
+  // Update - Other
+  await project.Other.update({
+    demolition: req.body.other_demolition,
+    renovation: req.body.other_renovation,
+    comments: req.body.other_comments
+  });
+
+  if (req.user.Role.description === "Client"){
+    checkOwnership(project, req.user, req, res);
+  }
+  
   // Redirect to newly create project and flash a message that they have successfully created a project
+
   req.flash("success", "The project is now already saved.");
   res.redirect(`/project/${req.params.id}/edit`);
   return;

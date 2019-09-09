@@ -18,9 +18,9 @@ mixin manpower()
                 span.input-group-text %
         div.form-group.form-row
           .col.col-md-12.col-lg-6
-            label.small(for="manpower_no_builders") # of Builders
+            label.small(for="manpower_no_builder") # of Builders
             .input-group
-              input.form-control(type="number" name="manpower_no_builders" value=`${project.Manpower.no_builder}`)
+              input.form-control(type="number" name="manpower_no_builder" value=`${project.Manpower.no_builder}`)
               .input-group-append
                 span.input-group-text People
           .col.col-md-12.col-lg-6
@@ -54,6 +54,6 @@ mixin manpower()
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(type="number" name="manpower_travel_distance_price" value=`${project.Manpower.travel_distance_price}`)
+              input.form-control(type="number" name="manpower_travel_price" value=`${project.Manpower.travel_price}`)
               .input-group-append
                 span.input-group-text Week
