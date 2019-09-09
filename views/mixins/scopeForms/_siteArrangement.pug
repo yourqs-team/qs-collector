@@ -41,9 +41,9 @@ mixin siteArrangement()
                   each val in forms.option2
                     option(value=val) #{val}
           .col.col-md-12.col-lg-6
-            label.small(for="siteArrange_space_for_material_storage") Comment
+            label.small(for="siteArrange_comment") Comment
             .input-group
-              textarea.form-control(name="siteArrange_space_for_material_storage" rows="4" style="min-height: 122px;") #{project.Site_arrangement.comment}
+              textarea.form-control(name="siteArrange_comment" rows="4" style="min-height: 122px;") #{project.Site_arrangement.comment}
         .form-group.form-row
           .col
             label.small(for="siteArrange_living_arrangement") Living Arrangements
