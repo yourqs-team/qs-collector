@@ -68,7 +68,7 @@ exports.editProject = async (req, res) => {
   //2. Check decoded project ID.
   confirmValidProject(project_id, req, res);
 
-  const project = await Project.findOne({where: project_id, include: [
+  const project = await Project.findOne({where: {id: project_id}, include: [
     {model: User},
     {model: Manpower},
     {model: SafetyRequirement},
