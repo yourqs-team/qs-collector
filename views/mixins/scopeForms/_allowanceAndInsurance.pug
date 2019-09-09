@@ -11,7 +11,7 @@ mixin allowanceAndInsurance()
           .col.col-md-12.col-lg-6
             label.small(for="allowAndInsur_estimated_project_duration") Estimated Project Duration
             .input-group
-              input.form-control(type="number" name="allowAndInsur_estimated_project_duration" value=`${project.Allowance_and_insurance.estimated_project_duration}`)
+              input.form-control(type="number" name="allowAndInsur_estimated_project_duration" step=".01" value=`${project.Allowance_and_insurance.estimated_project_duration}`)
               .input-group-append
                 span.input-group-text weeks
           .col.col-md-12.col-lg-6
