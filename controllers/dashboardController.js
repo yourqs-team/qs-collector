@@ -43,7 +43,7 @@ exports.projects = async (req, res) => {
 const checkOwnership = (project, user, req, res) => {
   //  Checks owner permission
   if(project.User.id != user.id){
-    req.flash('error', 'You must be owner of this project');
+    req.flash('error', 'You must be owner of this project. You don\'t have the permission to access this project.');
     res.redirect('/projects'); // redirect immediately, if the user is not the owner
     
     return; // stop further execution in this callback
@@ -201,10 +201,12 @@ exports.createProject = async (req, res) => {
 }
 
 exports.updateProject = async (req, res) => {
+
   const project_id = hashids.decode(req.params.id)[0];
+
   confirmValidProject(project_id, req, res);
 
-  const project = await Project.findOne({where: project_id, include: [
+  const project = await Project.findOne({where: {id: project_id}, include: [
     {model: User},
     {model: Manpower},
     {model: SafetyRequirement},
@@ -393,7 +395,7 @@ exports.updateProject = async (req, res) => {
 
   // Redirect to newly create project and flash a message that they have successfully created a project
   req.flash("success", "The project is now already saved.");
-  res.redirect(`/project/${project_id}/edit`);
+  res.redirect(`/project/${req.params.id}/edit`);
   return;
 }
 
@@ -405,7 +407,35 @@ exports.deleteProject = async (req, res) => {
   //2. Check decoded project ID.
   confirmValidProject(project_id, req, res);
 
-  const project = await Project.destroy({
+  //3. Find project
+  const project = await Project.findOne({where: {id: project_id}, include: [
+    {model: User},
+    {model: Manpower},
+    {model: SafetyRequirement},
+    {model: TemporaryService},
+    {model: SiteArrangement},
+    {model: AllowanceAndInsurance},
+    {model: ProffesionalServiceAllowance},
+    {model: Interior},
+    {model: Exterior},
+    {model: HardLandscaping},
+    {model: InteriorTrim},
+    {model: InteriorFinish}, 
+    {model: WindowAndDoor},
+    {model: JoineryAllowance}, 
+    {model: Electrical},
+    {model: Plumbing}, 
+    {model: Drainage}, 
+    {model: Other}
+  ]});
+
+  // Check ownership first
+  if (req.user.Role.description === "Client"){
+    checkOwnership(project, req.user, req, res);
+  }
+
+  // Delete Data
+  await Project.destroy({
     where: {id: project_id}
   });
 

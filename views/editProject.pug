@@ -36,11 +36,11 @@ block pdfGenerator
 block content
   .container
     +flashMsg()
-    form.scope-form
+    form.scope-form(method="post" action=`/project/${project.encodeProjCode(project.id)}/update`)
       // Page Heading
       .d-sm-inline-block.align-items-center.justify-content-between.mb-4
         h1.h3.mb-2.text-gray-800.d-none.d-sm-none.d-md-block #{title}
-        a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href='#')
+        button.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(type="submit")
           i.fas.fa-save.fa-sm.text-white-50
           |  Save Project
 
