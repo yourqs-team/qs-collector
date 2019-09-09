@@ -9,9 +9,9 @@ mixin safetyRequirement()
       .card-body.collapse#safetyRequirement
         div.form-group.form-row
           .col.col-md-12.col-lg-6
-            label.small(for="site_sign") Site Sign
+            label.small(for="safetyRequirement_site_sign") Site Sign
             .input-group
-              select.form-control(name="site_sign")
+              select.form-control(name="safetyRequirement_site_sign")
                 if(project.Safety_requirement.site_sign)
                   each val in forms.option4
                     if(val.includes(project.Safety_requirement.site_sign))
@@ -23,9 +23,9 @@ mixin safetyRequirement()
                     each val in forms.option4
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
           .col.col-md-12.col-lg-6
-            label.small(for='security_fencing') Security Fencing
+            label.small(for="safetyRequirement_security_fencing") Security Fencing
             .input-group
-              select.form-control(name="security_fencing")
+              select.form-control(name="safetyRequirement_security_fencing")
                 if(project.Safety_requirement.security_fencing)
                   each val in forms.option5
                     if(val.includes(project.Safety_requirement.security_fencing))
@@ -38,30 +38,30 @@ mixin safetyRequirement()
                     option(value=val) #{val}
         div.form-group.form-row
           .col.col-md-12.col-lg-6
-            label.small(for='fall_in_protection') Fall in Protection
+            label.small(for="safetyRequirement_fall_in_protection") Fall in Protection
             .input-group
-              select.form-control(name="fall_in_protection")
+              select.form-control(name="safetyRequirement_fall_in_protection")
                 if(project.Safety_requirement.fall_in_protection)
-                  each val in forms.option4
+                  each val in forms.option27
                     if(val.includes(project.Safety_requirement.fall_in_protection))
-                      option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
+                      option(value=val selected) #{val}
                     else
-                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
+                      option(value=val) #{val}
                 else
                     option(value="none" selected disabled hidden) Select an Option
-                    each val in forms.option4
-                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
+                    each val in forms.option27
+                      option(value=val) #{val}
           .col.col-md-12.col-lg-6
-            label.small(for='project_management') Crossing Protection
+            label.small(for="safetyRequirement_project_management") Crossing Protection
             .input-group
-              select.form-control(name="project_management")
+              select.form-control(name="safetyRequirement_project_management")
                 if(project.Safety_requirement.crossing_protection)
                   each val in forms.option4
                     if(val.includes(project.Safety_requirement.crossing_protection))
                       option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
-                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
+                      option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
                 else
                     option(value="none" selected disabled hidden) Select an Option
                     each val in forms.option4
-                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
+                      option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}

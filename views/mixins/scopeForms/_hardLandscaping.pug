@@ -12,9 +12,9 @@ mixin hardLandscaping()
                         h6.m-0.font-weight-bold.text-primary.w-100 Deck
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="deck_type") Type
+                                label.small(for="hardLandscaping_deck_type") Type
                                 .input-group
-                                    select.form-control(name="deck_type")
+                                    select.form-control(name="hardLandscaping_deck_type")
                                         if(project.Hard_landscaping.deck_type)
                                             each val in forms.option23
                                                 if(val.includes(project.Hard_landscaping.deck_type))
@@ -26,15 +26,15 @@ mixin hardLandscaping()
                                             each val in forms.option23
                                                 option(value=val) #{val}
                             .col.col-12
-                                label.small(for="deck_work_required") Work Required
+                                label.small(for="hardLandscaping_deck_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="deck_work_required" value=`${project.Hard_landscaping.deck_work_required}`)
+                                    input.form-control(name="hardLandscaping_deck_work_required" value=`${project.Hard_landscaping.deck_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Handrail
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="handrail_type") Type
+                                label.small(for="hardLandscaping_handrail_type") Type
                                 .input-group
-                                    select.form-control(name="handrail_type")
+                                    select.form-control(name="hardLandscaping_handrail_type")
                                         if(project.Hard_landscaping.handrail_type)
                                             each val in forms.option24
                                                 if(val.includes(project.Hard_landscaping.handrail_type))
@@ -46,15 +46,15 @@ mixin hardLandscaping()
                                             each val in forms.option24
                                                 option(value=val) #{val} 
                             .col.col-12
-                                label.small(for="handrail_work_required") Work Required
+                                label.small(for="hardLandscaping_handrail_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="handrail_work_required" value=`${project.Hard_landscaping.handrail_work_required}`) 
+                                    input.form-control(name="hardLandscaping_handrail_work_required" value=`${project.Hard_landscaping.handrail_work_required}`) 
                         h6.m-0.font-weight-bold.text-primary.w-100 Paving     
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="paving_type") Type
+                                label.small(for="hardLandscaping_paving_type") Type
                                 .input-group
-                                    select.form-control(name="paving_type")
+                                    select.form-control(name="hardLandscaping_paving_type")
                                         if(project.Hard_landscaping.paving_type)
                                             each val in forms.option25
                                                 if(val.includes(project.Hard_landscaping.paving_type))
@@ -66,16 +66,16 @@ mixin hardLandscaping()
                                             each val in forms.option25
                                                 option(value=val) #{val} 
                             .col.col-12
-                                label.small(for="paving_work_required") Work Required
+                                label.small(for="hardLandscaping_paving_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="paving_work_required" value=`${project.Hard_landscaping.paving_work_required}`)
+                                    input.form-control(name="hardLandscaping_paving_work_required" value=`${project.Hard_landscaping.paving_work_required}`)
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Driveway
                             div.form-group.form-row
                                 .col.col-12
-                                    label.small(for="driveway_type") Type
+                                    label.small(for="hardLandscaping_driveway_type") Type
                                     .input-group
-                                        select.form-control(name="driveway_type")
+                                        select.form-control(name="hardLandscaping_driveway_type")
                                             if(project.Hard_landscaping.driveway_type)
                                                 each val in forms.option25
                                                     if(val.includes(project.Hard_landscaping.driveway_type))
@@ -87,15 +87,15 @@ mixin hardLandscaping()
                                                 each val in forms.option25
                                                     option(value=val) #{val} 
                                 .col.col-12
-                                    label.small(for="driveway_work_required") Work Required
+                                    label.small(for="hardLandscaping_driveway_work_required") Work Required
                                     .input-group
-                                        input.form-control(name="driveway_work_required" value=`${project.Hard_landscaping.paving_work_required}`)
+                                        input.form-control(name="hardLandscaping_driveway_work_required" value=`${project.Hard_landscaping.paving_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Fencing
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="fencing_type") Type
+                                label.small(for="hardLandscaping_fencing_type") Type
                                 .input-group
-                                    select.form-control(name="fencing_type")
+                                    select.form-control(name="hardLandscaping_fencing_type")
                                         if(project.Hard_landscaping.fencing_type)
                                             each val in forms.option26
                                                 if(val.includes(project.Hard_landscaping.fencing_type))
@@ -107,17 +107,17 @@ mixin hardLandscaping()
                                             each val in forms.option26
                                                 option(value=val) #{val} 
                             .col.col-12
-                                label.small(for="fencing_work_required") Work Required
+                                label.small(for="hardLandscaping_fencing_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="fencing_work_required" value=`${project.Hard_landscaping.fencing_work_required}`)
+                                    input.form-control(name="hardLandscaping_fencing_work_required" value=`${project.Hard_landscaping.fencing_work_required}`)
                         h6.m-0.font-weight-bold.text-primary.w-100 Other
                         div.form-group.form-row
                             .col.col-12
-                                label.small(for="other_type") Type
+                                label.small(for="hardLandscaping_other_type") Type
                                 .input-group
-                                    input.form-control(name="other_type" value=`${project.Hard_landscaping.other_type}`) 
+                                    input.form-control(name="hardLandscaping_other_type" value=`${project.Hard_landscaping.other_type}`) 
                             .col.col-12
-                                label.small(for="other_work_required") Work Required
+                                label.small(for="hardLandscaping_other_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="other_work_required" value=`${project.Hard_landscaping.other_work_required}`) 
+                                    input.form-control(name="hardLandscaping_other_work_required" value=`${project.Hard_landscaping.other_work_required}`) 
                         

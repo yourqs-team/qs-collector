@@ -9,9 +9,9 @@ mixin electrical()
       .card-body.collapse#electrical
         div.form-group.form-row
           .col.col-lg-6
-            label.small(for="allowance_type") Allowance Type
+            label.small(for="electrical_allowance_type") Allowance Type
             .input-group
-              select.form-control(name="allowance_type")
+              select.form-control(name="electrical_allowance_type")
                 if(project.Electrical.allowance_type)
                   each val in forms.option9
                     if(val.includes(project.Electrical.allowance_type))
@@ -23,9 +23,9 @@ mixin electrical()
                   each val in forms.option9 
                     option(value=val) #{val}
           .col.col-lg-6
-            label.small(for='distribution_board') Distribution Board
+            label.small(for="electrical_distribution_board") Distribution Board
             .input-group
-              select.form-control(name="distribution_board")
+              select.form-control(name="electrical_distribution_board")
                 if(project.Electrical.distribution_board)
                   each val in forms.option14
                     if(val.includes(project.Electrical.distribution_board))
@@ -37,7 +37,7 @@ mixin electrical()
                   each val in forms.option14
                     option(value=val) #{val}
         div.form-group.form-row
-          label.small(for='electrical_new_connection') New Connection?
+          label.small(for="electrical_new_connection") New Connection?
             .input-group
               select.form-control(name="electrical_new_connection")
                 if(project.Electrical.new_connection)
@@ -52,6 +52,6 @@ mixin electrical()
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
         .div.form-group.form-row
           .col
-            label.small(for="electrical_comment") Comment
+            label.small(for="electrical_comments") Comment
             .input-group
-              textarea.form-control#comment(name="electrical_comment") #{project.Electrical.comments}
+              textarea.form-control#comment(name="electrical_comments") #{project.Electrical.comments}

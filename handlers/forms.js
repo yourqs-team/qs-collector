@@ -8,7 +8,7 @@ module.exports = {
     option7: ["None", "Small", "Large"],
     option8: ["None", "MDF Hollow", "MDF Solid", "Pine Panelled", "Other"],
     option9: ["Owner", "Basic", "Standard", "Premium"],
-    option10: ['None or Existing','Carpet','Vynil','Tiles','Timber Overlay','Other'],
+    option10: ['None or Existing','Carpet','Vinyl','Tiles','Timber Overlay','Other'],
     option11: ['None','Paint','Other'],
     option12: ['None','Paint','Tilled Fully','Other'],
     option13: ['None','Existing','Relocated','New Electric Cylinder','New Gas Infinity','Other'],
@@ -25,5 +25,6 @@ module.exports = {
     option24: ['None', 'Timber', 'Glass', 'Other'],
     option25: ['None', 'Concrete', 'Cobbles'],
     option26: ['None', 'Timber Paling', 'Other'],
+    option27: ['None', 'Safety Nets'],
 }
 

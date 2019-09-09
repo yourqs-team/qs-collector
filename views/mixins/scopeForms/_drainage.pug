@@ -8,7 +8,7 @@ mixin drainage()
             i.fas.fa-ellipsis-v.fa-sm.fa-fw.text-gray-400
       .card-body.collapse#drainage
         div.form-group.form-row
-          label.small(for='drainage_new_connection') New Connection?
+          label.small(for="drainage_new_connection") New Connection?
             .input-group
               select.form-control(name="drainage_new_connection")
                 if(project.Drainage.new_connections)
@@ -23,6 +23,6 @@ mixin drainage()
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
         .div.form-group.form-row
           .col
-            label.small(for="drainage_comment") Comment
+            label.small(for="drainage_comments") Comment
             .input-group
-              textarea.form-control#comment(name="drainage_comment") #{project.Drainage.comments}
+              textarea.form-control#comment(name="drainage_comments") #{project.Drainage.comments}
