@@ -193,11 +193,11 @@ exports.createProject = async (req, res) => {
 
   // Encode the project id first to be able to redirect on current project
   const project_id = hashids.encode(project.id);
-  res.json(project);
+
   // Redirect to newly create project and flash a message that they have successfully created a project
-  // req.flash("success", "You have created a project!");
-  // res.redirect(`/project/${project_id}/edit`);
-  // return;
+  req.flash("success", "You have created a project!");
+  res.redirect(`/project/${project_id}/edit`);
+  return;
 }
 
 exports.updateProject = async (req, res) => {
