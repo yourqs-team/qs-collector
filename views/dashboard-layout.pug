@@ -25,8 +25,7 @@ html
     block stylesheet
 
 
-    //- Modular Javascript comes here.
-    block javascript
+    
 
 
   body#page-top
@@ -57,6 +56,8 @@ html
   include modals/projectModal.pug
   //- Delete Modal
   include modals/deleteProjectModal.pug
+  //- Submit to YourQS Modal
+  include modals/submitProjectModal.pug
 
   //- Bootstrap JS
   script(src="/vendor/jquery/jquery.js" type="text/javascript")
@@ -67,6 +68,9 @@ html
   script(src='/vendor/jquery-easing/jquery.easing.min.js')
   //- Custom scripts for all pages
   script(src='/js/modules/cust-bootstrap/cust-bootstrap.js')
+
+  //- Modular Javascript comes here.
+  block javascript
 
   //- PDF Generator
   block pdfGenerator

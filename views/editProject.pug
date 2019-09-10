@@ -21,6 +21,13 @@ include mixins/scopeForms/_other
 include mixins/scopeForms/_exterior
 include mixins/scopeForms/_hardLandscaping
 
+block javascript
+  if project.project_status === "Submitted"
+    script.
+      $(document).ready(function(){
+        $(".scope-form input, .scope-form textarea, .scope-form select").prop("disabled", true);
+      })
+
 //- PDF Generator
 block pdfGenerator
   //- these libraries will generate pdf
@@ -38,11 +45,22 @@ block content
     +flashMsg()
     form.scope-form(method="post" action=`/project/${project.encodeProjCode(project.id)}/update`)
       // Page Heading
-      .d-sm-inline-block.align-items-center.justify-content-between.mb-4
+      .d-sm-flex.align-items-center.justify-content-between.mb-4
         h1.h3.mb-2.text-gray-800.d-none.d-sm-none.d-md-block #{title}
-        button.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(type="submit")
-          i.fas.fa-save.fa-sm.text-white-50
-          |  Save Project
+        if project.project_status === "In Progress"
+          a.d-sm-inline-block.btn.btn-sm.btn-success.shadow-sm(href='#' data-toggle="modal" data-target="#submitProjectModal")
+            i.fas.fa-upload.fa-sm.text-white-50
+            |  Submit Project to YourQS
+
+      .d-sm-inline-block.align-items-center.justify-content-between.mb-4
+        if project.project_status === "In Progress"
+          button.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(type="submit")
+            i.fas.fa-save.fa-sm.text-white-50
+            |  Save Project
+        if project.project_status === "Submitted"
+          button.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(type="submit")
+            i.fas.fa-save.fa-sm.text-white-50
+            |  Clone Project
 
         //- The download PDF function is inside pdf-templates/_projectScopeRenderer
         button.ml-2.d-sm-inline-block.btn.btn-sm.btn-danger.shadow-sm(OnClick='downloadPDF()') 

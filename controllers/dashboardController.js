@@ -28,18 +28,6 @@ const Plumbing = models.Plumbing;
 const Drainage = models.Drainage;
 const Other = models.Other;
 
-exports.projects = async (req, res) => {
-  // Select all projects
-  const projects = await Project.findAll({
-    include: [
-      {model: User, include: [{model: Role}]}
-    ]
-  });
-
-  // Render
-  res.render('projects', {title: "Project Dashboard", projects});
-}
-
 const checkOwnership = (project, user, req, res) => {
   //  Checks owner permission
   if(project.User.id != user.id){
@@ -58,6 +46,28 @@ const confirmValidProject = (project_id, req, res) => {
     
     return; // stop further execution in this callback
   }
+}
+
+const checkProjStatus = (project, req, res) => {
+  //  Checks status
+  if(project.project_status === "Submitted"){
+    req.flash('error', 'You already submitted your project. You can only clone this project.');
+    res.redirect("/project/"+ project.generateProjCode() +"/edit"); // redirect immediately, if already submitted
+    
+    return; // stop further execution in this callback
+  }
+}
+
+exports.projects = async (req, res) => {
+  // Select all projects
+  const projects = await Project.findAll({
+    include: [
+      {model: User, include: [{model: Role}]}
+    ]
+  });
+
+  // Render
+  res.render('projects', {title: "Project Dashboard", projects});
 }
 
 exports.editProject = async (req, res) => {
@@ -98,7 +108,12 @@ exports.editProject = async (req, res) => {
   //3. Render
   // res.json(project);
 
-  res.render('editProject', {title: "Edit Project", project, forms});
+  var page_title = "Edit Project";
+  if (project.project_status === "Submitted"){
+    var page_title = "Recall Project";
+  }
+
+  res.render('editProject', {title: page_title, project, forms});
   //reference for return: https://stackoverflow.com/questions/52122272/err-http-headers-sent-cannot-set-headers-after-they-are-sent-to-the-client
   return; // stop further execution in this callback
 }
@@ -464,4 +479,54 @@ exports.deleteProject = async (req, res) => {
 
   req.flash("success", "You have successfully deleted a project!");
   res.redirect("/projects");
+}
+
+exports.submitProject = async (req, res) => {
+  //1. Decrypt code first
+  const project_id = hashids.decode(req.params.id)[0];
+
+  //2. Check decoded project ID.
+  confirmValidProject(project_id, req, res);
+
+  //3. Find project
+  const project = await Project.findOne({where: {id: project_id}, include: [
+    {model: User},
+    {model: Manpower},
+    {model: SafetyRequirement},
+    {model: TemporaryService},
+    {model: SiteArrangement},
+    {model: AllowanceAndInsurance},
+    {model: ProffesionalServiceAllowance},
+    {model: Interior},
+    {model: Exterior},
+    {model: HardLandscaping},
+    {model: InteriorTrim},
+    {model: InteriorFinish}, 
+    {model: WindowAndDoor},
+    {model: JoineryAllowance}, 
+    {model: Electrical},
+    {model: Plumbing}, 
+    {model: Drainage}, 
+    {model: Other}
+  ]});
+
+  // Check ownership first
+  if (req.user.Role.description === "Client"){
+    checkOwnership(project, req.user, req, res);
+  }
+
+  if (project.project_status === "Submitted"){
+    checkProjStatus(project, req, res);
+  }
+  
+  if (project.project_status === "In Progress"){
+    // Update Status first
+    await project.update({
+      project_status: "Submitted"
+    });
+
+    req.flash("success", "You submitted a project to YourQS! You will receive an email notification to download your PDF.");
+    res.redirect("/projects");
+  }
+  
 }
