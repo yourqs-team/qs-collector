@@ -96,7 +96,7 @@ exports.search = async (req, res) => {
   });
 
   // Render
-  res.render('projects', {title: "Search Project", projects});
+  res.render('projects', {title: "Search Project", projects, a_key, a_secret});
 }
 
 exports.editProject = async (req, res) => {
