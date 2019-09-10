@@ -6,7 +6,7 @@ const moment = require('moment');
 module.exports = (sequelize, DataTypes) => {
   const Project = sequelize.define('Project', {
     project_name: DataTypes.STRING,
-    project_code: DataTypes.STRING,
+    project_status: DataTypes.STRING,
     project_address: DataTypes.TEXT,
     UserId: DataTypes.INTEGER
   }, {});

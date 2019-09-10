@@ -11,7 +11,7 @@ module.exports = {
       project_name: {
         type: Sequelize.STRING
       },
-      project_code: {
+      project_status: {
         type: Sequelize.STRING
       },
       project_address: {

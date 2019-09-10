@@ -111,13 +111,14 @@ exports.createProject = async (req, res) => {
 
   const project = await Project.create({
       project_name: project_name,
+      project_status: "In Progress",
       project_address: project_address,
       UserId: user.id,
       Manpower: {},
       Safety_requirement: {
         site_sign: true,
-        fall_in_protection: "None", //TOFIX: boolean to string | default value: 'None'
-        security_fencing: "None", //TOFIX: boolean to string | default value: 'None'
+        fall_in_protection: "None",
+        security_fencing: "None",
         crossing_protection: true
       },
       Temporary_service: {

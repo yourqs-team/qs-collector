@@ -6,7 +6,12 @@ mixin showProjects(project)
           .col.mr-2
             .h5.mb-0.font-weight-bold.text-gray-800.text-primary= project.project_name
             .text-xs.mb-1.text-uppercase.text-primary Owned by: #{project.User.username}
-            //- .text-xs.text-uppercase.mb-6.badge.badge-warning Status: In Progess
+            if project.project_status === "In Progress"
+              .text-xs.text-uppercase.mb-6.badge.badge-warning Status: In Progess
+            else if project.project_status === "Submitted"
+              .text-xs.text-uppercase.mb-6.badge.badge-success Status: Submitted
+            else
+              .text-xs.text-uppercase.mb-6.badge.badge-danger Status: Unknown
             br
             br
             a.d-sm-inline-block.btn.btn-sm.btn-primary.shadow-sm(href=`/project/${project.encodeProjCode(project.id)}/edit`)

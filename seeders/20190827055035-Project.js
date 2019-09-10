@@ -4,7 +4,7 @@ module.exports = {
   up: async(queryInterface, Sequelize) => {
       await queryInterface.bulkInsert('Projects', [{
         project_name: 'My Dream House',
-        project_code: "13124",
+        project_status: "In Progress",
         project_address: "Far far away",
         updatedAt: new Date(),
         createdAt: new Date(),
