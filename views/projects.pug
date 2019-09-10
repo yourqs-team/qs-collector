@@ -28,4 +28,20 @@ block content
           if (project.User.id === user.id) 
             //- filter owned projects only
             +showProjects(project)
+
+block stylesheet
+  //- Jquery ui css
+  link(href='/vendor/jquery-ui/jquery-ui.css' rel='stylesheet')
+
+block javascript
+  //- ADDY SECRET and KEY
+  script.
+    var a_key = "#{a_key}";
+    var a_secret = "#{a_secret}";
+
+  //- Jquery ui for autocomplete address
+  script(src='/vendor/jquery-ui/jquery-ui.min.js')
+
+  //- register scripts
+  script(src='/vendor/jquery-ui/register-script.js')
             
