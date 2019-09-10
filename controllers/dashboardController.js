@@ -1,6 +1,7 @@
 const Hashids = require('hashids');
 const hashids = new Hashids(process.env.SHA256 || 'JapIsAwesome', 6);
 const forms =  require("../handlers/forms");
+
 // Models
 const models = require('../models/index');
 const Sequelize = require('sequelize');
@@ -30,6 +31,10 @@ const InteriorFinish = models.Interior_finish;
 const Plumbing = models.Plumbing;
 const Drainage = models.Drainage;
 const Other = models.Other;
+
+// TODO: Put this to projects/search and /projects
+const a_key = process.env.ADDY_KEY || "key";
+const a_secret = process.env.ADDY_SECRET || "secret";
 
 const checkOwnership = (project, user, req, res) => {
   //  Checks owner permission
@@ -70,7 +75,7 @@ exports.projects = async (req, res) => {
   });
 
   // Render
-  res.render('projects', {title: "Project Dashboard", projects});
+  res.render('projects', {title: "Project Dashboard", projects, a_key, a_secret});
 }
 
 exports.search = async (req, res) => {
@@ -137,7 +142,7 @@ exports.editProject = async (req, res) => {
     var page_title = "Recall Project";
   }
 
-  res.render('editProject', {title: page_title, project, forms});
+  res.render('editProject', {title: page_title, project, forms, a_key, a_secret});
   //reference for return: https://stackoverflow.com/questions/52122272/err-http-headers-sent-cannot-set-headers-after-they-are-sent-to-the-client
   return; // stop further execution in this callback
 }

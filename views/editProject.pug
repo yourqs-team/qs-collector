@@ -21,7 +21,22 @@ include mixins/scopeForms/_other
 include mixins/scopeForms/_exterior
 include mixins/scopeForms/_hardLandscaping
 
+block stylesheet
+  //- Jquery ui css
+  link(href='/vendor/jquery-ui/jquery-ui.css' rel='stylesheet')
+
 block javascript
+  //- ADDY SECRET and KEY
+  script.
+    var a_key = "#{a_key}";
+    var a_secret = "#{a_secret}";
+
+  //- Jquery ui for autocomplete address
+  script(src='/vendor/jquery-ui/jquery-ui.min.js')
+
+  //- register scripts
+  script(src='/vendor/jquery-ui/register-script.js')
+
   if project.project_status === "Submitted"
     script.
       $(document).ready(function(){

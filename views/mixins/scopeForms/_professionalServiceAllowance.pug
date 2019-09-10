@@ -13,35 +13,35 @@ mixin professionalServiceAllowance()
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(name="profServAllow_plans" value=`${project.Proffesional_service_allowance.plans}`)
+              input.form-control(type="number" step=".01" name="profServAllow_plans" value=`${project.Proffesional_service_allowance.plans}`)
           .col.col-md-12.col-lg-6
             label.small(for="profServAllow_geotechnical") Geotechnical
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(name="profServAllow_geotechnical"  value=`${project.Proffesional_service_allowance.geotechnical}`)
+              input.form-control(type="number" step=".01" name="profServAllow_geotechnical"  value=`${project.Proffesional_service_allowance.geotechnical}`)
         div.form-group.form-row
           .col.col-md-12.col-lg-6
             label.small(for="profServAllow_engineer") Engineer
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(name="profServAllow_engineer"  value=`${project.Proffesional_service_allowance.engineer}`)
+              input.form-control(type="number" step=".01" name="profServAllow_engineer"  value=`${project.Proffesional_service_allowance.engineer}`)
           .col.col-md-12.col-lg-6
             label.small(for="profServAllow_surveyor") Surveyor
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(name="profServAllow_surveyor"  value=`${project.Proffesional_service_allowance.surveyor}`)
+              input.form-control(type="number" step=".01" name="profServAllow_surveyor"  value=`${project.Proffesional_service_allowance.surveyor}`)
         div.form-group.form-row
           .col.col-md-12.col-lg-6
             label.small(for="profServAllow_council_fees") Council Fees
             .input-group
               .input-group-prepend
                 span.input-group-text $
-              input.form-control(name="profServAllow_council_fees"  value=`${project.Proffesional_service_allowance.council_fees}`)
+              input.form-control(type="number" step=".01" name="profServAllow_council_fees"  value=`${project.Proffesional_service_allowance.council_fees}`)
         div.form-group.form-row
           .col
               label.small(for="profServAllow_other_area") Other Area
               .input-group
-                  input.form-control(name="profServAllow_other_area"  value=`${project.Proffesional_service_allowance.other_area}`) 
+                  input.form-control(type="number" step=".01" name="profServAllow_other_area"  value=`${project.Proffesional_service_allowance.other_area}`) 
