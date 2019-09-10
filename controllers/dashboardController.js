@@ -3,6 +3,9 @@ const hashids = new Hashids(process.env.SHA256 || 'JapIsAwesome', 6);
 const forms =  require("../handlers/forms");
 // Models
 const models = require('../models/index');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+
 const User = models.User;
 const Role = models.Role;
 const Project = models.Project;
@@ -68,6 +71,27 @@ exports.projects = async (req, res) => {
 
   // Render
   res.render('projects', {title: "Project Dashboard", projects});
+}
+
+exports.search = async (req, res) => {
+  const { q } = req.query;
+
+
+  // Select all projects
+  const projects = await Project.findAll({
+    where: {
+      [Op.or]: [
+        { project_name: {[Op.like]: '%' + q + '%'} },
+        { project_status: {[Op.like]: '%' + q + '%'} }
+      ]
+    },
+    include: [
+      {model: User, include: [{model: Role}]}
+    ]
+  });
+
+  // Render
+  res.render('projects', {title: "Search Project", projects});
 }
 
 exports.editProject = async (req, res) => {
