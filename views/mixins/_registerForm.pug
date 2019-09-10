@@ -1,66 +1,68 @@
 include _flashMsg
 
 mixin registerForm()
-  .card.o-hidden.border-0.shadow-lg.my-5
-    .card-body.p-0
-      // Nested Row within Card Body
-      .row
-        .col-lg-5.d-none.d-lg-block.bg-register-image
-        .col-lg-7
-          .p-5
-            .text-center
-              h1.h4.text-gray-900.mb-4 Create an Account
-              +flashMsg()
-            form(method='POST' action='/register').user
-              .form-group.row
-                .col-sm-6.mb-3.mb-sm-0
-                  input.form-control.form-control-user(required type='text' name='firstname' placeholder='First Name' value=(!userData ? '' : userData.firstname ))
-                .col-sm-6
-                  input.form-control.form-control-user(required type='text' name='lastname' placeholder='Last Name' value=(!userData ? '' : userData.lastname ))
-              .form-group
-                input.form-control.form-control-user(required minlength="5" type='text' name='username' placeholder='Enter your username' value=(!userData ? '' : userData.username ))
-              .form-group
-                input.form-control.form-control-user(required type='email' name='email' placeholder='Enter your email address' value=(!userData ? '' : userData.email ))
-              .form-group.row
-                .col-sm-6.mb-3.mb-sm-0
-                  input.form-control.form-control-user(required minlength="8" type='password' name='password' placeholder='Password' value=(!userData ? '' : userData.password ))
-                .col-sm-6
-                  input.form-control.form-control-user(required minlength="8" type='password' name='confirmPass' placeholder='Repeat Password' value=(!userData ? '' : userData.confirmPass ))
-              div.form-group.form-row
-                .col
-                  label.small(for='gender') Gender
-                  select.form-control.cust-select(required name='gender')
-                    - const orientation = ["Male", "Female", "Rather not to say"];
-                    each gender in orientation
-                      if (userData && gender.includes(userData.gender))
-                        option(value=gender selected) #{gender}
-                      else
-                        option(value=gender) #{gender}
-                .col
-                  label.small(for='birthday') Birthday
-                  input.form-control.form-control-user(required type="date" name="birthday" value=(!userData ? '' : userData.birthday ))
-              div.form-group
-                label.small(for='contact') Contact
-                //- input.form-control.form-control-user(type='tel' id='contact' name='contact' minlength="8" maxlength="9" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder='888 888 8888')
-                input.form-control.form-control-user(required type='tel' id='contact' name='contact' minlength="8" maxlength="10" placeholder='888 888 8888' value=(!userData ? '' : userData.contact ))
-              div.form-group
-                label.small(for='company') Company
-                input.form-control.form-control-user(required type='text' placeholder='Enter your company name' id="company" name='company' value=(!userData ? '' : userData.company ))
-              div.form-group
-                label.small(for='address') Address
-                input.form-control.form-control-user(required id='address' placeholder='Enter your address' name='address' value=(!userData ? '' : userData.address))
+  .row.justify-content-center
+    .col-xl-10.col-lg-12.col-md-9
+      .card.o-hidden.border-0.shadow-lg.my-5
+        .card-body.p-0
+          // Nested Row within Card Body
+          .row
+            .col-lg-5.d-none.d-lg-block.bg-register-image
+            .col-lg-7
+              .p-5
+                .text-center
+                  h1.h4.text-gray-900.mb-4 Create an Account
+                  +flashMsg()
+                form(method='POST' action='/register').user
+                  .form-group.row
+                    .col-sm-6.mb-3.mb-sm-0
+                      input.form-control.form-control-user(required type='text' name='firstname' placeholder='First Name' value=(!userData ? '' : userData.firstname ))
+                    .col-sm-6
+                      input.form-control.form-control-user(required type='text' name='lastname' placeholder='Last Name' value=(!userData ? '' : userData.lastname ))
+                  .form-group
+                    input.form-control.form-control-user(required minlength="5" type='text' name='username' placeholder='Enter your username' value=(!userData ? '' : userData.username ))
+                  .form-group
+                    input.form-control.form-control-user(required type='email' name='email' placeholder='Enter your email address' value=(!userData ? '' : userData.email ))
+                  .form-group.row
+                    .col-sm-6.mb-3.mb-sm-0
+                      input.form-control.form-control-user(required minlength="8" type='password' name='password' placeholder='Password' value=(!userData ? '' : userData.password ))
+                    .col-sm-6
+                      input.form-control.form-control-user(required minlength="8" type='password' name='confirmPass' placeholder='Repeat Password' value=(!userData ? '' : userData.confirmPass ))
+                  div.form-group.form-row
+                    .col
+                      label.small(for='gender') Gender
+                      select.form-control.cust-select(required name='gender')
+                        - const orientation = ["Male", "Female", "Rather not to say"];
+                        each gender in orientation
+                          if (userData && gender.includes(userData.gender))
+                            option(value=gender selected) #{gender}
+                          else
+                            option(value=gender) #{gender}
+                    .col
+                      label.small(for='birthday') Birthday
+                      input.form-control.form-control-user(required type="date" name="birthday" value=(!userData ? '' : userData.birthday ))
+                  div.form-group
+                    label.small(for='contact') Contact
+                    //- input.form-control.form-control-user(type='tel' id='contact' name='contact' minlength="8" maxlength="9" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder='888 888 8888')
+                    input.form-control.form-control-user(required type='tel' id='contact' name='contact' minlength="8" maxlength="10" placeholder='888 888 8888' value=(!userData ? '' : userData.contact ))
+                  div.form-group
+                    label.small(for='company') Company
+                    input.form-control.form-control-user(required type='text' placeholder='Enter your company name' id="company" name='company' value=(!userData ? '' : userData.company ))
+                  div.form-group
+                    label.small(for='address') Address
+                    input.form-control.form-control-user(required id='address' placeholder='Enter your address' name='address' value=(!userData ? '' : userData.address))
 
-              button.btn.btn-primary.btn-user.btn-block(type='submit') Register
-              //- hr
-              //- a.btn.btn-google.btn-user.btn-block(href='index.html')
-              //-   i.fab.fa-google.fa-fw
-              //-   |  Register with Google
-              //- a.btn.btn-facebook.btn-user.btn-block(href='index.html')
-              //-   i.fab.fa-facebook-f.fa-fw
-              //-   |  Register with Facebook
-            hr
-            //- .text-center
-            //-   a.small(href='forgot-password.html') Forgot Password?
-            .text-center
-              a.small(href='/login') Already have an account? Login!
+                  button.btn.btn-primary.btn-user.btn-block(type='submit') Register
+                  //- hr
+                  //- a.btn.btn-google.btn-user.btn-block(href='index.html')
+                  //-   i.fab.fa-google.fa-fw
+                  //-   |  Register with Google
+                  //- a.btn.btn-facebook.btn-user.btn-block(href='index.html')
+                  //-   i.fab.fa-facebook-f.fa-fw
+                  //-   |  Register with Facebook
+                hr
+                //- .text-center
+                //-   a.small(href='forgot-password.html') Forgot Password?
+                .text-center
+                  a.small(href='/login') Already have an account? Login
 
