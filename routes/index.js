@@ -6,6 +6,8 @@ const sampleController = require('../controllers/sampleController');
 const loginController = require('../controllers/loginController');
 const registerController = require('../controllers/registerController');
 const dashboardController = require('../controllers/dashboardController');
+const pdfGenController = require('../controllers/pdfGenController');
+
 
 // see handlers/errorHandlers.js - this function catch all errors - EXPERIMENTAL
 const { catchErrors } = require("../handlers/errorHandlers");
@@ -33,6 +35,6 @@ router.post('/project/:id/update', loginController.isLoggedIn, catchErrors(dashb
 router.get('/project/:id/delete', loginController.isLoggedIn, catchErrors(dashboardController.deleteProject));
 
 // PDF
-router.get('/pdf/:id/view', sampleController.pdfView);
+router.get('/pdf/:id/download', catchErrors(pdfGenController.pdfDownload));
 
 module.exports = router;

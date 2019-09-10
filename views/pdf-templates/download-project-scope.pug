@@ -1,5 +1,15 @@
 //-NOTE: this is for pdf/:id/view
-extends pdf-layout
+extends ../layout
+
+block pdfmake-modules
+  //- Initialize Jquery first
+  script(src="/vendor/jquery/jquery.js" type="text/javascript")
+
+  //- these libraries will generate pdf
+  script(type="text/javascript" src="/vendor/pdfmake/pdfmake.min.js")
+  script(type="text/javascript" src="/vendor/pdfmake/vfs_fonts.js")
+  //- Base64 image
+  script(type="text/javascript" src="/vendor/pdfmake/images.js")
 
 block pdfmake
  script.
@@ -658,5 +668,33 @@ block pdfmake
   footer: function(currentPage, pageCount) { return[{ text: 'Page ' + currentPage.toString() + ' of ' + pageCount, alignment: 'center', bold: true}]; }
   }
 
+  const downloadPDF = () => {
+   pdfMake.createPdf(dd).download( 'YourQS-#{project.project_name}-#{project.generateProjCode()}.pdf');
+  }
+  
+  downloadPDF();
+
 block content
-  button(onClick="pdfMake.createPdf(dd).download();") Download
+   .container
+    .row.justify-content-center
+      //- TODO: Comment this when on production 
+      .col-xl-10.col-lg-12.col-md-9.bg-white.p-5.rounded
+        .col.text-center
+          h1.text-primary.pb-2= title
+        table.table
+          tbody
+            tr
+              th(scope="row") Project Name:
+              td#projName= project.project_name
+            tr
+              th(scope="row") Project Code:
+              td#projCode #{project.generateProjCode()}
+            tr
+              th(scope="row") Project Owned by:
+              td#projOwner #{project.User.fullname()}
+            tr
+              th(scope="row") Project Created:
+              td#projDate #{project.createdAtToNZTime()}
+            
+        .col.text-center
+          button.btn.btn-danger.btn-lg.px-5.align-middle(onClick="downloadPDF()") Download PDF
