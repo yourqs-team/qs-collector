@@ -35,6 +35,7 @@ router.get('/project/:id/edit', loginController.isLoggedIn, catchErrors(dashboar
 router.post('/project/:id/update', loginController.isLoggedIn, catchErrors(dashboardController.updateProject));
 router.get('/project/:id/delete', loginController.isLoggedIn, catchErrors(dashboardController.deleteProject));
 router.get('/project/:id/submit', loginController.isLoggedIn, catchErrors(dashboardController.submitProject));
+router.post('/project/:id/clone', loginController.isLoggedIn, catchErrors(dashboardController.cloneProject));
 
 // PDF
 router.get('/pdf/:id/download', catchErrors(pdfGenController.pdfDownload));

@@ -40,7 +40,9 @@ block javascript
   if project.project_status === "Submitted"
     script.
       $(document).ready(function(){
-        $(".scope-form input, .scope-form textarea, .scope-form select").prop("disabled", true);
+        //- Disable Editing and enable readonly
+        $(".scope-form input, .scope-form textarea, .scope-form select").prop("readonly", true);
+
       })
 
 //- PDF Generator
@@ -58,7 +60,7 @@ block pdfGenerator
 block content
   .container
     +flashMsg()
-    form.scope-form(method="post" action=`/project/${project.encodeProjCode(project.id)}/update`)
+    form.scope-form(method="post" action=(project.project_status === "Submitted" ? `/project/${project.encodeProjCode(project.id)}/clone` : `/project/${project.encodeProjCode(project.id)}/update` ))
       // Page Heading
       .d-sm-flex.align-items-center.justify-content-between.mb-4
         h1.h3.mb-2.text-gray-800.d-none.d-sm-none.d-md-block #{title}
