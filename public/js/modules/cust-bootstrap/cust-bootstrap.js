@@ -107,4 +107,21 @@ $(document).ready(function() {
     //4. Put inside button trigger
     $("#deleteTrigger").attr("href", proj_url);
   });
+
+  //select all the selects
+  const selects = $(".other_option");
+
+  // when on change event
+  selects.change(function(e) {    
+    // check if the select value equals to other
+    if($(this).val() === "Other") {
+      // then enable input
+      $(this).closest(".other_parent").find(".other").attr('disabled', false);
+    } else {
+      // otherwise disable input
+      $(this).closest(".other_parent").find(".other").attr('disabled', true);
+    }
+  })
 });
+
+

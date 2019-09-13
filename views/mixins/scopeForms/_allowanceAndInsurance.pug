@@ -15,9 +15,9 @@ mixin allowanceAndInsurance()
               .input-group-append
                 span.input-group-text weeks
           .col.col-md-12.col-lg-6
-            label.small(for="allowAndInsur_all_risk_insurance") All Risk Insurance
+            label.small(for="allowAndInsur_risk_insurance") All Risk Insurance
             .input-group
-              select.form-control(name="allowAndInsur_all_risk_insurance")
+              select.form-control(name="allowAndInsur_risk_insurance")
                 if(project.Allowance_and_insurance.risk_insurance)
                   each val in forms.option4
                     if(val.includes(project.Allowance_and_insurance.new_connections))

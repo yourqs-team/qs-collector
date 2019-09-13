@@ -37,4 +37,9 @@ mixin joineryAllowance()
                     .col
                         label.small(for="joineryAllowance_other") Other
                         .input-group
-                            input.form-control(name="joineryAllowance_other" value=`${project.Joinery_allowance.other}`) 
+                            input.form-control(type="text" name="joineryAllowance_other" value=`${project.Joinery_allowance.other}`) 
+                div.form-group.form-row
+                    .col
+                        label.small(for="joineryAllowance_other_amount") Other Amount
+                        .input-group
+                            input.form-control(type="text" name="joineryAllowance_other_amount" value=`${project.Joinery_allowance.other_amount}`) 
