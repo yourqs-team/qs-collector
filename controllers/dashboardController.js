@@ -80,6 +80,32 @@ exports.projects = async (req, res) => {
   res.render('projects', {title: "Project Dashboard", projects, a_key, a_secret});
 }
 
+exports.submittedProjects = async (req, res) => {
+  // Select all projects
+  const projects = await Project.findAll({
+    where: {project_status: "Submitted"},
+    include: [
+      {model: User, include: [{model: Role}]}
+    ]
+  });
+
+  // Render
+  res.render('projects', {title: "Submitted Projects", projects, a_key, a_secret});
+}
+
+exports.inProgressProjects = async (req, res) => {
+  // Select all projects
+  const projects = await Project.findAll({
+    where: {project_status: "In Progress"},
+    include: [
+      {model: User, include: [{model: Role}]}
+    ]
+  });
+
+  // Render
+  res.render('projects', {title: "In-Progress Projects", projects, a_key, a_secret});
+}
+
 exports.search = async (req, res) => {
   const { q } = req.query;
 

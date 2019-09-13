@@ -10,10 +10,18 @@ ul#accordionSidebar.navbar-nav.bg-gradient-primary.sidebar.sidebar-dark.accordio
   .sidebar-heading
     | Main Menu
   // Nav Item - Pages Collapse Menu
-  li.nav-item.active
-    a.nav-link.collapsed(href='/login' aria-expanded='true')
+  li(class=title=='Project Dashboard'?'nav-item active':'nav-item')
+    a.nav-link.collapsed(href='/projects' aria-expanded='true')
       i.fas.fa-fw.fa-folder
       span Projects
+  li(class=title=='Submitted Projects'?'nav-item active':'nav-item')
+    a.nav-link.collapsed(href='/projects/submitted' aria-expanded='true')
+      i.fas.fa-fw.fa-paper-plane
+      span Submitted
+  li(class=title=='In-Progress Projects'?'nav-item active':'nav-item')
+    a.nav-link.collapsed(href='/projects/in-progress' aria-expanded='true')
+      i.fas.fa-fw.fa-folder-open
+      span In Progress
   //- li.nav-item
   //-   a.nav-link.collapsed(href='#' data-toggle='collapse' data-target='#collapsePages' aria-expanded='true' aria-controls='collapsePages') 
   //-     i.fas.fa-fw.fa-users.text-sm

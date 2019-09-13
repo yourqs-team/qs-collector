@@ -29,6 +29,8 @@ router.post("/register", catchErrors(registerController.validateRegisterForm), r
 
 // Project Dashboard
 router.get('/projects', loginController.isLoggedIn, dashboardController.projects);
+router.get('/projects/submitted', loginController.isLoggedIn, dashboardController.submittedProjects); // fitlered submitted
+router.get('/projects/in-progress', loginController.isLoggedIn, dashboardController.inProgressProjects); // fitlered in-progress
 router.get('/projects/search', loginController.isLoggedIn, catchErrors(dashboardController.search));
 router.post('/project/create', loginController.isLoggedIn, catchErrors(dashboardController.createProject), catchErrors(dashboardController.editProject));
 router.get('/project/:id/edit', loginController.isLoggedIn, catchErrors(dashboardController.editProject));
