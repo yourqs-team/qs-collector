@@ -8,4 +8,4 @@
       .modal-body Are you sure you want to submit your Project to YourQS?
       .modal-footer
         button.btn.btn-secondary(type='button' data-dismiss='modal') Cancel
-        a.btn.btn-success(href='#') Submit Project
+        a.btn.btn-success(href=`/project/${project.encodeProjCode(project.id)}/submit`) Submit Project

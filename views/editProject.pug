@@ -57,6 +57,10 @@ block pdfGenerator
   //- call the template
   include pdf-templates/_projectScopeRenderer
 
+block modal
+  //- Submit to YourQS Modal
+  include modals/submitProjectModal.pug
+
 block content
   .container
     +flashMsg()
@@ -65,7 +69,7 @@ block content
       .d-sm-flex.align-items-center.justify-content-between.mb-4
         h1.h3.mb-2.text-gray-800.d-none.d-sm-none.d-md-block #{title}
         if project.project_status === "In Progress"
-          a.d-sm-inline-block.btn.btn-sm.btn-success.shadow-sm(href='#' data-toggle="modal" data-target="#submitProjectModal")
+          a.d-sm-inline-block.btn.btn-sm.btn-success.shadow-sm(href="#" data-toggle="modal" data-target="#submitProjectModal")
             i.fas.fa-upload.fa-sm.text-white-50
             |  Submit Project to YourQS
 
