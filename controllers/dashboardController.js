@@ -1,6 +1,7 @@
 const Hashids = require('hashids');
 const hashids = new Hashids(process.env.SHA256 || 'JapIsAwesome', 6);
 const forms =  require("../handlers/forms");
+const mail = require("../handlers/mail");
 
 // Models
 const models = require('../models/index');
@@ -560,6 +561,41 @@ exports.submitProject = async (req, res) => {
     // Update Status first
     await project.update({
       project_status: "Submitted"
+    });
+
+    // Assign values for email.
+    const email_client = project.User.email;
+    const client_fname = project.User.firstname;
+    const project_name = project.project_name;
+    const project_code = project.generateProjCode();
+    const downloadURL = `http://${req.headers.host}/pdf/${project_code}/download`;
+    const yourqs_scope_admin = process.env.YOURQS_SCOPE_ADMIN || 'Nick';
+    const yourqs_scope_receiver = process.env.YOURQS_SCOPE_RECEIVER || 'yourqs.helper@gmail.com';
+
+
+    // send email using mail.send(options) method coming from handlers/mail
+
+    // Send email to client
+    await mail.send({
+      to: email_client,
+      filename: 'projectSubmit-client',
+      subject: 'YourQS - Your have successfully submitted your Project',
+      client_fname, // see also on templates: email/projectSubmit-Client.pug
+      project_name,
+      project_code,
+      downloadURL
+    });
+
+    // Send email to YourQS
+    await mail.send({
+      to: yourqs_scope_receiver,
+      filename: 'projectSubmit-yourqs',
+      subject: `YourQS - ${client_fname} submitted a project: ${project_name} - ${project_code}`,
+      yourqs_scope_admin, // see on templates: email/projectSubmit-Client.pug
+      client_fname,
+      project_name,
+      project_code,
+      downloadURL
     });
 
     req.flash("success", "You submitted a project to YourQS! You will receive an email notification to download your PDF.");
