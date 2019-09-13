@@ -30,7 +30,7 @@ html(xmlns="http://www.w3.org/1999/xhtml")
       .container .content.footer p { margin-bottom: 0; color: #888; text-align: center; font-size: 14px; }
       .container .content.footer a { color: #888; text-decoration: none; font-weight: bold; }
       .container .content.footer a:hover { text-decoration: underline; }
-      .im {color: #646464;}
+      .im {color: #646464; !important}
   body
     table.body-wrap
       tr
@@ -39,20 +39,19 @@ html(xmlns="http://www.w3.org/1999/xhtml")
           table
             tr
               td.masthead
-                //-TODO : upload logo to somewhere
-                img(align="left" width="150" src="img/logo-white.png" alt="YourQS Logo")
+                img(align="left" width="150" src="https://i.imgur.com/6zom8wR.png" alt="YourQS Logo")
             tr
               td.content
-                h2 Hello {fname},
-                p Your project {project_name} has been submitted to YourQS
-                p if you have any questions/suggestions, please email our support directly @ support@yourqs.co.nz
+                h2 Hello #{client_fname},
+                p Your project #[b #{project_name} - (#{project_code})] has been submitted to YourQS.
+                
                 p For more information about the project scope, Please click the button below:
+
                 table
                   tr
                     td(align="center")
                       p
-                        //TODO: Rename the domain if you host this to cloud
-                        a.button(href="${downloadURL}") Download the PDF
+                        a.button(href=`${downloadURL}`) Download the PDF
       tr
         td.container
           // Message start
