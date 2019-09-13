@@ -36,7 +36,7 @@ module.exports = {
       await queryInterface.bulkInsert('Safety_requirements', [{
         site_sign: true,
         fall_in_protection: "None",
-        crossing_protection: "None",
+        crossing_protection: false,
         security_fencing: "Partial",
         ProjectId: 1
       }], {});

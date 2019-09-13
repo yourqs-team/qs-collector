@@ -2,8 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Safety_requirements = sequelize.define('Safety_requirement', {
     site_sign: DataTypes.BOOLEAN,
-    fall_in_protection: DataTypes.STRING, // TOFIX: should be string see: dashboarcController.createProject -> safetyRequirement
-    crossing_protection: DataTypes.STRING, // TOFIX: should be string see:  dashboarcController.createProject -> safetyRequirement
+    fall_in_protection: DataTypes.STRING,
+    crossing_protection: DataTypes.BOOLEAN,
     security_fencing: DataTypes.STRING,
     ProjectId: DataTypes.INTEGER
   }, {timestamps: false});
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   Safety_requirements.prototype.crossingToYesNo = function() {
-    if (this.fall_in_protection === true){
+    if (this.crossing_protection === true){
       return "Yes"
     }
 

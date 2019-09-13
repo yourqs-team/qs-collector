@@ -52,9 +52,9 @@ mixin safetyRequirement()
                     each val in forms.option27
                       option(value=val) #{val}
           .col.col-md-12.col-lg-6
-            label.small(for="safetyRequirement_project_management") Crossing Protection
+            label.small(for="safetyRequirement_crossing_protection") Crossing Protection
             .input-group
-              select.form-control(name="safetyRequirement_project_management")
+              select.form-control(name="safetyRequirement_crossing_protection")
                 if(project.Safety_requirement.crossing_protection)
                   each val in forms.option4
                     if(val.includes(project.Safety_requirement.crossing_protection))

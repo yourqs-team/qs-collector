@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       crossing_protection: {
-        type: Sequelize.STRING
+        type: Sequelize.BOOLEAN
       },
       security_fencing: {
         type: Sequelize.STRING
