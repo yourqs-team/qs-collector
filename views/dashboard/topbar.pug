@@ -46,9 +46,9 @@ nav.navbar.navbar-expand.navbar-light.bg-white.topbar.mb-4.static-top.shadow
         //- a.dropdown-item(href='#')
         //-   i.fas.fa-cogs.fa-sm.fa-fw.mr-2.text-gray-400
         //-   |                   Settings
-        //- a.dropdown-item(href='#')
-        //-   i.fas.fa-list.fa-sm.fa-fw.mr-2.text-gray-400
-        //-   |                   User Profile
+        a.dropdown-item(href='#' data-toggle='modal' data-target='#userProfileModal')
+          i.fas.fa-list.fa-sm.fa-fw.mr-2.text-gray-400
+          |                   User Profile
         .dropdown-divider
         a.dropdown-item(href='#' data-toggle='modal' data-target='#logoutModal')
           i.fas.fa-sign-out-alt.fa-sm.fa-fw.mr-2.text-gray-400

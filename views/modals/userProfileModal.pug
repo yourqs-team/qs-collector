@@ -1,0 +1,38 @@
+#userProfileModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='userProfileModalLabel' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#userProfileModalLabel.modal-title.text-primary User Profile
+        button.close(type='button' data-dismiss='modal' aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        .col-12
+          if user.profile_pic
+            .profile-pic.mb-4(style=`background-image: url(${user.profile_pic})`)
+          else
+            if user.Role.description === "Admin"
+              .profile-pic.mb-4(style=`background-image: url('/img/pug-2.jpg')`)
+            else
+              .profile-pic.mb-4(style=`background-image: url('/img/pug-3.jpg')`)
+        table.table
+          tbody
+            tr
+              th.text-primary(scope="row") Name
+              td= user.firstname + " " + user.lastname
+            tr
+              th.text-primary(scope="row") Username
+              td= user.username
+            tr
+              th.text-primary(scope="row")  Role Description
+              td= user.Role.description
+            tr
+              th.text-primary(scope="row") Contact
+              td= user.contact
+            tr
+              th.text-primary(scope="row") Company
+              td= user.company
+            tr
+              th.text-primary(scope="row") Address
+              td= user.address
+      .modal-footer
+        button.btn.btn-secondary(type='button' data-dismiss='modal') Close
