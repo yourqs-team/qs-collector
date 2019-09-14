@@ -42,20 +42,19 @@ exports.resize = async (req, res, next) => {
 };
 
 exports.changeProfile = async (req, res) => {
-
+  // update session
   req.session.passport.user.profile_pic = req.profile_pic_relative_path
 
+  // select the user
   user = await User.findOne({ where: { username: req.params.username } });
 
+  // update db
   await user.update({
     profile_pic: req.profile_pic_relative_path
   });
 
-  
-  
-
-
-  req.flash("success", `- ${req.profile_pic_relative_path}`);
+  //  success and redirect to projects
+  req.flash("success", `You have successfully updated your profile picture`);
   res.redirect('/projects');
 
 }
