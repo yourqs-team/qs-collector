@@ -12,10 +12,19 @@
               .row
                 .col-12
                   div.form-group.form-row
-                    .col.col-md-12
-                    label.small(for="profile_pic") Choose an image to upload
-                    .input-group
-                      input.form-control-file(type="file" name="profile_pic" accept="image/png, image/jpeg" required)
+                    .col-12
+                    if user.profile_pic
+                      .profile-pic(style=`background-image: url(${user.profile_pic})`)
+                    else
+                      if user.Role.description === "Admin"
+                        .profile-pic(style=`background-image: url('/img/pug-2.jpg')`)
+                      else
+                        .profile-pic(style=`background-image: url('/img/pug-3.jpg')`)
+                        
+                    .col-12
+                      label.small(for="profile_pic") Choose an image to upload
+                      .input-group
+                        input.form-control-file(type="file" name="profile_pic" accept="image/png, image/jpeg" required)
         .modal-footer
           button.btn.btn-secondary(data-dismiss='modal') Cancel
           button.btn.btn-primary(type='submit') Upload photo

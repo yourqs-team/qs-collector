@@ -29,26 +29,28 @@ exports.resize = async (req, res, next) => {
 
   const extension = req.file.mimetype.split('/')[1];
   req.body.profile_pic = `${uuid.v4()}.${extension}`;
+  req.profile_pic_absolute_path = `./public/uploads/users/${req.user.id}/profile_pic/${req.body.profile_pic}`;
+  req.profile_pic_relative_path = `uploads/users/${req.user.id}/profile_pic/${req.body.profile_pic}`
 
   // resize the photo
   const photo = await jimp.read(req.file.buffer);
   await photo.resize(800, jimp.AUTO);
-  await photo.write(`./public/uploads/users/${req.user.id}/profile_pic/${req.body.profile_pic}`);
+  await photo.write(req.profile_pic_absolute_path);
 
   next();
 };
 
 exports.changeProfile = async (req, res) => {
-  // req.body.profile_pic.path
-  console.log(req.body.profile_pic.path);
-  console.log(req.body.profile_pic.path);
-  console.log(req.body.profile_pic.path);
-  console.log(req.body.profile_pic.path);
-  console.log(req.body.profile_pic.path);
 
+  user = await User.findOne({ where: { username: req.params.username } });
 
+  await user.update({
+    profile_pic: req.profile_pic_relative_path
+  });
   
-  req.flash("success", `- ${req.body.profile_pic}`);
+
+
+  req.flash("success", `- ${req.profile_pic_relative_path}`);
   res.redirect('/projects');
 
 }
