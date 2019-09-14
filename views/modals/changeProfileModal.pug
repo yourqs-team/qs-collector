@@ -1,0 +1,21 @@
+#changeProfileModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='changeProfileModal' aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      //- Post Here
+      form(method="post" enctype="multipart/form-data" action=`/photo/upload/${user.username}`)
+        .modal-header
+            h5#exampleModalLabel.modal-title Change Profile Picture
+            button.close(type='button' data-dismiss='modal' aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body
+            .form-group
+              .row
+                .col-12
+                  div.form-group.form-row
+                    .col.col-md-12
+                    label.small(for="profile_pic") Choose an image to upload
+                    .input-group
+                      input.form-control-file(type="file" name="profile_pic" accept="image/png, image/jpeg" required)
+        .modal-footer
+          button.btn.btn-secondary(data-dismiss='modal') Cancel
+          button.btn.btn-primary(type='submit') Upload photo

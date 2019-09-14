@@ -7,6 +7,7 @@ const loginController = require('../controllers/loginController');
 const registerController = require('../controllers/registerController');
 const dashboardController = require('../controllers/dashboardController');
 const pdfGenController = require('../controllers/pdfGenController');
+const changeProfileController = require('../controllers/changeProfileController');
 
 
 // see handlers/errorHandlers.js - this function catch all errors - EXPERIMENTAL
@@ -41,5 +42,8 @@ router.post('/project/:id/clone', loginController.isLoggedIn, catchErrors(dashbo
 
 // PDF
 router.get('/pdf/:id/download', catchErrors(pdfGenController.pdfDownload));
+
+// Upload Picture
+router.post('/photo/upload/:username/', changeProfileController.upload, catchErrors(changeProfileController.resize),  catchErrors(changeProfileController.changeProfile));
 
 module.exports = router;

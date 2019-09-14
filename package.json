@@ -26,10 +26,12 @@
     "hashids": "^1.2.2",
     "html-to-text": "^3.3.0",
     "http-errors": "~1.6.3",
+    "jimp": "^0.2.28",
     "juice": "^4.3.2",
     "moment": "^2.24.0",
     "morgan": "~1.9.1",
     "mssql-session-store": "^1.0.0",
+    "multer": "^1.4.2",
     "nodemailer": "^3.1.8",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
@@ -37,7 +39,8 @@
     "pug": "2.0.0-beta11",
     "sequelize": "^5.15.2",
     "sequelize-cli": "^5.5.0",
-    "tedious": "^6.2.0"
+    "tedious": "^6.2.0",
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
     "autoprefixer": "6.7.7",
