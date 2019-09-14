@@ -31,7 +31,7 @@ exports.resize = async (req, res, next) => {
   const extension = req.file.mimetype.split('/')[1];
   req.body.profile_pic = `${uuid.v4()}.${extension}`;
   req.profile_pic_absolute_path = `./public/uploads/users/${req.user.id}/profile_pic/${req.body.profile_pic}`;
-  req.profile_pic_relative_path = `uploads/users/${req.user.id}/profile_pic/${req.body.profile_pic}`
+  req.profile_pic_relative_path = `/uploads/users/${req.user.id}/profile_pic/${req.body.profile_pic}`
 
   // resize the photo
   const photo = await jimp.read(req.file.buffer);
