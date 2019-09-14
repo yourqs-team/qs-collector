@@ -1,4 +1,5 @@
 const User = require("../models").User;
+const Session = require("../models").Session;
 const multer = require('multer');
 const jimp = require('jimp');
 const uuid = require('uuid');
@@ -42,11 +43,15 @@ exports.resize = async (req, res, next) => {
 
 exports.changeProfile = async (req, res) => {
 
+  req.session.passport.user.profile_pic = req.profile_pic_relative_path
+
   user = await User.findOne({ where: { username: req.params.username } });
 
   await user.update({
     profile_pic: req.profile_pic_relative_path
   });
+
+  
   
 
 
