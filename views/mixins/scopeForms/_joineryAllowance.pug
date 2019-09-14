@@ -21,25 +21,31 @@ mixin joineryAllowance()
                                 span.input-group-text $
                             input.form-control(type="number" step=".01" name="joineryAllowance_laundry" value=`${project.Joinery_allowance.laundry}`)
                 div.form-group.form-row
-                    .col.col-md-12.col-lg-6
+                    .col
                         label.small(for="joineryAllowance_wardrobe_master_bed") Wardrobe Master Bed
                         .input-group
                             .input-group-prepend
                                 span.input-group-text $
                             input.form-control(type="number" step=".01" name="joineryAllowance_wardrobe_master_bed" value=`${project.Joinery_allowance.wardrobe_master_bed}`)
+                div.form-group.form-row
                     .col.col-md-12.col-lg-6
                         label.small(for='joineryAllowance_wardrobes_other') Wardrobes Other
+                        .input-group
+                            input.form-control(type="text" name="joineryAllowance_wardrobes_other" value=`${project.Joinery_allowance.wardrobes_other}`)
+                    .col.col-md-12.col-lg-6
+                        label.small(for='joineryAllowance_wardrobes_other') Wardrobes Other - Amount
                         .input-group
                             .input-group-prepend
                                 span.input-group-text $
                             input.form-control(type="number" step=".01" name="joineryAllowance_wardrobe_other_amount" value=`${project.Joinery_allowance.wardrobe_other_amount}`)
                 div.form-group.form-row
-                    .col
+                    .col.col-md-12.col-lg-6
                         label.small(for="joineryAllowance_other") Other
                         .input-group
                             input.form-control(type="text" name="joineryAllowance_other" value=`${project.Joinery_allowance.other}`) 
-                div.form-group.form-row
-                    .col
+                    .col.col-md-12.col-lg-6
                         label.small(for="joineryAllowance_other_amount") Other Amount
                         .input-group
-                            input.form-control(type="text" name="joineryAllowance_other_amount" value=`${project.Joinery_allowance.other_amount}`) 
+                            .input-group-prepend
+                                span.input-group-text $
+                            input.form-control(type="number" step=".01" name="joineryAllowance_other_amount" value=`${project.Joinery_allowance.other_amount}`) 
