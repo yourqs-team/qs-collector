@@ -128,7 +128,7 @@ mixin interiorFinishes()
                             .col
                                 label.small(for="interiorFinish_other_floor_covering") Other Area
                                 .input-group
-                                    input.form-control(class="other" name="interiorFinish_other_floor_covering")  
+                                    input.form-control(class="other" name="interiorFinish_other_floor_covering" value=`${project.Interior_finish.other_wall_finish}`)  
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Wall Finish          
                         div.form-group.form-row.other_parent
@@ -249,4 +249,4 @@ mixin interiorFinishes()
                             .col
                                 label.small(for="interiorFinish_other_wall_finish") Other Area
                                 .input-group
-                                    input.form-control(type="text" name="interiorFinish_other_wall_finish")
+                                    input.form-control(type="text" name="interiorFinish_other_wall_finish" value=`${project.Interior_finish.other_wall_finish}`)
