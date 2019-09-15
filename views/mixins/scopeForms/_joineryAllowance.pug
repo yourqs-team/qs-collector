@@ -31,7 +31,7 @@ mixin joineryAllowance()
                     .col.col-md-12.col-lg-6
                         label.small(for='joineryAllowance_wardrobes_other') Wardrobes Other
                         .input-group
-                            input.form-control(type="text" name="joineryAllowance_wardrobes_other" value=`${project.Joinery_allowance.wardrobes_other}`)
+                            input.form-control(type="text" name="joineryAllowance_wardrobes_other" value=(project.Joinery_allowance.wardrobes_other == "null" ? '' : project.Joinery_allowance.wardrobes_other))
                     .col.col-md-12.col-lg-6
                         label.small(for='joineryAllowance_wardrobes_other') Wardrobes Other - Amount
                         .input-group
@@ -42,7 +42,7 @@ mixin joineryAllowance()
                     .col.col-md-12.col-lg-6
                         label.small(for="joineryAllowance_other") Other
                         .input-group
-                            input.form-control(type="text" name="joineryAllowance_other" value=`${project.Joinery_allowance.other}`) 
+                            input.form-control(type="text" name="joineryAllowance_other" value=(project.Joinery_allowance.other == "null" ? '' : project.Joinery_allowance.other)) 
                     .col.col-md-12.col-lg-6
                         label.small(for="joineryAllowance_other_amount") Other Amount
                         .input-group

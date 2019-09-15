@@ -28,7 +28,7 @@ mixin hardLandscaping()
                             .col.col-12
                                 label.small(for="hardLandscaping_deck_work_required") Work Required
                                 .input-group
-                                    input.form-control(input="text" name="hardLandscaping_deck_work_required" value=`${project.Hard_landscaping.deck_work_required}`)
+                                    input.form-control(type="text" name="hardLandscaping_deck_work_required" value=(project.Hard_landscaping.deck_work_required == "null" ? '' : project.Hard_landscaping.deck_work_required))
                         hr
                         h6.m-0.font-weight-bold.text-primary.w-100 Handrail
                         div.form-group.form-row
@@ -49,7 +49,7 @@ mixin hardLandscaping()
                             .col.col-12
                                 label.small(for="hardLandscaping_handrail_work_required") Work Required
                                 .input-group
-                                    input.form-control(input="text" name="hardLandscaping_handrail_work_required" value=`${project.Hard_landscaping.handrail_work_required}`) 
+                                    input.form-control(type="text" name="hardLandscaping_handrail_work_required" value=(project.Hard_landscaping.handrail_work_required == "null" ? '' : project.Hard_landscaping.handrail_work_required)) 
                         hr
                         h6.m-0.font-weight-bold.text-primary.w-100 Paving     
                         div.form-group.form-row
@@ -70,28 +70,28 @@ mixin hardLandscaping()
                             .col.col-12
                                 label.small(for="hardLandscaping_paving_work_required") Work Required
                                 .input-group
-                                    input.form-control(input="text" name="hardLandscaping_paving_work_required" value=`${project.Hard_landscaping.paving_work_required}`)
+                                    input.form-control(type="text" name="hardLandscaping_paving_work_required" value=(project.Hard_landscaping.paving_work_required == "null" ? '' : project.Hard_landscaping.paving_work_required))
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Driveway
-                            div.form-group.form-row
-                                .col.col-12
-                                    label.small(for="hardLandscaping_driveway_type") Type
-                                    .input-group
-                                        select.form-control(name="hardLandscaping_driveway_type")
-                                            if(project.Hard_landscaping.driveway_type)
-                                                each val in forms.option25
-                                                    if(val.includes(project.Hard_landscaping.driveway_type))
-                                                        option(value=val selected) #{val}
-                                                    else
-                                                        option(value=val) #{val}
-                                            else
-                                                option(value="none" selected disabled hidden) Select an Option
-                                                each val in forms.option25
-                                                    option(value=val) #{val} 
-                                .col.col-12
-                                    label.small(for="hardLandscaping_driveway_work_required") Work Required
-                                    .input-group
-                                        input.form-control(input="text" name="hardLandscaping_driveway_work_required" value=`${project.Hard_landscaping.paving_work_required}`)
+                        div.form-group.form-row
+                            .col.col-12
+                                label.small(for="hardLandscaping_driveway_type") Type
+                                .input-group
+                                    select.form-control(name="hardLandscaping_driveway_type")
+                                        if(project.Hard_landscaping.driveway_type)
+                                            each val in forms.option25
+                                                if(val.includes(project.Hard_landscaping.driveway_type))
+                                                    option(value=val selected) #{val}
+                                                else
+                                                    option(value=val) #{val}
+                                        else
+                                            option(value="none" selected disabled hidden) Select an Option
+                                            each val in forms.option25
+                                                option(value=val) #{val} 
+                            .col.col-12
+                                label.small(for="hardLandscaping_driveway_work_required") Work Required
+                                .input-group
+                                    input.form-control(type="text" name="hardLandscaping_driveway_work_required" value=(project.Hard_landscaping.driveway_work_required == "null" ? '' : project.Hard_landscaping.driveway_work_required))
                         hr
                         h6.m-0.font-weight-bold.text-primary.w-100 Fencing
                         div.form-group.form-row
@@ -112,16 +112,24 @@ mixin hardLandscaping()
                             .col.col-12
                                 label.small(for="hardLandscaping_fencing_work_required") Work Required
                                 .input-group
-                                    input.form-control(input="text" name="hardLandscaping_fencing_work_required" value=`${project.Hard_landscaping.fencing_work_required}`)
+                                    input.form-control(type="text" name="hardLandscaping_fencing_work_required" value=(project.Hard_landscaping.fencing_work_required == "null" ? '' : project.Hard_landscaping.fencing_work_required))
                         hr
                         h6.m-0.font-weight-bold.text-primary.w-100 Other
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="hardLandscaping_other_type") Type
                                 .input-group
-                                    input.form-control(input="text" name="hardLandscaping_other_type" value=`${project.Hard_landscaping.other_type}`) 
+                                    textarea.form-control(type="text" name="hardLandscaping_other_type")
+                                        if project.Hard_landscaping.other_type == 'null'
+                                            =""
+                                        else
+                                            =project.Hard_landscaping.other_type 
                             .col.col-12
                                 label.small(for="hardLandscaping_other_work_required") Work Required
                                 .input-group
-                                    input.form-control(input="text" name="hardLandscaping_other_work_required" value=`${project.Hard_landscaping.other_work_required}`) 
+                                    textarea.form-control(type="text" name="hardLandscaping_other_work_required")
+                                        if project.Hard_landscaping.other_type == 'null'
+                                            =""
+                                        else
+                                            =project.Hard_landscaping.other_work_required 
                         

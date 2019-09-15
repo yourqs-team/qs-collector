@@ -31,11 +31,11 @@ mixin exterior()
                             .col-12
                                 label.small(for="exterior_wall_cladding_type") Type
                                 .input-group
-                                    input.form-control(type="text" name="exterior_wall_cladding_type" value=`${project.Exterior.wall_cladding_type}`)
+                                    input.form-control(type="text" name="exterior_wall_cladding_type" value=(project.Exterior.wall_cladding_type == "null" ? '' : project.Exterior.wall_cladding_type))
                             .col.col-12
                                 label.small(for="exterior_wall_cladding_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="exterior_wall_cladding_work_required" value=`${project.Exterior.wall_cladding_work_required}`)
+                                    input.form-control(name="exterior_wall_cladding_work_required" value=(project.Exterior.wall_cladding_work_required == "null" ? '' : project.Exterior.wall_cladding_work_required))
                         hr
                         h6.m-0.font-weight-bold.text-primary.w-100 Base Cladding
                         div.form-group.form-row
@@ -56,18 +56,18 @@ mixin exterior()
                             .col.col-12
                                 label.small(for="exterior_base_cladding_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="exterior_base_cladding_work_required" value=`${project.Exterior.base_cladding_work_required}`)  
+                                    input.form-control(name="exterior_base_cladding_work_required" value=(project.Exterior.base_cladding_work_required == "null" ? '' : project.Exterior.base_cladding_work_required))  
                         hr
                         h6.m-0.font-weight-bold.text-primary.w-100 Soffit Cladding     
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="exterior_soffit_cladding_type") Type
                                 .input-group
-                                    input.form-control(name="exterior_soffit_cladding_type" value=`${project.Exterior.soffit_cladding_type}`)
+                                    input.form-control(name="exterior_soffit_cladding_type" value=(project.Exterior.soffit_cladding_type == "null" ? '' : project.Exterior.soffit_cladding_type))
                             .col.col-12
                                 label.small(for="exterior_soffit_cladding_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="exterior_soffit_cladding_work_required" value=`${project.Exterior.soffit_cladding_work_require}`) 
+                                    input.form-control(name="exterior_soffit_cladding_work_required" value=(project.Exterior.soffit_cladding_work_require == "null" ? '' : project.Exterior.soffit_cladding_work_require)) 
                         hr
                         h6.m-0.font-weight-bold.text-primary.w-100 Exterior Joinery
                         div.form-group.form-row
@@ -88,21 +88,21 @@ mixin exterior()
                             .col.col-12
                                 label.small(for="exterior_exterior_joinery_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="exterior_exterior_joinery_work_required" value=`${project.Exterior.exterior_joinery_work_required}`)
+                                    input.form-control(name="exterior_exterior_joinery_work_required" value=(project.Exterior.exterior_joinery_work_required == "null" ? '' : project.Exterior.exterior_joinery_work_required))
                         hr
                         h6.m-0.font-weight-bold.text-primary.w-100 Entrance Door
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="exterior_entrance_door_type") Type
                                 .input-group
-                                    input.form-control(name="exterior_entrance_door_type" value=`${project.Exterior.entrance_door_type}`)
+                                    input.form-control(name="exterior_entrance_door_type" value=(project.Exterior.entrance_door_type == "null" ? '' : project.Exterior.entrance_door_type))
                     .col.col-12.col-sm-12.col-md-12.col-lg-6
                         h6.m-0.font-weight-bold.text-primary.w-100 Roof
                         div.form-group.form-row
                             .col.col-12
                                 label.small(for="exterior_roof_pitch") Pitch
                                 .input-group
-                                    input.form-control(name="exterior_roof_pitch" value=`${project.Exterior.roof_pitch}`)
+                                    input.form-control(name="exterior_roof_pitch" value=(project.Exterior.roof_pitch == "null" ? '' : project.Exterior.roof_pitch))
                             .col.col-12
                                 label.small(for="exterior_roof_cladding_type") Cladding Type
                                 .input-group
@@ -120,7 +120,7 @@ mixin exterior()
                             .col.col-12
                                 label.small(for="exterior_roof_work_required") Work Required
                                 .input-group
-                                    input.form-control(name="exterior_roof_work_required" value=`${project.Exterior.roof_work_required}`)
+                                    input.form-control(name="exterior_roof_work_required" value=(project.Exterior.roof_work_required == "null" ? '' : project.Exterior.roof_work_required))
                         hr
                         h6.m-0.font-weight-bold.text-primary.w-100 Gutter
                         div.form-group.form-row
