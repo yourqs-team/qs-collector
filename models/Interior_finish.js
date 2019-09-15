@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     kitchen_floor_covering: DataTypes.STRING,
     kitchen_wall_finish: DataTypes.STRING,
     kitchen_floor_covering_other: DataTypes.STRING,
-    kitchen_wall_finish: DataTypes.STRING,
+    kitchen_wall_finish_other: DataTypes.STRING,
     living_floor_covering: DataTypes.STRING,
     living_wall_finish: DataTypes.STRING,
     living_floor_covering_other: DataTypes.STRING,
