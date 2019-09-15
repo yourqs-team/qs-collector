@@ -14,10 +14,22 @@ module.exports = {
       kitchen_wall_finish: {
         type: Sequelize.STRING
       },
+      kitchen_floor_covering_other: {
+        type: Sequelize.STRING
+      },
+      kitchen_wall_finish_other: {
+        type: Sequelize.STRING
+      },
       living_floor_covering: {
         type: Sequelize.STRING
       },
       living_wall_finish: {
+        type: Sequelize.STRING
+      },
+      living_floor_covering_other: {
+        type: Sequelize.STRING
+      },
+      living_wall_finish_other: {
         type: Sequelize.STRING
       },
       bedrooms_floor_covering: {
@@ -26,10 +38,22 @@ module.exports = {
       bedrooms_wall_finish: {
         type: Sequelize.STRING
       },
+      bedrooms_floor_covering_other: {
+        type: Sequelize.STRING
+      },
+      bedrooms_wall_finish_other: {
+        type: Sequelize.STRING
+      },
       bathroom_floor_covering: {
         type: Sequelize.STRING
       },
       bathroom_wall_finish: {
+        type: Sequelize.STRING
+      },
+      bathroom_floor_covering_other: {
+        type: Sequelize.STRING
+      },
+      bathroom_wall_finish_other: {
         type: Sequelize.STRING
       },
       ensuite_floor_covering: {
@@ -38,10 +62,22 @@ module.exports = {
       ensuite_wall_finish: {
         type: Sequelize.STRING
       },
+      ensuite_floor_covering_other: {
+        type: Sequelize.STRING
+      },
+      ensuite_wall_finish_other: {
+        type: Sequelize.STRING
+      },
       laundry_floor_covering: {
         type: Sequelize.STRING
       },
       laundry_wall_finish: {
+        type: Sequelize.STRING
+      },
+      laundry_floor_covering_other: {
+        type: Sequelize.STRING
+      },
+      laundry_wall_finish_other: {
         type: Sequelize.STRING
       },
       other_floor_covering: {
