@@ -123,7 +123,7 @@ mixin interiorFinishes()
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="interiorFinish_laundry_floor_covering_other") Other
                                 .input-group
-                                    input.form-control(class="option`" type="text" disabled="true" name="interiorFinish_laundry_floor_covering_other" value=(project.Interior_finish.laundry_floor_covering_other == "null" ? '' : project.Interior_finish.laundry_floor_covering_other)) 
+                                    input.form-control(class="other" type="text" disabled="true" name="interiorFinish_laundry_floor_covering_other" value=(project.Interior_finish.laundry_floor_covering_other == "null" ? '' : project.Interior_finish.laundry_floor_covering_other)) 
                         div.form-group.form-row
                             .col
                                 label.small(for="interiorFinish_other_floor_covering") Other Area
@@ -149,7 +149,7 @@ mixin interiorFinishes()
                             .col.col-12.col-sm-12.col-md-4.col-lg-4
                                 label.small(for="interiorFinish_kitchen_wall_finish_other") Other
                                 .input-group
-                                    input.form-control(class="other" type="text" disabled="true" name="interiorFinish_kitchen_wall_finish_other" value=`${kitchen_wall_finish_other}`)
+                                    input.form-control(class="other" type="text" disabled="true" name="interiorFinish_kitchen_wall_finish_other" value=(project.Interior_finish.kitchen_wall_finish_other == "null" ? '' : project.Interior_finish.kitchen_wall_finish_other))
                         div.form-group.form-row.other_parent
                             .col.col-12.col-sm-12.col-md-8.col-lg-8
                                 label.small(for="interiorFinish_living_wall_finish") Living
