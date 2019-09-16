@@ -3,9 +3,6 @@ const Session = require("../models").Session;
 
 exports.changePassword = async (req, res) => {
   
-
-  
-
   // select the user
   user = await User.findOne({ where: { username: req.user.username } });
 
@@ -27,4 +24,17 @@ exports.changePassword = async (req, res) => {
   req.flash("success", `You have successfully updated your profile picture`);
   res.redirect('/projects');
   return;
+}
+
+exports.forgotPasswordForm = async (req, res) => {
+  res.render('forgotPasswordForm', {title: "Forgot Password", userData: req.body});
+}
+
+exports.forgotPassword = async (req, res) => {
+  // Validate Email first
+  
+  // Send Email
+
+  // Redirect to Login
+  // res.render('forgotPasswordForm', {title: "Forgot Password"});
 }

@@ -45,9 +45,11 @@ router.post('/project/:id/clone', loginController.isLoggedIn, catchErrors(dashbo
 router.get('/pdf/:id/download', catchErrors(pdfGenController.pdfDownload));
 
 // Upload Picture
-router.post('/photo/upload/:username/', changeProfileController.upload, catchErrors(changeProfileController.resize),  catchErrors(changeProfileController.changeProfile));
+router.post('/profile-pic/upload/', changeProfileController.upload, catchErrors(changeProfileController.resize),  catchErrors(changeProfileController.changeProfile));
 
-// Change Passwprd
+// Forgot / Change Passwprd
+router.get('/forgot-password/', changePasswordController.forgotPasswordForm);
+router.post('/forgot-password/', changePasswordController.forgotPassword);
 router.post('/change-password/', changePasswordController.changePassword);
 
 module.exports = router;

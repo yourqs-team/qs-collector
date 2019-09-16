@@ -46,7 +46,7 @@ exports.changeProfile = async (req, res) => {
   req.session.passport.user.profile_pic = req.profile_pic_relative_path
 
   // select the user
-  user = await User.findOne({ where: { username: req.params.username } });
+  user = await User.findOne({ where: { username: req.user.username } });
 
   // update db
   await user.update({
