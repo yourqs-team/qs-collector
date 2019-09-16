@@ -8,6 +8,7 @@ const registerController = require('../controllers/registerController');
 const dashboardController = require('../controllers/dashboardController');
 const pdfGenController = require('../controllers/pdfGenController');
 const changeProfileController = require('../controllers/changeProfileController');
+const changePasswordController = require('../controllers/changePasswordController');
 
 
 // see handlers/errorHandlers.js - this function catch all errors - EXPERIMENTAL
@@ -45,5 +46,8 @@ router.get('/pdf/:id/download', catchErrors(pdfGenController.pdfDownload));
 
 // Upload Picture
 router.post('/photo/upload/:username/', changeProfileController.upload, catchErrors(changeProfileController.resize),  catchErrors(changeProfileController.changeProfile));
+
+// Change Passwprd
+router.post('/change-password/', changePasswordController.changePassword);
 
 module.exports = router;
