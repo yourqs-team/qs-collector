@@ -477,7 +477,7 @@ block pdfmake
   align: 'right',
   widths: [ 'auto', '*', '*' ],
   body: [
-  [ '', 'Floor Covering', 'Wall Finish'],
+  [ '', {text:'Floor Covering', bold:'true'}, {text:'Wall Finish', bold:'true'}],
   [ {text:'Kitchen: ', bold:'true'}, '#{project.Interior_finish.kitchenFloorCoverPDF()}', '#{project.Interior_finish.kitchenWallFinishPDF()}'],
   [ {text:'Living: ', bold:'true'}, '#{project.Interior_finish.livingFloorCoverPDF()}', '#{project.Interior_finish.livingWallFinishPDF()}'],
   [ {text:'Bedrooms: ', bold:'true'}, '#{project.Interior_finish.bedroomsFloorCoverPDF()}', '#{project.Interior_finish.bedroomsWallFinishPDF()}'],
