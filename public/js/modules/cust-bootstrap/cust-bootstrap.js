@@ -118,7 +118,7 @@ $(document).ready(function() {
       // then enable input
       $(this).closest(".other_parent").find(".other").attr('disabled', false);
       $(this).closest(".other_parent").find(".other").closest('.col').css('display', 'block');
-      
+
     } else {
       // otherwise disable input
       $(this).closest(".other_parent").find(".other").attr('disabled', true);
@@ -126,9 +126,8 @@ $(document).ready(function() {
     }
   });
 
-  // Loop through each element
+  // Loop through each element as well on initial load
   selects.each(function(){
-    
     if ($(this).val() === "Other"){
       $(this).closest(".other_parent").find(".other").attr('disabled', false);
       $(this).closest(".other_parent").find(".other").closest('.col').css('display', 'block');
@@ -136,7 +135,7 @@ $(document).ready(function() {
     } else{
       $(this).closest(".other_parent").find(".other").attr('disabled', true);
       $(this).closest(".other_parent").find(".other").closest('.col').css('display', 'none');
-    }    
+    }
   });
   
 });
