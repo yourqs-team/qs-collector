@@ -43,6 +43,13 @@ mixin manpower()
               .input-group-append
                 span.input-group-text Hrs/Week
         div.form-group.form-row
+          .col
+            label.small(for="manpower_markup") # of Vehicles
+            .input-group
+              input.form-control(type="number" name="manpower_no_vehicles" value=`${project.Manpower.no_vehicles}`)
+              .input-group-append
+                span.input-group-text Vehicles
+        div.form-group.form-row
           .col.col-md-12.col-lg-6
             label.small(for="manpower_travel_distance") Travel Distance
             .input-group

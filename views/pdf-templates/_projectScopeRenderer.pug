@@ -466,12 +466,12 @@ script.
   widths: [ 'auto', '*', '*' ],
   body: [
   [ '', 'Floor Covering', 'Wall Finish'],
-  [ {text:'Kitchen: ', bold:'true'}, '#{project.Interior_finish.kitchen_floor_covering}', '#{project.Interior_finish.kitchen_wall_finish}'],
-  [ {text:'Living: ', bold:'true'}, '#{project.Interior_finish.living_floor_covering}', '#{project.Interior_finish.living_wall_finish}'],
-  [ {text:'Bedrooms: ', bold:'true'}, '#{project.Interior_finish.bedrooms_floor_covering}', '#{project.Interior_finish.bedrooms_wall_finish}'],
-  [ {text:'Bathrooms: ', bold:'true'}, '#{project.Interior_finish.bathroom_floor_covering}', '#{project.Interior_finish.bathroom_wall_finish}'],
-  [ {text:'Ensuite: ', bold:'true'}, '#{project.Interior_finish.ensuite_floor_covering}', '#{project.Interior_finish.ensuite_wall_finish}'],
-  [ {text:'Laundry: ', bold:'true'}, '#{project.Interior_finish.laundry_floor_covering}', '#{project.Interior_finish.laundry_wall_finish}'],
+  [ {text:'Kitchen: ', bold:'true'}, '#{project.Interior_finish.kitchenFloorCoverPDF()}', '#{project.Interior_finish.kitchenWallFinishPDF()}'],
+  [ {text:'Living: ', bold:'true'}, '#{project.Interior_finish.livingFloorCoverPDF()}', '#{project.Interior_finish.livingWallFinishPDF()}'],
+  [ {text:'Bedrooms: ', bold:'true'}, '#{project.Interior_finish.bedroomsFloorCoverPDF()}', '#{project.Interior_finish.bedroomsWallFinishPDF()}'],
+  [ {text:'Bathrooms: ', bold:'true'}, '#{project.Interior_finish.bathroomFloorCoverPDF()}', '#{project.Interior_finish.bathroomWallFinishPDF()}'],
+  [ {text:'Ensuite: ', bold:'true'}, '#{project.Interior_finish.ensuiteFloorCoverPDF()}', '#{project.Interior_finish.ensuiteWallFinishPDF()}'],
+  [ {text:'Laundry: ', bold:'true'}, '#{project.Interior_finish.laundryFloorCoverPDF()}', '#{project.Interior_finish.laundryWallFinishPDF()}'],
   [ {text:'Other: ', bold:'true'}, '#{project.Interior_finish.other_floor_covering}', '#{project.Interior_finish.other_wall_finish}'],
   ]
   }
@@ -660,3 +660,14 @@ script.
   const downloadPDF = () => {
    pdfMake.createPdf(dd).download( 'YourQS-#{project.project_name}-#{project.generateProjCode()}.pdf');
   }
+
+  String.prototype.escapeSpecialChars = function() {
+    return this.replace(/\\n/g, "\\n")
+               .replace(/\\'/g, "\\'")
+               .replace(/\\"/g, '\\"')
+               .replace(/\\&/g, "\\&")
+               .replace(/\\r/g, "\\r")
+               .replace(/\\t/g, "\\t")
+               .replace(/\\b/g, "\\b")
+               .replace(/\\f/g, "\\f");
+  };

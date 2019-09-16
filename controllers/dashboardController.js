@@ -313,7 +313,6 @@ exports.updateProject = async (req, res) => {
     checkProjStatus(project, req, res);
   }
 
-
   // Update - Project
   await project.update({
       project_name: req.body.project_name,
