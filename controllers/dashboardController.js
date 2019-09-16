@@ -316,7 +316,7 @@ exports.updateProject = async (req, res) => {
   // Update - Project
   await project.update({
       project_name: req.body.project_name,
-      project_address: req.body.project_address
+      project_address: req.sanitize('project_address').trim()
   });
 
   // Update - Manpower
@@ -350,7 +350,7 @@ exports.updateProject = async (req, res) => {
   await project.Site_arrangement.update({
     site_access: req.body.siteArrange_site_access,
     space_for_material_storage: req.body.siteArrange_space_for_material_storage,
-    comment: req.body.siteArrange_comment,
+    comment: req.sanitize('siteArrange_comment').trim(),
     living_arrangement: req.body.siteArrange_living_arrangement,
     carpet_protection: req.body.siteArrange_carpet_protection,
     allow_extra_site_specific_time: req.body.siteArrange_allow_extra_site_specific_time
@@ -413,7 +413,7 @@ exports.updateProject = async (req, res) => {
     fencing_type: req.body.hardLandscaping_fencing_type,
     fencing_work_required: req.body.hardLandscaping_fencing_work_required,
     other_type: req.body.hardLandscaping_other_type,
-    other_work_required: req.body.hardLandscaping_other_work_required
+    other_work_required: req.sanitize('hardLandscaping_other_work_required').trim()
   });
 
   // Update - Interior Trim
@@ -476,7 +476,7 @@ exports.updateProject = async (req, res) => {
     allowance_type: req.body.electrical_allowance_type,
     distribution_board: req.body.electrical_allowance_type,
     new_connection: req.body.electrical_new_connection,
-    comments: req.body.electrical_comments
+    comments: req.sanitize('electrical_comments').trim()
   });
 
   // Update - Plumbing
@@ -484,20 +484,20 @@ exports.updateProject = async (req, res) => {
     allowance_type: req.body.plumbing_allowance_type,
     HWC: req.body.plumbing_HWC,
     new_connection: req.body.plumbing_new_connection,
-    comments: req.body.plumbing_comments
+    comments: req.sanitize('plumbing_comments').trim()
   });
 
   // Update - Drainage
   await project.Drainage.update({
     new_connections: req.body.drainage_new_connection,
-    comments: req.body.drainage_comments
+    comments: req.sanitize('drainage_comments').trim()
   });
 
   // Update - Other
   await project.Other.update({
-    demolition: req.body.other_demolition,
-    renovation: req.body.other_renovation,
-    comments: req.body.other_comments
+    demolition: req.sanitize('other_demolition').trim(),
+    renovation: req.sanitize('other_renovation').trim(),
+    comments: req.sanitize('other_comments').trim()
   });
 
   if (req.user.Role.description === "Client"){
