@@ -117,11 +117,28 @@ $(document).ready(function() {
     if($(this).val() === "Other") {
       // then enable input
       $(this).closest(".other_parent").find(".other").attr('disabled', false);
+      $(this).closest(".other_parent").find(".other").closest('.col').css('display', 'block');
+      
     } else {
       // otherwise disable input
       $(this).closest(".other_parent").find(".other").attr('disabled', true);
+      $(this).closest(".other_parent").find(".other").closest('.col').css('display', 'none');
     }
-  })
+  });
+
+  // Loop through each element
+  selects.each(function(){
+    
+    if ($(this).val() === "Other"){
+      $(this).closest(".other_parent").find(".other").attr('disabled', false);
+      $(this).closest(".other_parent").find(".other").closest('.col').css('display', 'block');
+      
+    } else{
+      $(this).closest(".other_parent").find(".other").attr('disabled', true);
+      $(this).closest(".other_parent").find(".other").closest('.col').css('display', 'none');
+    }    
+  });
+  
 });
 
 
