@@ -44,14 +44,14 @@ nav.navbar.navbar-expand.navbar-light.bg-white.topbar.mb-4.static-top.shadow
           i.fas.fa-user.fa-sm.fa-fw.mr-2.text-gray-400
           |                  Change Profile Picture
         a.dropdown-item(href='#' data-toggle='modal' data-target='#changePasswordModal')
-          i.fas.fa-user.fa-sm.fa-fw.mr-2.text-gray-400
+          i.fas.fa-key.fa-sm.fa-fw.mr-2.text-gray-400
           |                  Change Password
-        //- a.dropdown-item(href='#')
-        //-   i.fas.fa-cogs.fa-sm.fa-fw.mr-2.text-gray-400
-        //-   |                   Settings
         a.dropdown-item(href='#' data-toggle='modal' data-target='#userProfileModal')
           i.fas.fa-list.fa-sm.fa-fw.mr-2.text-gray-400
           |                   User Profile
+        a.dropdown-item(href='/user')
+          i.fas.fa-address-card.fa-sm.fa-fw.mr-2.text-gray-400
+          |                   Update User Profile
         .dropdown-divider
         a.dropdown-item(href='#' data-toggle='modal' data-target='#logoutModal')
           i.fas.fa-sign-out-alt.fa-sm.fa-fw.mr-2.text-gray-400

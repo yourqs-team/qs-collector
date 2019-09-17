@@ -9,6 +9,7 @@ const dashboardController = require('../controllers/dashboardController');
 const pdfGenController = require('../controllers/pdfGenController');
 const changeProfileController = require('../controllers/changeProfileController');
 const changePasswordController = require('../controllers/changePasswordController');
+const userController = require('../controllers/userController');
 
 
 // see handlers/errorHandlers.js - this function catch all errors - EXPERIMENTAL
@@ -48,8 +49,12 @@ router.get('/pdf/:id/download', catchErrors(pdfGenController.pdfDownload));
 router.post('/profile-pic/upload/', changeProfileController.upload, catchErrors(changeProfileController.resize),  catchErrors(changeProfileController.changeProfile));
 
 // Forgot / Change Passwprd
-router.get('/forgot-password/', changePasswordController.forgotPasswordForm);
-router.post('/forgot-password/', changePasswordController.forgotPassword);
-router.post('/change-password/', changePasswordController.changePassword);
+router.get('/forgot-password', changePasswordController.forgotPasswordForm);
+router.post('/forgot-password', changePasswordController.forgotPassword);
+router.post('/change-password', changePasswordController.changePassword);
+
+// Edit Profile
+router.get('/user', userController.editUserForm);
+router.post('/user/update', userController.updateUser);
 
 module.exports = router;

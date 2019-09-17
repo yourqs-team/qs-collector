@@ -43,8 +43,7 @@ mixin registerForm()
                       input.form-control.form-control-user(required type="date" name="birthday" value=(!userData ? '' : userData.birthday ))
                   div.form-group
                     label.small(for='contact') Contact
-                    //- input.form-control.form-control-user(type='tel' id='contact' name='contact' minlength="8" maxlength="9" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" placeholder='888 888 8888')
-                    input.form-control.form-control-user(required type='tel' id='contact' name='contact' minlength="8" maxlength="10" placeholder='888 888 8888' value=(!userData ? '' : userData.contact ))
+                    input.form-control.form-control-user.numeric-only(required type='tel' id='contact' name='contact' minlength="8" maxlength="10" placeholder='888 888 8888' value=(!userData ? '' : userData.contact ))
                   div.form-group
                     label.small(for='company') Company
                     input.form-control.form-control-user(required type='text' placeholder='Enter your company name' id="company" name='company' value=(!userData ? '' : userData.company ))
