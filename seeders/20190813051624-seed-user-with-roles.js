@@ -41,9 +41,9 @@ module.exports = {
       "Users",
       [
         {
-          username: "admin",
-          password: "admin123",
-          email: "test@gmail.com",
+          username: "jap",
+          password: "jap123",
+          email: "roaldjap@gmail.com",
           contact: "02080413349",
           firstname: "Jap",
           lastname: "Ignacio",
@@ -56,9 +56,9 @@ module.exports = {
           RoleId: 1 // 1
         },
         {
-          username: "test",
-          password: "test123",
-          email: "test@gmail.com",
+          username: "marlon",
+          password: "marlon123",
+          email: "marlonspr17@gmail.com",
           contact: "02080413349",
           firstname: "Marlon",
           lastname: "Parra",
@@ -68,7 +68,37 @@ module.exports = {
           birthday: new Date("08/01/1991").toISOString(),
           createdAt: new Date(),
           updatedAt: new Date(),
-          RoleId: 2  // 2
+          RoleId: 1  // 2
+        },
+        {
+          username: "lazaro",
+          password: "lazaro123",
+          email: "lbreis.junior@gmail.com",
+          contact: "02080413349",
+          firstname: "Lazaro",
+          lastname: "Junior",
+          gender: "Male",
+          company: "QS Collector",
+          address: "Close By",
+          birthday: new Date("08/01/1991").toISOString(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoleId: 1  // 2
+        },
+        {
+          username: "nick",
+          password: "nick123",
+          email: "test@gmail.com",
+          contact: "03040506078",
+          firstname: "Nick",
+          lastname: "Clements",
+          gender: "Male",
+          company: "QS Collector",
+          address: "Close By",
+          birthday: new Date("08/01/1991").toISOString(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          RoleId: 1  // 2
         }
       ],
       {}
