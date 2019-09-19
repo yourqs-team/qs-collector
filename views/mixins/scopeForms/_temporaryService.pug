@@ -12,9 +12,9 @@ mixin temporaryService()
             label.small(for="tempService_temporary_power") Temporary Power
             .input-group
               select.form-control(name="tempService_temporary_power")
-                if(project.Temporary_service.temporary_power)
+                if(project.Temporary_service.TempPowerToYesNo())
                   each val in forms.option4
-                    if(val.includes(project.Temporary_service.temporary_power))
+                    if(val.includes(project.Temporary_service.TempPowerToYesNo()))
                       option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
@@ -27,9 +27,9 @@ mixin temporaryService()
             label.small(for="tempService_temporary_water") Temporary Water
             .input-group
               select.form-control(name="tempService_temporary_water")
-                if(project.Temporary_service.temporary_water)
+                if(project.Temporary_service.TempWaterToYesNo())
                   each val in forms.option4
-                    if(val.includes(project.Temporary_service.temporary_water))
+                    if(val.includes(project.Temporary_service.TempWaterToYesNo()))
                       option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}

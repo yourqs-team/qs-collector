@@ -18,9 +18,9 @@ mixin allowanceAndInsurance()
             label.small(for="allowAndInsur_risk_insurance") All Risk Insurance
             .input-group
               select.form-control(name="allowAndInsur_risk_insurance")
-                if(project.Allowance_and_insurance.risk_insurance)
+                if(project.Allowance_and_insurance.riskInsuranceToYesNo())
                   each val in forms.option4
-                    if(val.includes(project.Allowance_and_insurance.new_connections))
+                    if(val.includes(project.Allowance_and_insurance.riskInsuranceToYesNo()))
                         option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}

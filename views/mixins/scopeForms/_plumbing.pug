@@ -41,9 +41,9 @@ mixin plumbing()
             label.small(for="plumbing_new_connection") New Connection?
             .input-group
               select.form-control(name="plumbing_new_connection")
-                if(project.Plumbing.new_connection)
+                if(project.Plumbing.newConnectionToYesNo())
                   each val in forms.option4
-                    if(val.includes(project.Plumbing.new_connection))
+                    if(val.includes(project.Plumbing.newConnectionToYesNo()))
                       option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
                         option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}

@@ -12,16 +12,16 @@ mixin safetyRequirement()
             label.small(for="safetyRequirement_site_sign") Site Sign
             .input-group
               select.form-control(name="safetyRequirement_site_sign")
-                if(project.Safety_requirement.site_sign)
+                if(project.Safety_requirement.siteSignToYesNo())
                   each val in forms.option4
-                    if(val.includes(project.Safety_requirement.site_sign))
+                    if(val.includes(project.Safety_requirement.siteSignToYesNo()))
                       option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
-                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
+                      option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
                 else
                     option(value="none" selected disabled hidden) Select an Option
                     each val in forms.option4
-                        option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
+                      option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
           .col.col-md-12.col-lg-6
             label.small(for="safetyRequirement_security_fencing") Security Fencing
             .input-group
@@ -55,9 +55,9 @@ mixin safetyRequirement()
             label.small(for="safetyRequirement_crossing_protection") Crossing Protection
             .input-group
               select.form-control(name="safetyRequirement_crossing_protection")
-                if(project.Safety_requirement.crossing_protection)
+                if(project.Safety_requirement.crossingToYesNo())
                   each val in forms.option4
-                    if(val.includes(project.Safety_requirement.crossing_protection))
+                    if(val.includes(project.Safety_requirement.crossingToYesNo()))
                       option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                     else
                       option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}

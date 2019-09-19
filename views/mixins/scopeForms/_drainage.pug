@@ -12,9 +12,9 @@ mixin drainage()
             label.small(for="drainage_new_connection") New Connection?
               .input-group
                 select.form-control(name="drainage_new_connection")
-                  if(project.Drainage.new_connections)
+                  if(project.Drainage.newConnectionToYesNo())
                     each val in forms.option4
-                      if(val.includes(project.Drainage.new_connections))
+                      if(val.includes(project.Drainage.newConnectionToYesNo()))
                         option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                       else
                           option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}

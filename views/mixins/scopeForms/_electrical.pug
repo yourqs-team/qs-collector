@@ -41,9 +41,9 @@ mixin electrical()
             label.small(for="electrical_new_connection") New Connection?
               .input-group
                 select.form-control(name="electrical_new_connection")
-                  if(project.Electrical.new_connection)
+                  if(project.Electrical.newConnectionToYesNo())
                     each val in forms.option4
-                      if(val.includes(project.Electrical.new_connection))
+                      if(val.includes(project.Electrical.newConnectionToYesNo()))
                         option(value=(val === 'Yes' || val === 'yes' ? 'true' : 'false') selected) #{val}
                       else
                           option(value=(val === 'Yes' || val === 'yes'  ? 'true' : 'false')) #{val}
