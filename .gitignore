@@ -87,9 +87,6 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-#config json
-config/config.json
-
 #Ignored compiled files from public
 public/dist/
 public/uploads/

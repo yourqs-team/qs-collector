@@ -16,11 +16,11 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
+    "username": "sa",
+    "password": "password",
+    "database": "yourQS_DB",
+    "host": "localhost",
+    "dialect": "mssql",
     "operatorsAliases": false
   }
 }
