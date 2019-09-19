@@ -2,8 +2,8 @@ mixin interior()
     .col-lg-12.align-items-center
         h4.m-0.mr-4.font-weight-bold.text-primary Interior
         hr.w-100
-        .input-group.row.mb-4
-            .col-4
+        .form-group.row.mb-4
+            .col.col-md-3.col-sm-12
                 label.small(for="painting_interior") Painting Interior
                 select.form-control(name="painting_interior")
                     if(project.Interior.painting_interior)
