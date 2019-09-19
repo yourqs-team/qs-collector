@@ -101,3 +101,4 @@ public/uploads/
 Dockerfile
 Dockerrun.aws.json
 .dockerignore
+.docker-compose.yml
