@@ -1,6 +1,9 @@
 {
   "development": {
-    "use_env_variable": "DATABASE_URL",
+    "username": "sa",
+    "password": "password",
+    "database": "yourQS_DB",
+    "host": "localhost",
     "dialect": "mssql",
     "operatorsAliases": false
   },
