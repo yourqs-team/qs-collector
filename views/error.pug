@@ -3,8 +3,8 @@ extends layout
 block content
   .container
     .row.justify-content-center
-      //- TODO: Comment this when on production 
-      .col-xl-10.col-lg-12.col-md-9.bg-white.p-5.rounded
+      //- TODO: remove .d-none if you are debugging.
+      .col-xl-10.col-lg-12.col-md-9.bg-white.p-5.rounded.d-none
         h1= message
         h2= error.status
         pre #{error.stack}
