@@ -36,7 +36,7 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-sequelize": "^0.9.0",
-    "pug": "2.0.0-beta11",
+    "pug": "3.0.1",
     "sequelize": "^5.15.2",
     "sequelize-cli": "^5.5.0",
     "tedious": "^6.2.0",
